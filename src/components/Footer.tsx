@@ -3,25 +3,35 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <div className="logo">THE TRUE REMNANT<span>NETWORK</span></div>
-          <p>A Christian network for discovering faithful voices, churches, missions, resources and testimonies.</p>
+          <a href="/" className="logo footer-logo">
+            <span className="logo-mark">TR</span>
+            <span className="logo-copy">
+              THE TRUE REMNANT
+              <small>NETWORK</small>
+            </span>
+          </a>
+          <p>A Christian discovery network for reviewed voices, churches, missions, resources, events and testimonies.</p>
+          <p className="footer-note">No payment marketplace in the MVP. Donation and shop links point externally.</p>
         </div>
         <div>
           <strong>Explore</strong>
-          <p><a href="/podcast">Podcast</a></p>
-          <p><a href="/directory">Directory</a></p>
-          <p><a href="/resources">Resources</a></p>
+          <a href="/podcast">Podcast</a>
+          <a href="/directory">Directory</a>
+          <a href="/resources">Books & Audio</a>
+          <a href="/map">Map</a>
         </div>
         <div>
           <strong>Trust</strong>
-          <p><a href="/verification">Verification</a></p>
-          <p><a href="/submit">Submit Ministry</a></p>
-          <p><a href="/about">About</a></p>
+          <a href="/verification">Verification Process</a>
+          <a href="/submit">Submit for Review</a>
+          <a href="/missions">Missions</a>
+          <a href="/events">Events</a>
         </div>
         <div>
-          <strong>Scripture</strong>
+          <strong>Foundation</strong>
           <p>“Test everything; hold fast what is good.”</p>
           <p>1 Thessalonians 5:21</p>
+          <a href="/about">About the Network</a>
         </div>
       </div>
     </footer>
