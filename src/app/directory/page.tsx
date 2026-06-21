@@ -1,6 +1,9 @@
 import { DirectoryCard } from "@/components/DirectoryCard";
 import { directoryItems } from "@/data/directory";
 
+const categoryFilters = ["All Categories", "Church", "Teacher", "Mission", "Charity", "Music", "Event", "Resource"];
+const statusFilters = ["All Statuses", "Listed", "Reviewed", "Verified", "Recommended", "Under Review"];
+
 export default function DirectoryPage() {
   return (
     <>
@@ -8,25 +11,45 @@ export default function DirectoryPage() {
         <div className="container">
           <p className="kicker">Directory</p>
           <h1>Find reviewed Christian churches, teachers, ministries and missions.</h1>
-          <p>Search and filter trusted Christian organisations, people and resources. Start with seed records, then connect to Supabase later.</p>
+          <p>
+            A searchable Christian directory for reviewed people, organisations and resources. The MVP uses starter
+            records; the next step is connecting these filters to Supabase.
+          </p>
         </div>
       </section>
-      <section className="section">
+
+      <section className="section-tight">
         <div className="container">
-          <div className="card" style={{ marginBottom: 24 }}>
+          <div className="card">
             <div className="form-grid">
-              <input className="input" placeholder="Search name, city, country or topic" />
-              <select>
-                <option>All Categories</option>
-                <option>Church</option>
-                <option>Teacher</option>
-                <option>Mission</option>
-                <option>Charity</option>
-                <option>Music</option>
-              </select>
+              <label>
+                Search
+                <input className="input" placeholder="Name, city, country, topic or language" />
+              </label>
+              <label>
+                Category
+                <select>
+                  {categoryFilters.map((filter) => <option key={filter}>{filter}</option>)}
+                </select>
+              </label>
+              <label>
+                Verification
+                <select>
+                  {statusFilters.map((filter) => <option key={filter}>{filter}</option>)}
+                </select>
+              </label>
+              <label>
+                Location
+                <input className="input" placeholder="Tenerife, London, Online, Global" />
+              </label>
             </div>
           </div>
-          <div className="grid grid-4">
+        </div>
+      </section>
+
+      <section className="section section-muted">
+        <div className="container">
+          <div className="grid grid-3">
             {directoryItems.map((item) => <DirectoryCard key={item.id} item={item} />)}
           </div>
         </div>
