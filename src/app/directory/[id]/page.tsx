@@ -12,6 +12,7 @@ export default function DirectoryProfilePage({ params }: { params: { id: string 
       <section className="page-hero">
         <div className="container">
           <h1>Profile not found</h1>
+          <p>This profile has not been added to the reviewed directory yet.</p>
         </div>
       </section>
     );
@@ -21,18 +22,28 @@ export default function DirectoryProfilePage({ params }: { params: { id: string 
     <>
       <section className="page-hero">
         <div className="container">
-          <p className="kicker">{item.category}</p>
+          <p className="kicker">{item.category} Profile</p>
           <h1>{item.name}</h1>
-          <p>{item.city}, {item.country}</p>
+          <p>{item.city}, {item.country} · {item.language}</p>
+          <div className="tag-row">
+            {item.tags.map((tag) => <span className="mini-tag" key={tag}>{tag}</span>)}
+          </div>
         </div>
       </section>
+
       <section className="section">
         <div className="container grid grid-3">
-          <article className="card" style={{ gridColumn: "span 2" }}>
-            <span className="badge">{item.verificationStatus}</span>
-            <h2 style={{ marginTop: 16 }}>Profile Summary</h2>
+          <article className="card span-2">
+            <div className="card-meta">
+              <span className="badge">{item.category}</span>
+              <span className="status-pill">{item.verificationStatus}</span>
+            </div>
+            <h2>Profile Summary</h2>
             <p>{item.summary}</p>
+            <h3>Focus</h3>
+            <p>{item.focus}</p>
             <h3>External Links</h3>
+            <p>All support, media, event, book and donation links should remain external during the MVP stage.</p>
             <div className="row">
               {item.websiteUrl ? <a className="btn" href={item.websiteUrl}>Website</a> : null}
               {item.youtubeUrl ? <a className="btn" href={item.youtubeUrl}>YouTube</a> : null}
@@ -40,10 +51,12 @@ export default function DirectoryProfilePage({ params }: { params: { id: string 
               {item.relatedPodcastUrl ? <a className="btn" href={item.relatedPodcastUrl}>Podcast Episode</a> : null}
             </div>
           </article>
+
           <aside className="card">
-            <h3>Verification Note</h3>
-            <p>Verification means the profile has passed the current review level. It does not mean every teaching, decision or action is endorsed permanently.</p>
-            <a className="btn" href="/verification">View Process</a>
+            <span className="badge">Review Note</span>
+            <h3>{item.verificationStatus}</h3>
+            <p>{item.reviewNote}</p>
+            <a className="btn btn-soft" href="/verification">View Verification Process</a>
           </aside>
         </div>
       </section>
