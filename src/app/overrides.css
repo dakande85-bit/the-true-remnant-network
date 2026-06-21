@@ -1,0 +1,13 @@
+.section-dark .card h2,
+.section-dark .card h3 {
+  color: var(--ink);
+}
+
+.section-dark .card p {
+  color: var(--muted);
+}
+
+.section-dark .card .badge {
+  background: #f3ead6;
+  color: var(--gold-dark);
+}
