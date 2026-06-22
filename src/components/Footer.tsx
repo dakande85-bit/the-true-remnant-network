@@ -1,14 +1,12 @@
+import { BrandLogo } from "./BrandLogo";
+
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <a href="/" className="logo footer-logo">
-            <span className="logo-mark">TR</span>
-            <span className="logo-copy">
-              THE TRUE REMNANT
-              <small>NETWORK</small>
-            </span>
+          <a href="/" className="logo footer-logo" aria-label="The True Remnant homepage">
+            <BrandLogo variant="light" />
           </a>
           <p>A Christian discovery network for reviewed voices, churches, missions, resources, events and testimonies.</p>
           <p className="footer-note">No payment marketplace in the MVP. Donation and shop links point externally.</p>
