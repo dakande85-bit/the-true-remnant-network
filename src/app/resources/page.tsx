@@ -4,6 +4,7 @@ import { resourceItems } from "@/data/resources";
 const tabs = [
   ["All Resources", "all-resources"],
   ["Reading List (Books)", "reading-list-books"],
+  ["Audio Bible", "audio-bible"],
   ["Audio (Music)", "audio-music"],
   ["Teachings (Audio)", "teachings-audio"],
   ["Devotionals", "devotionals"],
@@ -12,6 +13,7 @@ const tabs = [
 
 export default function ResourcesPage() {
   const books = resourceItems.filter((item) => item.type === "Book");
+  const audioBible = resourceItems.filter((item) => item.type === "Audio Bible");
   const music = resourceItems.filter((item) => item.type === "Music");
   const teaching = resourceItems.filter((item) => item.type === "Audio Teaching");
   const devotionals = resourceItems.filter((item) => item.type === "Devotional");
@@ -22,11 +24,8 @@ export default function ResourcesPage() {
       <section className="page-hero">
         <div className="container">
           <p className="kicker">Resources</p>
-          <h1>Books, music, teaching and tools for faithful growth.</h1>
-          <p>
-            A curated resource library with visible tabs for reading lists, worship music, audio teaching,
-            devotionals and Bible study tools. Start with reviewed external links only.
-          </p>
+          <h1>Books, audio, music, teaching and tools for faithful growth.</h1>
+          <p>A curated library of external resource links for reading, listening and study.</p>
         </div>
       </section>
 
@@ -46,7 +45,6 @@ export default function ResourcesPage() {
         <div className="container">
           <p className="kicker">All Resources</p>
           <h2>Complete resource library</h2>
-          <p>Everything approved for the resources page appears here before being split into the specialist tabs below.</p>
           <div className="grid grid-4">
             {resourceItems.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
@@ -57,51 +55,58 @@ export default function ResourcesPage() {
         <div className="container">
           <p className="kicker">Reading List</p>
           <h2>Books</h2>
-          <p>Books that inspire, challenge, teach doctrine and build discipleship.</p>
+          <p>Books for biblical theology, discipleship, discernment and advanced study.</p>
           <div className="grid grid-3">
             {books.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
         </div>
       </section>
 
-      <section id="audio-music" className="section section-muted">
+      <section id="audio-bible" className="section section-muted">
+        <div className="container">
+          <p className="kicker">Scripture Audio</p>
+          <h2>Audio Bible</h2>
+          <p>External audio Bible links for Scripture listening.</p>
+          <div className="grid grid-3">
+            {audioBible.map((item) => <ResourceCard key={item.id} item={item} />)}
+          </div>
+        </div>
+      </section>
+
+      <section id="audio-music" className="section">
         <div className="container">
           <p className="kicker">Audio</p>
           <h2>Music</h2>
-          <p>Worship songs, albums, playlists and testimony-led audio.</p>
           <div className="grid grid-3">
             {music.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
         </div>
       </section>
 
-      <section id="teachings-audio" className="section">
+      <section id="teachings-audio" className="section section-muted">
         <div className="container">
           <p className="kicker">Teaching</p>
           <h2>Teachings (Audio)</h2>
-          <p>Audio messages, sermons, studies and teaching series from reviewed voices.</p>
           <div className="grid grid-3">
             {teaching.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
         </div>
       </section>
 
-      <section id="devotionals" className="section section-muted">
+      <section id="devotionals" className="section">
         <div className="container">
           <p className="kicker">Daily Growth</p>
           <h2>Devotionals</h2>
-          <p>Daily readings, prayers and reflection resources.</p>
           <div className="grid grid-3">
             {devotionals.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
         </div>
       </section>
 
-      <section id="bible-apps-tools" className="section">
+      <section id="bible-apps-tools" className="section section-muted">
         <div className="container">
           <p className="kicker">Study</p>
           <h2>Bible Apps & Tools</h2>
-          <p>Study apps, concordances, maps, language tools and research resources.</p>
           <div className="grid grid-3">
             {tools.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
