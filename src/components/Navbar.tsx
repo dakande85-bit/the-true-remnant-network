@@ -1,3 +1,5 @@
+import { BrandLogo } from "./BrandLogo";
+
 const links = [
   ["Podcast", "/podcast"],
   ["Directory", "/directory"],
@@ -13,11 +15,7 @@ export function Navbar() {
     <header className="nav">
       <div className="container nav-inner">
         <a href="/" className="logo" aria-label="The True Remnant homepage">
-          <span className="logo-mark">TR</span>
-          <span className="logo-copy">
-            THE TRUE REMNANT
-            <small>NETWORK</small>
-          </span>
+          <BrandLogo />
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           {links.map(([label, href]) => (
