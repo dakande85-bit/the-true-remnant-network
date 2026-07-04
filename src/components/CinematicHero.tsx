@@ -30,9 +30,9 @@ export function CinematicHero() {
             ))}
           </div>
           <div className="mt-10 grid grid-cols-3 gap-3 border-t border-cream/10 pt-6 text-sm text-cream/70">
-            <span><strong className="block text-lg text-cream">Media</strong>Podcast-led trust</span>
-            <span><strong className="block text-lg text-cream">Profiles</strong>Reviewed pathways</span>
-            <span><strong className="block text-lg text-cream">Mission</strong>External support</span>
+            <span><strong className="block text-lg text-cream">Truth</strong>True Gospel</span>
+            <span><strong className="block text-lg text-cream">Prayer</strong>Warfare resources</span>
+            <span><strong className="block text-lg text-cream">Media</strong>Teaching and testimony</span>
           </div>
         </div>
         <ImageCollage />

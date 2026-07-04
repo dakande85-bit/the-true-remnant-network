@@ -33,7 +33,7 @@ export const eventItems: EventItem[] = [
     type: "Mission Trip",
     date: "October 2026",
     location: "International",
-    summary: "Mission opportunity listing with application and support links hosted externally.",
+    summary: "Mission opportunity with organiser details, prayer context, and external links hosted officially.",
     url: "https://example.com/events/mission"
   }
 ];

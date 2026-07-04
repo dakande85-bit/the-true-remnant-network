@@ -2,10 +2,11 @@ import { BrandLogo } from "./BrandLogo";
 
 const links = [
   ["About", "/about"],
-  ["Directory", "/directory"],
-  ["Media", "/media"],
-  ["Missions", "/missions"],
-  ["Events", "/events"]
+  ["Watch", "/watch"],
+  ["Resources", "/resources"],
+  ["Prayers", "/prayers"],
+  ["Blog", "/blog"],
+  ["Newsletter", "/newsletter"]
 ];
 
 export function Header() {
@@ -22,8 +23,8 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a className="hidden rounded-full bg-ink px-5 py-3 text-sm font-bold text-cream shadow-editorial sm:inline-flex" href="/submit">
-          Submit Organisation
+        <a className="hidden rounded-full bg-ink px-5 py-3 text-sm font-bold text-cream shadow-editorial sm:inline-flex" href="/newsletter">
+          Join Newsletter
         </a>
       </div>
     </header>

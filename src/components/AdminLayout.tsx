@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-const adminNav = ["Overview", "Submissions", "Directory", "Media", "Events", "Reports"];
+const adminNav = ["Overview", "Videos", "Blog", "Prayers", "Resources", "Newsletter"];
 
 export function AdminLayout({ children }: { children: ReactNode }) {
   return (

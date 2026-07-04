@@ -3,44 +3,53 @@ import type { ImageKey } from "./images";
 export const homeContent = {
   hero: {
     eyebrow: "The True Remnant Network",
-    title: "Find faithful voices in a noisy world.",
+    title: "Holding fast to the true Gospel in a time of deception.",
     description:
-      "The True Remnant Network is a Christian discovery platform for reviewed churches, teachers, ministries, missions, testimonies, events, and gospel-centred resources.",
+      "The True Remnant Network exists to point people back to the true Jesus, strengthen believers through biblical teaching, expose spiritual deception, and provide trusted Christian resources for prayer, discipleship, worship, mission, and spiritual warfare.",
     actions: [
-      { label: "Explore the Network", href: "/directory", variant: "primary" },
-      { label: "Watch the Podcast", href: "/media", variant: "secondary" },
-      { label: "Submit a Ministry", href: "/submit", variant: "ghost" }
+      { label: "Watch Latest", href: "/watch", variant: "primary" },
+      { label: "Explore Resources", href: "/resources", variant: "secondary" },
+      { label: "Join the Newsletter", href: "/newsletter", variant: "ghost" }
     ]
   },
-  mission: {
-    title: "Built for believers who still test everything.",
+  who: {
+    title: "Who we are",
     copy:
-      "In a world full of platforms, personalities, and noise, The True Remnant Network exists to help Christians discover voices, ministries, and resources with clarity, care, and accountability.",
-    scripture: "Test everything; hold fast what is good.",
-    reference: "1 Thessalonians 5:21"
+      "The True Remnant Network is a Christian media and resource platform created to help believers stand firm in truth. We focus on the true Gospel, the true Jesus, biblical discernment, spiritual warfare, prayer, testimony, teaching, and mission.",
+    support:
+      "We are not trying to build another social platform or public directory. We curate, create, and share resources that help believers grow in Christ, recognise deception, pray with authority, and remain faithful in dark times."
   },
+  beliefs: [
+    ["Jesus Christ is Lord", "Every resource should point back to the person, authority, and finished work of Jesus Christ."],
+    ["The Gospel must remain pure", "We resist additions, performance, compromise, and messages that move people away from grace and truth."],
+    ["Scripture is the final authority", "Truth is tested by the Word of God, not popularity, platforms, personalities, or trends."],
+    ["Discernment matters", "Believers need wisdom, humility, and courage to test every voice."],
+    ["Prayer is warfare", "Prayer is dependence on God, submission to Christ, and resistance against darkness."],
+    ["The Church must stay awake", "The hour calls for faithfulness, sobriety, repentance, and love for the truth."],
+    ["Mission still matters", "The Gospel must be proclaimed, demonstrated, and carried with compassion."],
+    ["Testimony over hype", "We value faithful witness and real fruit more than spectacle."]
+  ],
   problemCards: [
-    ["Too many voices, not enough accountability", "Believers are surrounded by teaching, platforms, clips, and personalities without always knowing what sits behind them."],
-    ["Good ministries are hard to find", "Faithful churches, charities, and teachers often work quietly while louder platforms dominate discovery."],
-    ["Missions need visibility", "Missionaries and outreach projects need clear profiles, prayer context, and official support pathways."],
-    ["Trusted pathways, not hype", "The network favours careful review, story, doctrine, fruit, and accountability over viral claims."]
+    ["A different Jesus is being preached", "Not every spiritual message points people to the biblical Christ."],
+    ["The Gospel is being mixed", "Culture, performance, compromise, and self-centred messages can dilute the truth."],
+    ["Believers are overwhelmed by online voices", "Endless clips and personalities make discernment urgent."],
+    ["Spiritual darkness is real", "The Christian life requires sobriety, prayer, repentance, and resistance."],
+    ["Many lack foundations", "Believers need prayer resources, biblical teaching, and steady discipleship."]
   ],
-  solutionPoints: [
-    "We gather Christian voices and ministries in one searchable place.",
-    "We label profiles clearly so users understand the review stage.",
-    "We keep donation, book, event, and resource links external.",
-    "We use podcast interviews, review notes, and transparent profile information to build trust."
+  response:
+    "We create and gather teaching, prayers, interviews, books, music, testimonies, and mission stories to help believers stand firm, grow in truth, and walk in obedience.",
+  resourceCategories: [
+    { title: "Teachings", label: "Biblical teaching", image: "studyDesk" as ImageKey, href: "/resources", copy: "Biblical teaching, sermons, studies, and conversations that point back to Christ and Scripture." },
+    { title: "Spiritual Warfare Prayers", label: "Prayer", image: "prayerCircle" as ImageKey, href: "/prayers", copy: "Prayers for deliverance, protection, repentance, breakthrough, and standing firm against darkness." },
+    { title: "Podcast Interviews", label: "Watch", image: "podcastStudio" as ImageKey, href: "/watch", copy: "Long-form conversations with believers, teachers, missionaries, worshippers, and people with testimonies." },
+    { title: "Books", label: "Library", image: "bibleTable" as ImageKey, href: "/resources", copy: "Recommended books for doctrine, discipleship, prayer, discernment, mission, and spiritual growth." },
+    { title: "Worship & Music", label: "Worship", image: "worshipGathering" as ImageKey, href: "/resources", copy: "Christ-centred worship, songs, and music resources that strengthen faith and devotion." },
+    { title: "Missions", label: "Mission", image: "missionHands" as ImageKey, href: "/missions", copy: "Stories and updates from mission work, outreach, charity, evangelism, and practical service." },
+    { title: "Testimonies", label: "Witness", image: "cityNight" as ImageKey, href: "/watch", copy: "Real stories of salvation, deliverance, healing, repentance, faith, and obedience." },
+    { title: "Blog", label: "Articles", image: "globalMap" as ImageKey, href: "/blog", copy: "Articles on discernment, spiritual warfare, Scripture, prayer, end-times deception, and Christian living." }
   ],
-  discoveryPaths: [
-    { title: "Churches", label: "Local fellowship", image: "worshipGathering" as ImageKey, href: "/directory", copy: "Find reviewed church profiles with location, teaching posture, and leadership context." },
-    { title: "Teachers", label: "Bible teaching", image: "studyDesk" as ImageKey, href: "/directory", copy: "Explore teachers, books, interviews, and resources with clear review notes." },
-    { title: "Missions", label: "Field stories", image: "missionHands" as ImageKey, href: "/missions", copy: "Make mission work visible through profiles, prayer needs, and official support links." },
-    { title: "Charities", label: "Mercy ministry", image: "prayerCircle" as ImageKey, href: "/directory", copy: "Discover Christian outreach with accountability and practical care details." },
-    { title: "Testimonies", label: "Stories of faith", image: "cityNight" as ImageKey, href: "/media", copy: "Hear stories that reveal the people, faith, and fruit behind the profile." },
-    { title: "Events", label: "Gatherings", image: "worshipGathering" as ImageKey, href: "/events", copy: "Find prayer nights, conferences, worship gatherings, and mission trips." },
-    { title: "Books & Audio", label: "Resources", image: "bibleTable" as ImageKey, href: "/resources", copy: "Browse gospel-centred reading, teaching, audio, and study resources." },
-    { title: "Worship & Music", label: "Music", image: "podcastStudio" as ImageKey, href: "/directory", copy: "Connect worship artists, testimony sessions, and external music links." },
-    { title: "Podcast Interviews", label: "Media", image: "podcastStudio" as ImageKey, href: "/media", copy: "Long-form conversations with teachers, leaders, missionaries, and artists." },
-    { title: "Global Map", label: "Network", image: "globalMap" as ImageKey, href: "/map", copy: "A map-ready layer for discovering Christian work by place and category." }
-  ]
+  scripture: {
+    quote: "Test everything; hold fast what is good.",
+    reference: "1 Thessalonians 5:21"
+  }
 };

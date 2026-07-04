@@ -19,7 +19,7 @@ export default async function MapPage() {
             <div className="flex h-full items-end rounded-2xl border border-stone-300/60 p-6">
               <div className="rounded-2xl bg-white/80 p-5">
                 <strong>The True Remnant Map</strong>
-                <p className="mt-2 text-sm text-stone-600">Map pins will come from validated directory profiles.</p>
+                <p className="mt-2 text-sm text-stone-600">Map pins can later connect mission stories, resources, and outreach locations.</p>
               </div>
             </div>
           </div>
@@ -34,8 +34,8 @@ export default async function MapPage() {
                 <option>Event</option>
               </SelectField>
             </div>
-            <a className="mt-5 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-black text-cream" href="/directory">
-              Search Directory
+            <a className="mt-5 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-black text-cream" href="/resources">
+              Explore Resources
             </a>
           </aside>
         </div>

@@ -1,1 +1,1 @@
-export { default } from "../media/page";
+export { default } from "../watch/page";

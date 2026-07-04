@@ -6,17 +6,17 @@ export function PodcastFeature() {
       <div className="flex flex-col justify-center rounded-[2rem] border border-cream/10 bg-cream/5 p-8">
         <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Podcast-led trust</p>
         <h2 className="mt-4 font-display text-5xl leading-tight text-cream">
-          Trust grows when you hear the person behind the profile.
+          Podcast interviews and video teachings
         </h2>
         <p className="mt-5 text-lg leading-8 text-cream/70">
-          Long-form conversations, testimonies, ministry stories, and teaching discussions help users understand the
-          people and work behind each listing.
+          Most of the platform will be built around conversations, interviews, teaching videos, testimonies, and
+          short-form resources published on YouTube and other platforms, then organised here for easy access.
         </p>
-        <a className="mt-8 w-fit rounded-full bg-gold px-6 py-3 text-sm font-black text-ink" href="/media">
-          Watch the Podcast
+        <a className="mt-8 w-fit rounded-full bg-gold px-6 py-3 text-sm font-black text-ink" href="/watch">
+          Watch Latest
         </a>
       </div>
-      <ImageCard imageKey="podcastStudio" title="Conversations with weight and context." label="Media" className="min-h-[430px]" />
+      <ImageCard imageKey="podcastStudio" title="Conversations, testimonies, and biblical teaching." label="Watch" className="min-h-[430px]" />
     </div>
   );
 }

@@ -43,12 +43,16 @@ export function Hero({
         </div>
         <div className="min-h-80 rounded-[2rem] border border-gold/30 bg-gradient-to-br from-ink via-stone-900 to-gold-deep p-6 shadow-editorial">
           <div className="flex h-full flex-col justify-end rounded-[1.5rem] border border-cream/10 p-6">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Validation-first</p>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Gospel-centred resources</p>
             <div className="mt-5 grid gap-3">
-              {["Listed", "Under Review", "Reviewed", "Verified", "Featured"].map((status) => (
-                <div className="rounded-2xl border border-cream/10 bg-cream/10 p-4 text-cream" key={status}>
-                  <strong>{status}</strong>
-                  <p className="mt-1 text-sm text-cream/65">Clear public status before a profile is promoted.</p>
+              {[
+                ["Watch", "Podcast interviews, testimonies, and teaching videos."],
+                ["Pray", "Christ-centred prayers for repentance, protection, and standing firm."],
+                ["Grow", "Books, worship, articles, and discipleship resources."]
+              ].map(([title, copy]) => (
+                <div className="rounded-2xl border border-cream/10 bg-cream/10 p-4 text-cream" key={title}>
+                  <strong>{title}</strong>
+                  <p className="mt-1 text-sm text-cream/65">{copy}</p>
                 </div>
               ))}
             </div>

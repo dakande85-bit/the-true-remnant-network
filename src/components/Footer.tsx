@@ -2,19 +2,19 @@ import { BrandLogo } from "./BrandLogo";
 
 const footerColumns = [
   {
-    title: "Explore",
+    title: "Platform",
     links: [
-      ["Directory", "/directory"],
-      ["Podcast / Media", "/media"],
-      ["Missions", "/missions"],
-      ["Events", "/events"]
+      ["About", "/about"],
+      ["Watch", "/watch"],
+      ["Resources", "/resources"],
+      ["Prayers", "/prayers"]
     ]
   },
   {
-    title: "Trust",
+    title: "Stay Connected",
     links: [
-      ["About", "/about"],
-      ["Submit Organisation", "/submit"],
+      ["Blog", "/blog"],
+      ["Newsletter", "/newsletter"],
       ["Admin", "/admin"]
     ]
   }
@@ -27,8 +27,8 @@ export function Footer() {
         <div>
           <BrandLogo variant="light" />
           <p className="mt-5 max-w-md text-sm leading-7 text-cream/70">
-            A Christian trust network and media platform for discovering validated teachers, churches, ministries,
-            missions, charities, worship artists, books, podcasts, events, and mission projects.
+            The True Remnant Network is a Christian media and resource platform for biblical truth, spiritual warfare
+            prayer, testimonies, missions, teaching, worship, books, and Gospel-centred resources.
           </p>
           <p className="mt-4 text-sm font-semibold text-gold">External links only. No in-site payments.</p>
         </div>

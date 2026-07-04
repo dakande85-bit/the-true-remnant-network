@@ -1,34 +1,47 @@
 import { CTASection } from "@/components/CTASection";
 import { CinematicHero } from "@/components/CinematicHero";
-import { DirectoryCard } from "@/components/DirectoryCard";
 import { ImageCard } from "@/components/ImageCard";
-import { MissionBanner } from "@/components/MissionBanner";
 import { PodcastFeature } from "@/components/PodcastFeature";
 import { ScriptureBlock } from "@/components/ScriptureBlock";
 import { SectionHeader } from "@/components/SectionHeader";
 import { StorySection } from "@/components/StorySection";
-import { TrustStatusExplainer } from "@/components/TrustStatusExplainer";
+import { TextField, SelectField } from "@/components/forms";
 import { homeContent } from "@/content/home";
-import { dataProvider } from "@/lib/data";
 
-export default async function HomePage() {
-  const profiles = await dataProvider.directory.list();
-  const featured = profiles.filter((profile) => profile.status === "Featured" || profile.status === "Verified").slice(0, 6);
-
+export default function HomePage() {
   return (
     <>
       <CinematicHero />
 
-      <StorySection
-        eyebrow="Mission"
-        title={homeContent.mission.title}
-        description={homeContent.mission.copy}
-      >
-        <ScriptureBlock quote={homeContent.mission.scripture} reference={homeContent.mission.reference} />
+      <StorySection eyebrow="Who We Are" title={homeContent.who.title} description={homeContent.who.copy}>
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <div className="rounded-[2rem] border border-linen bg-white p-8 shadow-sm">
+            <p className="text-lg leading-8 text-stone-700">{homeContent.who.support}</p>
+          </div>
+          <ScriptureBlock quote={homeContent.scripture.quote} reference={homeContent.scripture.reference} />
+        </div>
       </StorySection>
 
-      <StorySection eyebrow="The Problem" title="Discovery is easy. Discernment is harder." dark>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <section className="bg-white py-20">
+        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+          <SectionHeader
+            eyebrow="What We Believe"
+            title="Truth is not decided by popularity."
+            description="Truth is not decided by popularity, platforms, or personalities. We test everything by Scripture, the fruit of a life, and faithfulness to Jesus Christ."
+          />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {homeContent.beliefs.map(([title, copy]) => (
+              <article className="rounded-[1.5rem] border border-linen bg-parchment p-6" key={title}>
+                <h3 className="font-display text-2xl leading-tight text-ink">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-stone-600">{copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <StorySection eyebrow="The Problem" title="Deception is increasing. Discernment is urgent." dark>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {homeContent.problemCards.map(([title, copy]) => (
             <article className="rounded-[1.5rem] border border-cream/10 bg-cream/5 p-6" key={title}>
               <h3 className="font-display text-2xl leading-tight text-cream">{title}</h3>
@@ -39,68 +52,24 @@ export default async function HomePage() {
       </StorySection>
 
       <StorySection
-        eyebrow="The Solution"
-        title="A reviewed Christian network for people, ministries, and mission."
-        description="The network gathers Christian voices and ministries in one searchable place while keeping language careful and links transparent."
+        eyebrow="The Response"
+        title="Resources for the remnant believer."
+        description={homeContent.response}
       >
-        <div className="grid gap-4 md:grid-cols-2">
-          {homeContent.solutionPoints.map((point, index) => (
-            <article className="rounded-[1.5rem] border border-linen bg-white p-6 shadow-sm" key={point}>
-              <span className="font-display text-5xl text-gold">{String(index + 1).padStart(2, "0")}</span>
-              <p className="mt-3 text-lg leading-8 text-stone-700">{point}</p>
-            </article>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {homeContent.resourceCategories.map((path) => (
+            <ImageCard
+              cta="Explore"
+              description={path.copy}
+              href={path.href}
+              imageKey={path.image}
+              key={path.title}
+              label={path.label}
+              title={path.title}
+            />
           ))}
         </div>
       </StorySection>
-
-      <section className="bg-white py-20">
-        <div className="mx-auto w-[min(1240px,calc(100%-32px))]">
-          <SectionHeader
-            eyebrow="Discovery Paths"
-            title="A serious network needs more than one doorway."
-            description="Each path is designed to feel editorial and useful: image-led, clearly labelled, and connected to the wider network."
-          />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-            {homeContent.discoveryPaths.map((path, index) => (
-              <ImageCard
-                className={index === 0 || index === 2 ? "lg:col-span-2" : ""}
-                cta="Explore"
-                description={path.copy}
-                href={path.href}
-                imageKey={path.image}
-                key={path.title}
-                label={path.label}
-                title={path.title}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <StorySection
-        eyebrow="Trust Layer"
-        title="Not every listing means endorsement."
-        description="The platform is designed to be careful with language. Profiles can be listed, reviewed, verified, or featured, but users are always encouraged to examine fruit, doctrine, accountability, and local leadership."
-      >
-        <TrustStatusExplainer />
-      </StorySection>
-
-      <section className="bg-white py-20">
-        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
-          <SectionHeader
-            eyebrow="Featured"
-            title="Featured from the network"
-            description="Example dossiers show the tone and structure for churches, teachers, missions, charities, media, and worship profiles."
-            actionHref="/directory"
-            actionLabel="Open Directory"
-          />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {featured.map((profile) => (
-              <DirectoryCard key={profile.id} profile={profile} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-ink py-20">
         <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
@@ -109,18 +78,72 @@ export default async function HomePage() {
       </section>
 
       <section className="py-20">
-        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
-          <MissionBanner />
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <ImageCard imageKey="prayerCircle" title="Spiritual warfare prayers" label="Prayer" className="min-h-[430px]" />
+          <div className="flex flex-col justify-center rounded-[2rem] border border-linen bg-white p-8 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold-deep">Prayer</p>
+            <h2 className="mt-4 font-display text-5xl leading-tight text-ink">Spiritual warfare prayers</h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              Prayer is not a religious performance. It is dependence on God, submission to Jesus Christ, and resistance
+              against darkness. This section gathers prayers for repentance, deliverance, protection, healing, family,
+              purpose, and breakthrough.
+            </p>
+            <a className="mt-8 w-fit rounded-full bg-ink px-6 py-3 text-sm font-black text-cream" href="/prayers">
+              Explore Prayers
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[0.9fr_1fr]">
+          <div className="flex flex-col justify-center rounded-[2rem] border border-linen bg-parchment p-8">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold-deep">Blog</p>
+            <h2 className="mt-4 font-display text-5xl leading-tight text-ink">Articles for discernment and discipleship</h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              Written resources on the Gospel, spiritual warfare, prayer, deception, Christian living, mission, and biblical truth.
+            </p>
+            <a className="mt-8 w-fit rounded-full bg-ink px-6 py-3 text-sm font-black text-cream" href="/blog">
+              Read Articles
+            </a>
+          </div>
+          <ImageCard imageKey="studyDesk" title="Written resources for sober, faithful Christian living." label="Articles" className="min-h-[430px]" />
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 rounded-[2rem] border border-linen bg-white p-8 shadow-editorial lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold-deep">Newsletter</p>
+            <h2 className="mt-4 font-display text-5xl leading-tight text-ink">Join the Remnant newsletter</h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              Receive new teachings, prayers, interviews, articles, mission updates, and recommended resources.
+            </p>
+          </div>
+          <form className="grid gap-4">
+            <TextField label="Name" placeholder="Your name" />
+            <TextField label="Email" placeholder="you@example.com" type="email" />
+            <SelectField label="Interest">
+              <option>All updates</option>
+              <option>Teachings</option>
+              <option>Prayers</option>
+              <option>Podcast</option>
+              <option>Missions</option>
+              <option>Books & Resources</option>
+            </SelectField>
+            <button className="rounded-full bg-gold px-6 py-3 text-sm font-black text-ink" type="button">
+              Join Newsletter
+            </button>
+          </form>
         </div>
       </section>
 
       <CTASection
-        title="Know a faithful ministry, teacher, church, or mission?"
-        description="Submit it for review so the network can begin gathering the right context, links, story, and accountability notes."
-        primaryHref="/submit"
-        primaryLabel="Submit for Review"
-        secondaryHref="/directory"
-        secondaryLabel="Explore Directory"
+        title="Stand firm. Stay awake. Hold fast to Christ."
+        primaryHref="/watch"
+        primaryLabel="Watch Latest"
+        secondaryHref="/resources"
+        secondaryLabel="Explore Resources"
       />
     </>
   );

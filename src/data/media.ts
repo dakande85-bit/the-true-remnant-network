@@ -15,7 +15,7 @@ export const mediaItems: MediaItem[] = [
     guest: "Founder episode",
     type: "Podcast",
     status: "Planned",
-    summary: "A launch conversation about faithful discovery, careful validation, and media-led trust.",
+    summary: "A launch conversation about the true Gospel, discernment, prayer, media, and resources for believers.",
     url: "https://youtube.com"
   },
   {
