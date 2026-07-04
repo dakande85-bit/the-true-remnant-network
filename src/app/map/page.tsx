@@ -1,63 +1,50 @@
-import { directoryItems } from "@/data/directory";
+import { DirectoryCard } from "@/components/DirectoryCard";
+import { Hero } from "@/components/Hero";
+import { TextField, SelectField } from "@/components/forms";
+import { dataProvider } from "@/lib/data";
 
-export default function MapPage() {
+export default async function MapPage() {
+  const profiles = (await dataProvider.directory.list()).slice(0, 3);
+
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">Map</p>
-          <h1>Find Christian work near you.</h1>
-          <p>
-            A map-ready discovery page for churches, missions, charities and events. Later this can connect to
-            Google Maps or Mapbox using approved directory profiles with latitude and longitude fields.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container grid grid-3">
-          <div className="card span-2">
-            <div className="map-shell" aria-label="World map placeholder">
-              <span className="map-pin pin-1" />
-              <span className="map-pin pin-2" />
-              <span className="map-pin pin-3" />
-              <span className="map-pin pin-4" />
-              <div className="map-label">
+      <Hero
+        eyebrow="Map"
+        title="A map-ready layer for Christian discovery."
+        description="The MVP prepares location-based profile data for future Google Maps or Mapbox integration."
+      />
+      <section className="py-16">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_340px]">
+          <div className="min-h-96 rounded-2xl border border-linen bg-gradient-to-br from-stone-200 via-cream to-amber-100 p-6 shadow-sm">
+            <div className="flex h-full items-end rounded-2xl border border-stone-300/60 p-6">
+              <div className="rounded-2xl bg-white/80 p-5">
                 <strong>The True Remnant Map</strong>
-                <p>Map pins will come from reviewed directory profiles.</p>
+                <p className="mt-2 text-sm text-stone-600">Map pins will come from validated directory profiles.</p>
               </div>
             </div>
           </div>
-
-          <aside className="card">
-            <span className="badge">Filters</span>
-            <h3>Search locally</h3>
-            <p>Use this as the future filter panel for location-based discovery.</p>
-            <div className="form-grid" style={{ gridTemplateColumns: "1fr" }}>
-              <label>Location<input className="input" placeholder="City or country" /></label>
-              <label>Category<select><option>All Categories</option><option>Church</option><option>Mission</option><option>Charity</option><option>Event</option></select></label>
-              <label>Language<select><option>Any Language</option><option>English</option><option>Spanish</option><option>Portuguese</option></select></label>
+          <aside className="rounded-2xl border border-linen bg-white p-6">
+            <div className="grid gap-4">
+              <TextField label="Location" placeholder="City, country, or online" />
+              <SelectField label="Category">
+                <option>All Categories</option>
+                <option>Church</option>
+                <option>Mission</option>
+                <option>Charity</option>
+                <option>Event</option>
+              </SelectField>
             </div>
-            <br />
-            <a className="btn btn-primary" href="/directory">Search Directory</a>
+            <a className="mt-5 inline-flex rounded-full bg-ink px-5 py-3 text-sm font-black text-cream" href="/directory">
+              Search Directory
+            </a>
           </aside>
         </div>
       </section>
-
-      <section className="section section-muted">
-        <div className="container">
-          <h2>Map-ready listings</h2>
-          <p>These starter profiles will later become map pins once real coordinates are added.</p>
-          <div className="grid grid-3">
-            {directoryItems.slice(0, 3).map((item) => (
-              <article className="card" key={item.id}>
-                <span className="badge">{item.category}</span>
-                <h3>{item.name}</h3>
-                <p>{item.city}, {item.country}</p>
-                <a className="btn btn-soft" href={`/directory/${item.id}`}>Open Profile</a>
-              </article>
-            ))}
-          </div>
+      <section className="bg-white py-16">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-5 md:grid-cols-3">
+          {profiles.map((profile) => (
+            <DirectoryCard key={profile.id} profile={profile} />
+          ))}
         </div>
       </section>
     </>

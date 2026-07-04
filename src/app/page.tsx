@@ -1,157 +1,61 @@
 import { DirectoryCard } from "@/components/DirectoryCard";
-import { ResourceCard } from "@/components/ResourceCard";
-import { SectionHeader } from "@/components/SectionHeader";
-import { directoryItems } from "@/data/directory";
-import { podcastEpisodes } from "@/data/podcasts";
-import { resourceItems } from "@/data/resources";
+import { FeaturedSection } from "@/components/FeaturedSection";
+import { Hero } from "@/components/Hero";
+import { dataProvider } from "@/lib/data";
 
-const categories = [
-  ["Churches", "Reviewed local fellowships with doctrine, leadership and location notes."],
-  ["Teachers", "Books, audio, interviews and teaching profiles connected to clear review notes."],
-  ["Missions", "Mission work with official external support links and field information."],
-  ["Charities", "Christian outreach, mercy ministry and public accountability details."],
-  ["Resources", "Reading lists, worship music, teaching audio, devotionals and Bible tools."],
-  ["Events", "Prayer nights, conferences, worship gatherings and mission trips."],
-  ["Map", "A location-first discovery layer for churches and ministries near you."],
-  ["Podcast", "The media engine that introduces people, testimonies and ministries."]
+const pillars = [
+  ["Christian trust network", "Profiles are organised around public review status, doctrine notes, links, and accountability signals."],
+  ["Media-led discovery", "Podcast and video conversations help people hear the voices behind the listings."],
+  ["External links only", "Donations, books, music, tickets, and support pages stay on official external sites in the MVP."],
+  ["Supabase-ready", "Mock data is isolated behind a provider so the database can be connected cleanly later."]
 ];
 
-const trustPillars = [
-  ["Reviewed first", "Profiles are researched before being featured."],
-  ["External links only", "The MVP does not process donations or ministry payments."],
-  ["Clear status labels", "Listed, Reviewed, Verified, Recommended or Under Review."],
-  ["Podcast-led trust", "Interviews help users hear the people behind the profiles."]
-];
-
-export default function HomePage() {
-  const latestEpisode = podcastEpisodes[0];
-  const featuredResources = resourceItems.slice(0, 3);
-  const featuredProfiles = directoryItems.slice(0, 4);
+export default async function HomePage() {
+  const profiles = await dataProvider.directory.list();
+  const featured = profiles.filter((profile) => profile.status === "Featured").slice(0, 3);
 
   return (
     <>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <p className="kicker">The True Remnant Network</p>
-            <h1>Find faithful voices. Discover trusted ministries.</h1>
-            <p>
-              A Christian discovery network for reviewed churches, teachers, missions, charities, books, music,
-              events, testimonies and gospel-centred resources in one place.
-            </p>
-            <div className="hero-actions">
-              <a className="btn btn-primary" href="/podcast">Watch the Podcast</a>
-              <a className="btn" href="/directory">Explore Directory</a>
-              <a className="btn btn-soft" href="/resources">Books & Audio</a>
-            </div>
-            <div className="stat-grid">
-              <div className="stat"><strong>0%</strong><span>Payment marketplace</span></div>
-              <div className="stat"><strong>5</strong><span>Review statuses</span></div>
-              <div className="stat"><strong>8</strong><span>Core categories</span></div>
-              <div className="stat"><strong>1</strong><span>Simple MVP</span></div>
-            </div>
-          </div>
-          <div className="hero-visual" aria-label="True Remnant network preview">
-            <div className="visual-panel">
-              <div className="cross-mark" />
-              <div className="visual-stack">
-                <div className="visual-card"><strong>Podcast Interview</strong><span>Long-form conversations with reviewed voices.</span></div>
-                <div className="visual-card"><strong>Directory Profile</strong><span>Bio, doctrine notes, links, location and status.</span></div>
-                <div className="visual-card"><strong>Reading + Audio Tabs</strong><span>Books, music, teachings, devotionals and tools.</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        eyebrow="The True Remnant Network"
+        title="Find faithful voices. Discover trusted ministries."
+        description="A premium Christian media and trust platform for validated teachers, churches, ministries, charities, missionaries, worship artists, books, podcasts, events, and mission projects."
+        primaryHref="/directory"
+        primaryLabel="Explore Directory"
+        secondaryHref="/media"
+        secondaryLabel="Watch Media"
+      />
 
-      <section className="section section-muted">
-        <div className="container">
-          <SectionHeader
-            eyebrow="Explore"
-            title="One network. Multiple discovery paths."
-            description="The site starts simple: clean content pages, reviewed directory profiles, external links and a clear verification process."
-          />
-          <div className="grid grid-4">
-            {categories.map(([category, description]) => (
-              <a className="card" href={category === "Map" ? "/map" : category === "Podcast" ? "/podcast" : category === "Resources" ? "/resources" : "/directory"} key={category}>
-                <span className="badge">{category}</span>
-                <h3>{category}</h3>
-                <p>{description}</p>
-              </a>
-            ))}
-          </div>
+      <FeaturedSection
+        eyebrow="Foundation"
+        title="Built for careful Christian discovery."
+        description="The MVP keeps the experience simple: strong editorial pages, clear validation statuses, profile pages, media, missions, events, and a submission flow."
+      >
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {pillars.map(([title, description]) => (
+            <article className="rounded-2xl border border-linen bg-white p-5 shadow-sm" key={title}>
+              <span className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">MVP</span>
+              <h3 className="mt-3 font-display text-2xl text-ink">{title}</h3>
+              <p className="mt-3 text-sm leading-6 text-stone-600">{description}</p>
+            </article>
+          ))}
         </div>
-      </section>
+      </FeaturedSection>
 
-      <section className="section">
-        <div className="container">
-          <SectionHeader
-            eyebrow="Trust"
-            title="Built around verification, not hype."
-            description="The language stays careful: the platform can review, label and recommend, but it avoids reckless spiritual claims."
-            actionLabel="View Verification"
-            actionHref="/verification"
-          />
-          <div className="grid grid-4">
-            {trustPillars.map(([title, description]) => (
-              <article className="card" key={title}>
-                <span className="badge">Trust</span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
-          </div>
+      <FeaturedSection
+        eyebrow="Featured"
+        title="Validated profiles for people and organisations."
+        description="Starter records demonstrate churches, missions, charities, teachers, and worship artists before Supabase is connected."
+        actionHref="/directory"
+        actionLabel="View Directory"
+        muted
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {featured.map((profile) => (
+            <DirectoryCard key={profile.id} profile={profile} />
+          ))}
         </div>
-      </section>
-
-      <section className="section section-muted">
-        <div className="container">
-          <SectionHeader
-            eyebrow="Directory"
-            title="Featured starter profiles"
-            description="These are polished starter records. Replace them with real approved churches, teachers, charities, missionaries and Christian resources."
-            actionLabel="View Directory"
-            actionHref="/directory"
-          />
-          <div className="grid grid-4">
-            {featuredProfiles.map((item) => <DirectoryCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-dark">
-        <div className="container grid grid-3">
-          <div className="card span-2">
-            <span className="badge">Latest Podcast</span>
-            <h2>{latestEpisode.title}</h2>
-            <p>{latestEpisode.summary}</p>
-            <div className="row">
-              <a className="btn btn-primary" href="/podcast">Open Podcast Hub</a>
-              <a className="btn" href="/submit">Suggest Guest</a>
-            </div>
-          </div>
-          <div className="hero-card">
-            <p className="kicker">MVP rule</p>
-            <h3>External links only</h3>
-            <p>Donation, mission, event, book, music and clothing links go out to official pages. The website stays simple and trusted.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <SectionHeader
-            eyebrow="Resources"
-            title="Reading list, music and audio teaching"
-            description="A dedicated resources page with tabs for books, music, teaching audio, devotionals and Bible study tools."
-            actionLabel="Open Resources"
-            actionHref="/resources"
-          />
-          <div className="grid grid-3">
-            {featuredResources.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
+      </FeaturedSection>
     </>
   );
 }

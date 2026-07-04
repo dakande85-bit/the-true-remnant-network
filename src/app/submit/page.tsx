@@ -1,43 +1,52 @@
+import { Hero } from "@/components/Hero";
+import { SelectField, TextAreaField, TextField } from "@/components/forms";
+
 export default function SubmitPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">Submit</p>
-          <h1>Submit a church, ministry, teacher, mission, event or resource.</h1>
-          <p>
-            This is the future intake form for profiles. In the MVP it is a frontend form; next it should write to Supabase as a pending application.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container grid grid-3">
-          <form className="card span-2">
-            <div className="form-grid">
-              <label>Name<input className="input" placeholder="Organisation, person, ministry or resource name" /></label>
-              <label>Category<select><option>Category</option><option>Church</option><option>Teacher</option><option>Mission</option><option>Charity</option><option>Event</option><option>Music</option><option>Book / Resource</option></select></label>
-              <label>City<input className="input" placeholder="City or online" /></label>
-              <label>Country<input className="input" placeholder="Country or global" /></label>
-              <label>Website URL<input className="input" placeholder="Official website link" /></label>
-              <label>YouTube / Media URL<input className="input" placeholder="YouTube, podcast, music or media link" /></label>
-              <label>Donation / Support URL<input className="input" placeholder="External official link only" /></label>
-              <label>Contact Email<input className="input" placeholder="Public or admin contact" /></label>
+      <Hero
+        eyebrow="Submit Organisation"
+        title="Submit a church, ministry, teacher, mission, event, or resource."
+        description="This front-end intake form is ready for a Supabase-backed pending review workflow. Submissions should be checked before publication."
+      />
+      <section className="py-16">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_340px]">
+          <form className="rounded-2xl border border-linen bg-white p-6 shadow-sm">
+            <div className="grid gap-4 md:grid-cols-2">
+              <TextField label="Name" placeholder="Organisation, person, ministry, or resource" />
+              <SelectField label="Category" defaultValue="">
+                <option value="" disabled>Choose category</option>
+                <option>Church</option>
+                <option>Ministry</option>
+                <option>Mission</option>
+                <option>Charity</option>
+                <option>Teacher</option>
+                <option>Worship</option>
+                <option>Book</option>
+                <option>Podcast</option>
+                <option>Event</option>
+              </SelectField>
+              <TextField label="Location" placeholder="City, online, or global" />
+              <TextField label="Country" placeholder="Country or international" />
+              <TextField label="Official website" placeholder="https://..." />
+              <TextField label="YouTube / media URL" placeholder="https://..." />
+              <TextField label="Donation / support URL" placeholder="External official link only" />
+              <TextField label="Contact email" placeholder="admin@example.com" />
             </div>
-            <br />
-            <label>
-              Bio and reason for review
-              <textarea placeholder="Give a short bio, doctrine notes, leadership information, references and why this should be reviewed for listing." />
-            </label>
-            <br />
-            <button className="btn btn-primary" type="button">Submit for Review</button>
+            <div className="mt-4">
+              <TextAreaField label="Review notes" placeholder="Doctrine, leadership, public links, accountability, references, and why this should be reviewed." />
+            </div>
+            <button className="mt-6 rounded-full bg-gold px-6 py-3 text-sm font-black text-ink" type="button">
+              Submit for Pending Review
+            </button>
           </form>
-
-          <aside className="card">
-            <span className="badge">Before listing</span>
-            <h3>What should be checked?</h3>
-            <p>Identity, public links, doctrine, leadership, references, location, accountability and any external support pages.</p>
-            <a className="btn btn-soft" href="/verification">View Review Levels</a>
+          <aside className="rounded-2xl border border-linen bg-parchment p-6">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">Review checklist</p>
+            <h2 className="mt-3 font-display text-3xl text-ink">Before publication</h2>
+            <p className="mt-4 leading-7 text-stone-600">
+              Check identity, doctrine, leadership, public links, external giving pages, safeguarding context,
+              event organisers, and media history before moving beyond Pending Review.
+            </p>
           </aside>
         </div>
       </section>
