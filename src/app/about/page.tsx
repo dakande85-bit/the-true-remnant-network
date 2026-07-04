@@ -6,7 +6,7 @@ const values = [
   ["Careful with trust", "Validation statuses avoid careless claims and make the review stage visible."],
   ["Media and directory together", "Long-form conversations create context; profiles make discovery practical."],
   ["Simple to launch", "No payments, no public posting, and no heavy community features in the first release."],
-  ["Global direction", "The structure can grow from starter content into a worldwide Christian discovery map."],
+  ["Global direction", "The structure can grow from curated launch content into a worldwide Christian discovery map."],
   ["Useful resources", "Books, worship, podcasts, events, and missions can be curated around trusted profiles."]
 ];
 

@@ -45,7 +45,7 @@ export function Hero({
           <div className="flex h-full flex-col justify-end rounded-[1.5rem] border border-cream/10 p-6">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Validation-first</p>
             <div className="mt-5 grid gap-3">
-              {["Pending Review", "Reviewed", "Validated", "Featured"].map((status) => (
+              {["Listed", "Under Review", "Reviewed", "Verified", "Featured"].map((status) => (
                 <div className="rounded-2xl border border-cream/10 bg-cream/10 p-4 text-cream" key={status}>
                   <strong>{status}</strong>
                   <p className="mt-1 text-sm text-cream/65">Clear public status before a profile is promoted.</p>

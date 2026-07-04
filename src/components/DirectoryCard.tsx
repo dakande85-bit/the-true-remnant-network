@@ -1,5 +1,5 @@
 import type { DirectoryProfile } from "@/data/directory";
-import { ProfileCard } from "./ProfileCard";
+import { EditorialProfileCard } from "./EditorialProfileCard";
 
 export function DirectoryCard({ item, profile }: { item?: DirectoryProfile; profile?: DirectoryProfile }) {
   const resolvedProfile = profile ?? item;
@@ -8,5 +8,5 @@ export function DirectoryCard({ item, profile }: { item?: DirectoryProfile; prof
     return null;
   }
 
-  return <ProfileCard profile={resolvedProfile} />;
+  return <EditorialProfileCard profile={resolvedProfile} />;
 }

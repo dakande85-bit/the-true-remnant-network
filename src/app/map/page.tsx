@@ -11,7 +11,7 @@ export default async function MapPage() {
       <Hero
         eyebrow="Map"
         title="A map-ready layer for Christian discovery."
-        description="The MVP prepares location-based profile data for future Google Maps or Mapbox integration."
+        description="The platform prepares location-based profile data for future Google Maps or Mapbox integration."
       />
       <section className="py-16">
         <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_340px]">

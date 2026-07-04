@@ -30,7 +30,7 @@ export function Footer() {
             A Christian trust network and media platform for discovering validated teachers, churches, ministries,
             missions, charities, worship artists, books, podcasts, events, and mission projects.
           </p>
-          <p className="mt-4 text-sm font-semibold text-gold">External links only. No payments in the MVP.</p>
+          <p className="mt-4 text-sm font-semibold text-gold">External links only. No in-site payments.</p>
         </div>
         {footerColumns.map((column) => (
           <div key={column.title}>

@@ -1,114 +1,36 @@
+import { Hero } from "@/components/Hero";
 import { ResourceCard } from "@/components/ResourceCard";
+import { SectionHeader } from "@/components/SectionHeader";
 import { resourceItems } from "@/data/resources";
 
-const tabs = [
-  ["All Resources", "all-resources"],
-  ["Reading List (Books)", "reading-list-books"],
-  ["Audio Bible", "audio-bible"],
-  ["Audio (Music)", "audio-music"],
-  ["Teachings (Audio)", "teachings-audio"],
-  ["Devotionals", "devotionals"],
-  ["Bible Apps & Tools", "bible-apps-tools"]
-];
+const tabs = ["All", "Books", "Audio Bible", "Music", "Teaching", "Devotionals", "Tools"];
 
 export default function ResourcesPage() {
-  const books = resourceItems.filter((item) => item.type === "Book");
-  const audioBible = resourceItems.filter((item) => item.type === "Audio Bible");
-  const music = resourceItems.filter((item) => item.type === "Music");
-  const teaching = resourceItems.filter((item) => item.type === "Audio Teaching");
-  const devotionals = resourceItems.filter((item) => item.type === "Devotional");
-  const tools = resourceItems.filter((item) => item.type === "Bible Tool");
-
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">Resources</p>
-          <h1>Books, audio, music, teaching and tools for faithful growth.</h1>
-          <p>A curated library of external resource links for reading, listening and study.</p>
+      <Hero
+        eyebrow="Books & Audio"
+        title="Resources for faithful study, listening, and growth."
+        description="A curated library of external resource links for reading, worship, audio teaching, devotionals, and Bible study tools."
+      />
+      <section className="py-10">
+        <div className="mx-auto flex w-[min(1180px,calc(100%-32px))] flex-wrap gap-2 rounded-2xl border border-linen bg-white p-3 shadow-sm">
+          {tabs.map((tab, index) => (
+            <a className={`rounded-full px-4 py-2 text-sm font-black ${index === 0 ? "bg-ink text-cream" : "border border-linen bg-parchment text-stone-700"}`} href="#resources" key={tab}>
+              {tab}
+            </a>
+          ))}
         </div>
       </section>
-
-      <section className="section-tight">
-        <div className="container">
-          <div className="tabs" aria-label="Resource tabs">
-            {tabs.map(([label, id], index) => (
-              <a key={id} className={`tab ${index === 0 ? "tab-active" : ""}`} href={`#${id}`}>
-                {label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="all-resources" className="section section-muted">
-        <div className="container">
-          <p className="kicker">All Resources</p>
-          <h2>Complete resource library</h2>
-          <div className="grid grid-4">
+      <section className="bg-white py-16" id="resources">
+        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+          <SectionHeader
+            eyebrow="Library"
+            title="Books, teaching, worship, devotionals, and tools"
+            description="Resource links stay external and should be reviewed before being promoted as recommended."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {resourceItems.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="reading-list-books" className="section">
-        <div className="container">
-          <p className="kicker">Reading List</p>
-          <h2>Books</h2>
-          <p>Books for biblical theology, discipleship, discernment and advanced study.</p>
-          <div className="grid grid-3">
-            {books.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="audio-bible" className="section section-muted">
-        <div className="container">
-          <p className="kicker">Scripture Audio</p>
-          <h2>Audio Bible</h2>
-          <p>External audio Bible links for Scripture listening.</p>
-          <div className="grid grid-3">
-            {audioBible.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="audio-music" className="section">
-        <div className="container">
-          <p className="kicker">Audio</p>
-          <h2>Music</h2>
-          <div className="grid grid-3">
-            {music.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="teachings-audio" className="section section-muted">
-        <div className="container">
-          <p className="kicker">Teaching</p>
-          <h2>Teachings (Audio)</h2>
-          <div className="grid grid-3">
-            {teaching.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="devotionals" className="section">
-        <div className="container">
-          <p className="kicker">Daily Growth</p>
-          <h2>Devotionals</h2>
-          <div className="grid grid-3">
-            {devotionals.map((item) => <ResourceCard key={item.id} item={item} />)}
-          </div>
-        </div>
-      </section>
-
-      <section id="bible-apps-tools" className="section section-muted">
-        <div className="container">
-          <p className="kicker">Study</p>
-          <h2>Bible Apps & Tools</h2>
-          <div className="grid grid-3">
-            {tools.map((item) => <ResourceCard key={item.id} item={item} />)}
           </div>
         </div>
       </section>

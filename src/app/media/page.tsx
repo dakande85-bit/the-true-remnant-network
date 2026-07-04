@@ -14,7 +14,7 @@ export default async function MediaPage() {
         primaryHref="/submit"
         primaryLabel="Suggest a Guest"
       />
-      <FeaturedSection eyebrow="Episodes" title="Starter media slate" muted>
+      <FeaturedSection eyebrow="Episodes" title="Launch media slate" muted>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {media.map((item) => (
             <article className="rounded-2xl border border-linen bg-parchment p-5 shadow-sm" key={item.id}>

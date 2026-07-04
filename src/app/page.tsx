@@ -1,61 +1,127 @@
+import { CTASection } from "@/components/CTASection";
+import { CinematicHero } from "@/components/CinematicHero";
 import { DirectoryCard } from "@/components/DirectoryCard";
-import { FeaturedSection } from "@/components/FeaturedSection";
-import { Hero } from "@/components/Hero";
+import { ImageCard } from "@/components/ImageCard";
+import { MissionBanner } from "@/components/MissionBanner";
+import { PodcastFeature } from "@/components/PodcastFeature";
+import { ScriptureBlock } from "@/components/ScriptureBlock";
+import { SectionHeader } from "@/components/SectionHeader";
+import { StorySection } from "@/components/StorySection";
+import { TrustStatusExplainer } from "@/components/TrustStatusExplainer";
+import { homeContent } from "@/content/home";
 import { dataProvider } from "@/lib/data";
-
-const pillars = [
-  ["Christian trust network", "Profiles are organised around public review status, doctrine notes, links, and accountability signals."],
-  ["Media-led discovery", "Podcast and video conversations help people hear the voices behind the listings."],
-  ["External links only", "Donations, books, music, tickets, and support pages stay on official external sites in the MVP."],
-  ["Supabase-ready", "Mock data is isolated behind a provider so the database can be connected cleanly later."]
-];
 
 export default async function HomePage() {
   const profiles = await dataProvider.directory.list();
-  const featured = profiles.filter((profile) => profile.status === "Featured").slice(0, 3);
+  const featured = profiles.filter((profile) => profile.status === "Featured" || profile.status === "Verified").slice(0, 6);
 
   return (
     <>
-      <Hero
-        eyebrow="The True Remnant Network"
-        title="Find faithful voices. Discover trusted ministries."
-        description="A premium Christian media and trust platform for validated teachers, churches, ministries, charities, missionaries, worship artists, books, podcasts, events, and mission projects."
-        primaryHref="/directory"
-        primaryLabel="Explore Directory"
-        secondaryHref="/media"
-        secondaryLabel="Watch Media"
-      />
+      <CinematicHero />
 
-      <FeaturedSection
-        eyebrow="Foundation"
-        title="Built for careful Christian discovery."
-        description="The MVP keeps the experience simple: strong editorial pages, clear validation statuses, profile pages, media, missions, events, and a submission flow."
+      <StorySection
+        eyebrow="Mission"
+        title={homeContent.mission.title}
+        description={homeContent.mission.copy}
       >
+        <ScriptureBlock quote={homeContent.mission.scripture} reference={homeContent.mission.reference} />
+      </StorySection>
+
+      <StorySection eyebrow="The Problem" title="Discovery is easy. Discernment is harder." dark>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {pillars.map(([title, description]) => (
-            <article className="rounded-2xl border border-linen bg-white p-5 shadow-sm" key={title}>
-              <span className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">MVP</span>
-              <h3 className="mt-3 font-display text-2xl text-ink">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-stone-600">{description}</p>
+          {homeContent.problemCards.map(([title, copy]) => (
+            <article className="rounded-[1.5rem] border border-cream/10 bg-cream/5 p-6" key={title}>
+              <h3 className="font-display text-2xl leading-tight text-cream">{title}</h3>
+              <p className="mt-4 text-sm leading-7 text-cream/68">{copy}</p>
             </article>
           ))}
         </div>
-      </FeaturedSection>
+      </StorySection>
 
-      <FeaturedSection
-        eyebrow="Featured"
-        title="Validated profiles for people and organisations."
-        description="Starter records demonstrate churches, missions, charities, teachers, and worship artists before Supabase is connected."
-        actionHref="/directory"
-        actionLabel="View Directory"
-        muted
+      <StorySection
+        eyebrow="The Solution"
+        title="A reviewed Christian network for people, ministries, and mission."
+        description="The network gathers Christian voices and ministries in one searchable place while keeping language careful and links transparent."
       >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((profile) => (
-            <DirectoryCard key={profile.id} profile={profile} />
+        <div className="grid gap-4 md:grid-cols-2">
+          {homeContent.solutionPoints.map((point, index) => (
+            <article className="rounded-[1.5rem] border border-linen bg-white p-6 shadow-sm" key={point}>
+              <span className="font-display text-5xl text-gold">{String(index + 1).padStart(2, "0")}</span>
+              <p className="mt-3 text-lg leading-8 text-stone-700">{point}</p>
+            </article>
           ))}
         </div>
-      </FeaturedSection>
+      </StorySection>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto w-[min(1240px,calc(100%-32px))]">
+          <SectionHeader
+            eyebrow="Discovery Paths"
+            title="A serious network needs more than one doorway."
+            description="Each path is designed to feel editorial and useful: image-led, clearly labelled, and connected to the wider network."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
+            {homeContent.discoveryPaths.map((path, index) => (
+              <ImageCard
+                className={index === 0 || index === 2 ? "lg:col-span-2" : ""}
+                cta="Explore"
+                description={path.copy}
+                href={path.href}
+                imageKey={path.image}
+                key={path.title}
+                label={path.label}
+                title={path.title}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <StorySection
+        eyebrow="Trust Layer"
+        title="Not every listing means endorsement."
+        description="The platform is designed to be careful with language. Profiles can be listed, reviewed, verified, or featured, but users are always encouraged to examine fruit, doctrine, accountability, and local leadership."
+      >
+        <TrustStatusExplainer />
+      </StorySection>
+
+      <section className="bg-white py-20">
+        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+          <SectionHeader
+            eyebrow="Featured"
+            title="Featured from the network"
+            description="Example dossiers show the tone and structure for churches, teachers, missions, charities, media, and worship profiles."
+            actionHref="/directory"
+            actionLabel="Open Directory"
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((profile) => (
+              <DirectoryCard key={profile.id} profile={profile} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ink py-20">
+        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+          <PodcastFeature />
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+          <MissionBanner />
+        </div>
+      </section>
+
+      <CTASection
+        title="Know a faithful ministry, teacher, church, or mission?"
+        description="Submit it for review so the network can begin gathering the right context, links, story, and accountability notes."
+        primaryHref="/submit"
+        primaryLabel="Submit for Review"
+        secondaryHref="/directory"
+        secondaryLabel="Explore Directory"
+      />
     </>
   );
 }

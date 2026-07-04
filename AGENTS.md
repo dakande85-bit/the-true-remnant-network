@@ -20,7 +20,7 @@ The True Remnant Network helps people discover validated Christian teachers, chu
 
 - Do not add payments yet.
 - Use external links for donations, YouTube, websites, books, music, and events.
-- Use mock data until Supabase is configured.
+- Use mock/example data until Supabase is configured.
 - Keep data access isolated so Supabase can replace the mock provider cleanly.
 - Keep the MVP simple and production-ready.
 
@@ -52,7 +52,8 @@ The True Remnant Network helps people discover validated Christian teachers, chu
 
 ## Validation Statuses
 
-- Pending Review
+- Listed
+- Under Review
 - Reviewed
-- Validated
+- Verified
 - Featured

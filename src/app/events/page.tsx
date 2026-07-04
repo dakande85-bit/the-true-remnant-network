@@ -20,7 +20,7 @@ export default async function EventsPage() {
           <CategoryFilter categories={["All", "Prayer Night", "Conference", "Mission Trip", "Worship Night"]} />
         </div>
       </section>
-      <FeaturedSection eyebrow="Calendar" title="Starter event listings" muted>
+      <FeaturedSection eyebrow="Calendar" title="Curated event listings" muted>
         <div className="grid gap-5 md:grid-cols-3">
           {events.map((event) => (
             <article className="rounded-2xl border border-linen bg-parchment p-6" key={event.id}>

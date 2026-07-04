@@ -37,7 +37,7 @@ export default function SubmitPage() {
               <TextAreaField label="Review notes" placeholder="Doctrine, leadership, public links, accountability, references, and why this should be reviewed." />
             </div>
             <button className="mt-6 rounded-full bg-gold px-6 py-3 text-sm font-black text-ink" type="button">
-              Submit for Pending Review
+              Submit for Review
             </button>
           </form>
           <aside className="rounded-2xl border border-linen bg-parchment p-6">
@@ -45,7 +45,7 @@ export default function SubmitPage() {
             <h2 className="mt-3 font-display text-3xl text-ink">Before publication</h2>
             <p className="mt-4 leading-7 text-stone-600">
               Check identity, doctrine, leadership, public links, external giving pages, safeguarding context,
-              event organisers, and media history before moving beyond Pending Review.
+              event organisers, and media history before moving beyond Listed or Under Review.
             </p>
           </aside>
         </div>

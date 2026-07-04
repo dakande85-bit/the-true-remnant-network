@@ -1,67 +1,86 @@
+import Image from "next/image";
 import type { DirectoryProfile } from "@/data/directory";
+import { getRelatedProfiles } from "@/data/directory";
+import { editorialImages } from "@/content/images";
+import { EditorialProfileCard } from "./EditorialProfileCard";
 import { StatusBadge } from "./StatusBadge";
 
 export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
+  const image = editorialImages[profile.imageKey];
+  const relatedProfiles = getRelatedProfiles(profile);
   const links = [
     ["Website", profile.websiteUrl],
     ["YouTube", profile.youtubeUrl],
     ["Donate / Support", profile.donationUrl],
     ["Media", profile.mediaUrl],
-    ["Event", profile.eventUrl]
+    ["Event", profile.eventUrl],
+    ...(profile.resources ?? []).map((resource) => [resource.label, resource.href])
   ].filter((entry): entry is [string, string] => Boolean(entry[1]));
 
   return (
     <>
-      <section className="border-b border-linen bg-white">
-        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-8 py-14 lg:grid-cols-[1fr_360px]">
+      <section className="relative overflow-hidden bg-ink text-cream">
+        <Image className="object-cover opacity-45" src={image.src} alt={image.alt} fill priority sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/72 to-ink/20" />
+        <div className="relative mx-auto grid min-h-[640px] w-[min(1180px,calc(100%-32px))] items-end gap-8 py-14 lg:grid-cols-[1fr_360px]">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold-deep">
-              {profile.kind === "person" ? "Person Profile" : "Organisation Profile"}
+            <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
+              {profile.kind === "person" ? "Person Dossier" : "Organisation Dossier"}
             </p>
-            <h1 className="mt-4 font-display text-5xl leading-tight text-ink md:text-7xl">{profile.name}</h1>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600">{profile.summary}</p>
+            <h1 className="mt-4 max-w-4xl font-display text-6xl leading-[0.92] tracking-tight md:text-8xl">{profile.name}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-cream/74">{profile.summary}</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {profile.tags.map((tag) => (
-                <span className="rounded-full bg-cream px-3 py-1 text-xs font-bold text-stone-700" key={tag}>
+                <span className="rounded-full border border-cream/20 bg-cream/10 px-3 py-1 text-xs font-bold text-cream" key={tag}>
                   {tag}
                 </span>
               ))}
             </div>
           </div>
-          <aside className="rounded-2xl border border-linen bg-parchment p-6">
+          <aside className="rounded-[1.5rem] border border-cream/15 bg-cream/10 p-6 backdrop-blur-md">
             <StatusBadge status={profile.status} />
-            <dl className="mt-5 grid gap-4 text-sm">
+            {profile.isExample ? <p className="mt-3 text-sm font-bold text-gold">Example profile for launch presentation.</p> : null}
+            <dl className="mt-6 grid gap-4 text-sm">
               <div>
-                <dt className="font-black uppercase tracking-wide text-stone-500">Category</dt>
-                <dd className="mt-1 font-bold text-ink">{profile.category}</dd>
+                <dt className="font-black uppercase tracking-wide text-cream/48">Category</dt>
+                <dd className="mt-1 font-bold text-cream">{profile.category}</dd>
               </div>
               <div>
-                <dt className="font-black uppercase tracking-wide text-stone-500">Location</dt>
-                <dd className="mt-1 font-bold text-ink">{profile.location}, {profile.country}</dd>
+                <dt className="font-black uppercase tracking-wide text-cream/48">Location</dt>
+                <dd className="mt-1 font-bold text-cream">{profile.location}, {profile.country}</dd>
               </div>
             </dl>
           </aside>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_340px]">
-          <article className="rounded-2xl border border-linen bg-white p-6">
-            <h2 className="font-display text-4xl text-ink">Profile summary</h2>
-            <p className="mt-4 leading-8 text-stone-600">{profile.description}</p>
-            <h3 className="mt-8 font-display text-3xl text-ink">Focus areas</h3>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {profile.focus.map((focus) => (
-                <div className="rounded-xl border border-linen bg-cream p-4 text-sm font-bold text-stone-700" key={focus}>
-                  {focus}
-                </div>
-              ))}
-            </div>
-          </article>
-          <aside className="rounded-2xl border border-linen bg-parchment p-6">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">External links</p>
+      <section className="py-20">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_360px]">
+          <div className="grid gap-6">
+            <article className="rounded-[2rem] border border-linen bg-white p-7 shadow-sm">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Story</p>
+              <h2 className="mt-3 font-display text-5xl leading-tight text-ink">The story behind the profile</h2>
+              <p className="mt-5 text-lg leading-8 text-stone-600">{profile.story}</p>
+            </article>
+            <article className="rounded-[2rem] border border-linen bg-white p-7 shadow-sm">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Review notes</p>
+              <p className="mt-4 text-lg leading-8 text-stone-600">{profile.reviewNotes}</p>
+            </article>
+            <article className="rounded-[2rem] border border-linen bg-white p-7 shadow-sm">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Beliefs / focus</p>
+              <div className="mt-5 grid gap-3 md:grid-cols-2">
+                {[...profile.beliefs, ...profile.focus].map((item) => (
+                  <div className="rounded-xl border border-linen bg-cream p-4 text-sm font-bold text-stone-700" key={item}>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+          <aside className="h-fit rounded-[2rem] border border-linen bg-parchment p-6 shadow-sm lg:sticky lg:top-28">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">External links</p>
             <p className="mt-3 text-sm leading-6 text-stone-600">
-              Donations, media, books, websites, music, and events stay external in the MVP.
+              Donations, media, books, websites, music, and events stay on official external pages.
             </p>
             <div className="mt-5 grid gap-3">
               {links.map(([label, href]) => (
@@ -74,6 +93,20 @@ export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
           </aside>
         </div>
       </section>
+
+      {relatedProfiles.length ? (
+        <section className="bg-white py-20">
+          <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Related profiles</p>
+            <h2 className="mt-3 font-display text-5xl text-ink">Continue through the network</h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {relatedProfiles.map((related) => (
+                <EditorialProfileCard key={related.id} profile={related} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }
