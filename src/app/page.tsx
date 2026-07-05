@@ -1,5 +1,4 @@
 import { CTASection } from "@/components/CTASection";
-import { CinematicHero } from "@/components/CinematicHero";
 import { ImageCard } from "@/components/ImageCard";
 import { PodcastFeature } from "@/components/PodcastFeature";
 import { ScriptureBlock } from "@/components/ScriptureBlock";
@@ -11,7 +10,11 @@ import { homeContent } from "@/content/home";
 export default function HomePage() {
   return (
     <>
-      <CinematicHero />
+      <section className="bg-ink">
+        <div className="mx-auto w-[min(1320px,calc(100%-32px))]">
+          <PodcastFeature />
+        </div>
+      </section>
 
       <StorySection eyebrow="Who We Are" title={homeContent.who.title} description={homeContent.who.copy}>
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -70,12 +73,6 @@ export default function HomePage() {
           ))}
         </div>
       </StorySection>
-
-      <section className="bg-ink py-20">
-        <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
-          <PodcastFeature />
-        </div>
-      </section>
 
       <section className="py-20">
         <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-6 lg:grid-cols-[1fr_0.9fr]">
