@@ -4,8 +4,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { menAndWomenOfGod, resourceCategories } from "@/data/resources";
 
 const categoryDescriptions = [
-  ["Men & Women of God", "A small launch list of teachers, pastors, apologists, and voices we currently make available for study."],
-  ["Teachings", "Biblical sermons, studies, and long-form resources pointing believers back to Christ and Scripture."],
+  ["Men & Women of God", "A small launch list of teachers, pastors, apologists, and voices that can support deeper study."],
+  ["Teachings", "Biblical sermons, studies, and long-form resources that support the conversations."],
   ["Prayers", "Spiritual warfare prayers, repentance guides, and serious Christ-centred prayer resources."],
   ["Apologetics", "Resources that help believers defend the faith and answer hard questions with clarity."],
   ["Books & Resources", "Recommended reading, study helps, devotionals, and tools for discipleship."],
@@ -17,8 +17,8 @@ export default function ResourcesPage() {
     <>
       <Hero
         eyebrow="Resources"
-        title="Resources for the remnant believer."
-        description="Curated resources for believers seeking truth, prayer, discernment, and spiritual strength."
+        title="Resources that support the conversation."
+        description="Teachings, books, prayers, testimonies, and recommended voices that help believers study deeper after each conversation."
       />
       <section className="py-10">
         <div className="mx-auto flex w-[min(1180px,calc(100%-32px))] flex-wrap gap-2 rounded-2xl border border-linen bg-white p-3 shadow-sm">
@@ -49,8 +49,8 @@ export default function ResourcesPage() {
         <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
           <SectionHeader
             eyebrow="Resource Categories"
-            title="Simple pathways for the launch library"
-            description="More teachings, prayers, books, interviews, and study resources can be added as they are reviewed and curated."
+            title="Study deeper after each conversation"
+            description="More teachings, prayers, books, interviews, and study resources can be added carefully over time."
           />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {categoryDescriptions.map(([title, description]) => (
@@ -67,8 +67,8 @@ export default function ResourcesPage() {
           <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Coming soon</p>
           <h2 className="mx-auto mt-4 max-w-3xl font-display text-5xl leading-tight">More resources coming soon</h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-cream/70">
-            The library will grow carefully with teachings, prayers, apologetics, books, worship, missions, testimonies,
-            and podcast resources as they are reviewed and curated.
+            Resources will grow carefully with teachings, prayers, apologetics, books, testimonies, and conversation
+            notes that help believers examine Scripture and context.
           </p>
         </div>
       </section>

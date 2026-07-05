@@ -3,21 +3,22 @@ import { DonateLink } from "./DonateLink";
 
 const footerColumns = [
   {
-    title: "Platform",
+    title: "Ministry",
     links: [
       ["About", "/about"],
       ["Watch", "/watch"],
-      ["Resources", "/resources"],
-      ["Prayers", "/prayers"]
+      ["Topics", "/topics"],
+      ["End Times", "/end-times"]
     ]
   },
   {
     title: "Stay Connected",
     links: [
+      ["Prayers", "/prayers"],
+      ["Resources", "/resources"],
       ["Blog", "/blog"],
       ["Newsletter", "/newsletter"],
-      ["Donate", "/donate"],
-      ["Admin", "/admin"]
+      ["Donate", "/donate"]
     ]
   }
 ];
@@ -29,8 +30,8 @@ export function Footer() {
         <div>
           <BrandLogo variant="light" />
           <p className="mt-5 max-w-md text-sm leading-7 text-cream/70">
-            The True Remnant Network is a Christian media and resource platform for biblical truth, spiritual warfare
-            prayer, testimonies, missions, teaching, worship, books, and Gospel-centred resources.
+            The True Remnant Network is a Christian interview, conversation, and end-times discernment ministry seeking
+            biblical truth, context, unity, and faithfulness to Jesus Christ.
           </p>
           <DonateLink className="mt-5 inline-flex rounded-full bg-gold px-5 py-3 text-sm font-black text-ink">
             Donate with PayPal

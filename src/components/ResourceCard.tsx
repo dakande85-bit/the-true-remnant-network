@@ -1,12 +1,5 @@
 import type { Resource } from "@/data/resources";
 
-const statusLabel: Record<Resource["status"], string> = {
-  featured: "Featured",
-  recommended: "Recommended",
-  resource: "Resource",
-  "review-needed": "Review needed"
-};
-
 export function ResourceCard({ item }: { item: Resource }) {
   const href = `/resources/${item.slug}`;
   const externalLink =
@@ -22,7 +15,6 @@ export function ResourceCard({ item }: { item: Resource }) {
       <div className="min-h-44 bg-gradient-to-br from-ink via-stone-900 to-gold-deep p-5 text-cream">
         <div className="flex flex-wrap gap-2">
           <span className="rounded-full bg-cream/10 px-3 py-1 text-xs font-black uppercase tracking-wide">{item.category}</span>
-          <span className="rounded-full border border-cream/20 px-3 py-1 text-xs font-bold">{statusLabel[item.status]}</span>
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">

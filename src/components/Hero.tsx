@@ -43,12 +43,12 @@ export function Hero({
         </div>
         <div className="min-h-80 rounded-[2rem] border border-gold/30 bg-gradient-to-br from-ink via-stone-900 to-gold-deep p-6 shadow-editorial">
           <div className="flex h-full flex-col justify-end rounded-[1.5rem] border border-cream/10 p-6">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">Gospel-centred resources</p>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-gold">One Body. One Mind.</p>
             <div className="mt-5 grid gap-3">
               {[
-                ["Watch", "Podcast interviews, testimonies, and teaching videos."],
-                ["Pray", "Christ-centred prayers for repentance, protection, and standing firm."],
-                ["Grow", "Books, worship, articles, and discipleship resources."]
+                ["Watch", "Interviews, testimonies, and conversations for the Body of Christ."],
+                ["Discern", "Scripture-first discussions about doctrine, prophecy, and deception."],
+                ["Stand", "Prayer, unity, endurance, and faithfulness in the last days."]
               ].map(([title, copy]) => (
                 <div className="rounded-2xl border border-cream/10 bg-cream/10 p-4 text-cream" key={title}>
                   <strong>{title}</strong>

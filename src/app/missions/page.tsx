@@ -10,8 +10,8 @@ export default async function MissionsPage() {
     <>
       <Hero
         eyebrow="Missions"
-        title="Discover mission projects with official support links."
-        description="Mission profiles explain the work, prayer needs, accountability context, and external support routes. The platform does not process donations."
+        title="Mission, testimony, and evangelism in the last days."
+        description="Mission stories help the Body of Christ pray, serve, witness, and remember that the Gospel must still be carried with compassion and truth."
       />
       <FeaturedSection eyebrow="Mission" title="Mission stories and outreach resources" muted>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

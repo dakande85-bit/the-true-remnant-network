@@ -280,7 +280,7 @@ export const resources: Resource[] = [
     resourceType: "resource",
     status: "resource",
     summary: "Curated Christian resource entry awaiting fuller notes, links, and topic review.",
-    whyIncluded: "Added to the resource library for later curation and placement.",
+    whyIncluded: "Saved as a future study resource that may support conversations and testimony content.",
     topics: ["Testimony", "Christian Living"],
     links: {}
   },
@@ -353,7 +353,7 @@ export const resources: Resource[] = [
     resourceType: inferType(name),
     status: "review-needed",
     summary: "Curated candidate resource awaiting owner review, links, and placement notes.",
-    whyIncluded: "Added to the internal resource library for review before public featuring.",
+    whyIncluded: "Saved as an internal candidate for future study notes, conversation support, and careful placement.",
     topics: inferTopics(name),
     links: {}
   }))

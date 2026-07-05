@@ -8,12 +8,12 @@ export default function AboutPage() {
     <>
       <Hero
         eyebrow="About"
-        title="A Christian media and resource platform for believers standing firm."
-        description="The True Remnant Network points people back to the true Jesus through biblical teaching, prayer, discernment, testimony, worship, missions, and Gospel-centred resources."
+        title="A Christian interview and end-times discernment ministry."
+        description="The True Remnant Network brings believers together to discuss faith, doctrine, prophecy, spiritual warfare, and the difficult questions facing the Body of Christ."
       />
       <FeaturedSection
         eyebrow="Who We Are"
-        title="Created to help believers stand firm in truth."
+        title={homeContent.who.title}
         description={homeContent.who.copy}
         muted
       >

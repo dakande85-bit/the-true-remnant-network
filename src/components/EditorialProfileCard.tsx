@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { DirectoryProfile } from "@/data/directory";
 import { editorialImages } from "@/content/images";
-import { StatusBadge } from "./StatusBadge";
 
 export function EditorialProfileCard({ profile }: { profile: DirectoryProfile }) {
   const href = profile.kind === "person" ? `/people/${profile.slug}` : `/organisations/${profile.slug}`;
@@ -21,7 +20,6 @@ export function EditorialProfileCard({ profile }: { profile: DirectoryProfile })
       </a>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex flex-wrap items-center gap-2">
-          <StatusBadge status={profile.status} />
           <span className="text-xs font-bold uppercase tracking-wide text-stone-500">{profile.kind}</span>
         </div>
         <h3 className="mt-4 font-display text-3xl leading-tight text-ink">{profile.name}</h3>
@@ -37,7 +35,7 @@ export function EditorialProfileCard({ profile }: { profile: DirectoryProfile })
           ))}
         </div>
         <a className="mt-5 rounded-full bg-ink px-4 py-3 text-center text-sm font-black text-cream" href={href}>
-          Open Dossier
+          View Profile
         </a>
       </div>
     </article>

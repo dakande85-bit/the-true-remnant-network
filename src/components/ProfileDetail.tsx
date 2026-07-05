@@ -3,7 +3,6 @@ import type { DirectoryProfile } from "@/data/directory";
 import { getRelatedProfiles } from "@/data/directory";
 import { editorialImages } from "@/content/images";
 import { EditorialProfileCard } from "./EditorialProfileCard";
-import { StatusBadge } from "./StatusBadge";
 
 export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
   const image = editorialImages[profile.imageKey];
@@ -25,7 +24,7 @@ export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
         <div className="relative mx-auto grid min-h-[640px] w-[min(1180px,calc(100%-32px))] items-end gap-8 py-14 lg:grid-cols-[1fr_360px]">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.24em] text-gold">
-              {profile.kind === "person" ? "Person Dossier" : "Organisation Dossier"}
+              {profile.kind === "person" ? "Conversation Profile" : "Ministry Profile"}
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-6xl leading-[0.92] tracking-tight md:text-8xl">{profile.name}</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-cream/74">{profile.summary}</p>
@@ -38,7 +37,6 @@ export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
             </div>
           </div>
           <aside className="rounded-[1.5rem] border border-cream/15 bg-cream/10 p-6 backdrop-blur-md">
-            <StatusBadge status={profile.status} />
             {profile.isExample ? <p className="mt-3 text-sm font-bold text-gold">Example profile for launch presentation.</p> : null}
             <dl className="mt-6 grid gap-4 text-sm">
               <div>
@@ -63,7 +61,7 @@ export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
               <p className="mt-5 text-lg leading-8 text-stone-600">{profile.story}</p>
             </article>
             <article className="rounded-[2rem] border border-linen bg-white p-7 shadow-sm">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Review notes</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Conversation notes</p>
               <p className="mt-4 text-lg leading-8 text-stone-600">{profile.reviewNotes}</p>
             </article>
             <article className="rounded-[2rem] border border-linen bg-white p-7 shadow-sm">
@@ -98,7 +96,7 @@ export function ProfileDetail({ profile }: { profile: DirectoryProfile }) {
         <section className="bg-white py-20">
           <div className="mx-auto w-[min(1180px,calc(100%-32px))]">
             <p className="text-xs font-black uppercase tracking-[0.2em] text-gold-deep">Related profiles</p>
-            <h2 className="mt-3 font-display text-5xl text-ink">Continue through the network</h2>
+            <h2 className="mt-3 font-display text-5xl text-ink">Continue the conversation</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {relatedProfiles.map((related) => (
                 <EditorialProfileCard key={related.id} profile={related} />

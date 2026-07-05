@@ -154,11 +154,11 @@ export const directoryProfiles: DirectoryProfile[] = [
     country: "Global",
     summary: "A media profile for long-form conversations, testimonies, ministry stories, and teaching discussions.",
     description:
-      "The Remnant Podcast profile shows how the media engine can sit beside directory records and help users hear the person behind each listing.",
+      "The Remnant Podcast profile shows how long-form conversations can help believers hear testimony, context, and conviction behind each discussion.",
     story:
       "Trust grows through more than a card. Long-form interviews give space for testimony, doctrine, mission history, and the texture of a person or ministry's work.",
     reviewNotes:
-      "Platform-owned demo profile. Guest profiles should still be reviewed individually before being promoted in the directory.",
+      "Platform-owned demo profile. Guest conversations should be handled carefully, with Scripture, context, humility, and public language in view.",
     beliefs: ["Story-led trust", "Long-form conversation", "Careful public language"],
     focus: ["Podcast interviews", "Testimonies", "Teaching conversations", "Mission stories"],
     tags: ["Podcast", "Interview", "Media"],
@@ -179,7 +179,7 @@ export const directoryProfiles: DirectoryProfile[] = [
     country: "United Kingdom",
     summary: "A worship and testimony example for music, spoken stories, and externally hosted sessions.",
     description:
-      "This demo profile shows how worship artists and testimony-led media can be listed with public links, care, and review notes.",
+      "This demo profile shows how worship and testimony-led conversations can be presented with public links, care, and context.",
     story:
       "Music and testimony can be powerful discovery paths, but the network keeps the language careful and asks users to examine doctrine, fruit, and local accountability.",
     reviewNotes:

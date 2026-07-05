@@ -15,7 +15,7 @@ export const mediaItems: MediaItem[] = [
     guest: "Founder episode",
     type: "Podcast",
     status: "Planned",
-    summary: "A launch conversation about the true Gospel, discernment, prayer, media, and resources for believers.",
+    summary: "A launch conversation about one Body, one mind, the true Gospel, end-times discernment, and unity in Christ.",
     url: "https://youtube.com"
   },
   {
@@ -24,7 +24,7 @@ export const mediaItems: MediaItem[] = [
     guest: "Elias Morgan",
     type: "Teaching",
     status: "Recording",
-    summary: "A discernment episode on doctrine, fruit, humility, and public ministry review.",
+    summary: "A discernment episode on doctrine, context, fruit, humility, and testing everything by Scripture.",
     url: "https://youtube.com"
   },
   {
@@ -33,7 +33,7 @@ export const mediaItems: MediaItem[] = [
     guest: "Frontier Bible Mission",
     type: "Interview",
     status: "Planned",
-    summary: "Mission stories, prayer needs, and official support links from the field.",
+    summary: "Mission stories, testimony, prayer, and evangelism in the last days.",
     url: "https://youtube.com"
   }
 ];

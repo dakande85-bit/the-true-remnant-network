@@ -4,11 +4,11 @@ import { DonateLink } from "./DonateLink";
 const links = [
   ["About", "/about"],
   ["Watch", "/watch"],
-  ["Resources", "/resources"],
+  ["Topics", "/topics"],
+  ["End Times", "/end-times"],
   ["Prayers", "/prayers"],
   ["Blog", "/blog"],
-  ["Newsletter", "/newsletter"],
-  ["Donate", "/donate"]
+  ["Newsletter", "/newsletter"]
 ];
 
 export function Header() {

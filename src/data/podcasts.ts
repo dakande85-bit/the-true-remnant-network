@@ -17,7 +17,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
     topic: "Vision",
     series: "Foundations",
     summary:
-      "A launch episode explaining the mission: faithful voices, reviewed ministries, sound resources and a simple Christian discovery network.",
+      "A launch episode explaining the mission: interviews, difficult questions, biblical truth, context, unity, and end-times discernment.",
     youtubeUrl: "#",
     status: "Planned"
   },

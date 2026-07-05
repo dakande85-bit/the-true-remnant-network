@@ -2,10 +2,11 @@ import { AdminLayout } from "@/components/AdminLayout";
 import { getSupabaseConfig } from "@/lib/supabase";
 
 const adminAreas = [
-  ["Videos", "Manage YouTube videos, interviews, short-form teachings, and featured watch content."],
-  ["Blog posts", "Draft and publish articles on the Gospel, discernment, prayer, and Christian living."],
+  ["Conversations", "Manage YouTube videos, interviews, testimonies, and featured watch content."],
+  ["Blog posts", "Draft and publish articles on the Gospel, end-times discernment, prayer, and Christian living."],
   ["Prayers", "Organise prayer categories, written prayers, Scripture notes, and future audio resources."],
-  ["Resources", "Curate teachings, books, worship, music, and discipleship resources."],
+  ["Topics", "Organise doctrine, prophecy, context notes, and difficult questions for future episodes."],
+  ["Resources", "Curate teachings, books, voices, and study resources that support each conversation."],
   ["Missions", "Share mission stories, updates, external support links, and outreach reports."],
   ["Books", "Maintain recommended reading lists and external book links."],
   ["Music", "Curate worship and testimony-led music resources."],
@@ -19,9 +20,9 @@ export default function AdminPage() {
     <AdminLayout>
       <div className="rounded-[2rem] border border-cream/10 bg-cream p-7 text-ink shadow-editorial">
         <p className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">Admin dashboard</p>
-        <h1 className="mt-3 font-display text-5xl leading-tight">Media and resource control room</h1>
+        <h1 className="mt-3 font-display text-5xl leading-tight">Conversation ministry control room</h1>
         <p className="mt-4 max-w-2xl leading-7 text-stone-600">
-          Demo admin surface for videos, blog posts, prayers, resources, missions, books, music, teachings, and
+          Demo admin surface for interviews, topics, end-times studies, prayers, articles, resources, missions, and
           newsletter signups. Authentication and writes should be added before this becomes operational.
         </p>
         <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-bold text-amber-900">
