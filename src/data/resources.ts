@@ -40,18 +40,21 @@ export type Resource = {
 export const resourceCategories = [
   "Men & Women of God",
   "Teachings",
-  "Spiritual Warfare Prayers",
+  "Prayers",
   "Apologetics",
-  "Podcast & Interviews",
-  "Books & Audiobooks",
-  "Worship & Music",
-  "Missions",
-  "Testimonies",
-  "Devotionals",
-  "Bible Study",
-  "Discernment",
-  "End Times & Deception",
-  "Christian Living"
+  "Books & Resources",
+  "Podcast Interviews"
+];
+
+const launchResourceSlugs = [
+  "russ-dizdar",
+  "pastor-kevin-l-a-ewing",
+  "mike-winger",
+  "derek-prince",
+  "david-pawson-official",
+  "wes-huff",
+  "todd-friel-wretched",
+  "cross-examined"
 ];
 
 export const resources: Resource[] = [
@@ -383,8 +386,9 @@ export const internalReviewResources = [
   links: {}
 }));
 
-export const publicResources = resources.filter((resource) => resource.category !== "Internal Review");
+export const publicResources = resources.filter((resource) => launchResourceSlugs.includes(resource.slug));
 export const menAndWomenOfGod = publicResources.filter((resource) => resource.category === "Men & Women of God");
+export const hiddenReviewResources = resources.filter((resource) => !launchResourceSlugs.includes(resource.slug));
 
 export function getResourceBySlug(slug: string) {
   return publicResources.find((resource) => resource.slug === slug);
