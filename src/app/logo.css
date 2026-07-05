@@ -10,12 +10,6 @@
   object-fit: contain;
 }
 
-.brand-logo-light {
-  border-radius: 18px;
-  background: rgba(255, 250, 240, 0.96);
-  padding: 8px 12px;
-}
-
 .footer .brand-logo {
   margin-bottom: 16px;
 }

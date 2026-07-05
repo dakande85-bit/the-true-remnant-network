@@ -12,7 +12,7 @@ export function BrandLogo({ variant = "dark" }: BrandLogoProps) {
         className="brand-logo-image"
         height={120}
         priority
-        src="/brand/true-remnant-wordmark.png"
+        src="/brand/true-remnant-wordmark-transparent.png"
         width={360}
       />
     </span>
