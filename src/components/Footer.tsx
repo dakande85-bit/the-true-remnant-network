@@ -1,4 +1,5 @@
 import { BrandLogo } from "./BrandLogo";
+import { DonateLink } from "./DonateLink";
 
 const footerColumns = [
   {
@@ -15,6 +16,7 @@ const footerColumns = [
     links: [
       ["Blog", "/blog"],
       ["Newsletter", "/newsletter"],
+      ["Donate", "/donate"],
       ["Admin", "/admin"]
     ]
   }
@@ -30,6 +32,9 @@ export function Footer() {
             The True Remnant Network is a Christian media and resource platform for biblical truth, spiritual warfare
             prayer, testimonies, missions, teaching, worship, books, and Gospel-centred resources.
           </p>
+          <DonateLink className="mt-5 inline-flex rounded-full bg-gold px-5 py-3 text-sm font-black text-ink">
+            Donate with PayPal
+          </DonateLink>
           <p className="mt-4 text-sm font-semibold text-gold">External links only. No in-site payments.</p>
         </div>
         {footerColumns.map((column) => (

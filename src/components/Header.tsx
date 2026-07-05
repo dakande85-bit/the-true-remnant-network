@@ -1,4 +1,5 @@
 import { BrandLogo } from "./BrandLogo";
+import { DonateLink } from "./DonateLink";
 
 const links = [
   ["About", "/about"],
@@ -6,7 +7,8 @@ const links = [
   ["Resources", "/resources"],
   ["Prayers", "/prayers"],
   ["Blog", "/blog"],
-  ["Newsletter", "/newsletter"]
+  ["Newsletter", "/newsletter"],
+  ["Donate", "/donate"]
 ];
 
 export function Header() {
@@ -23,9 +25,9 @@ export function Header() {
             </a>
           ))}
         </nav>
-        <a className="hidden rounded-full bg-ink px-5 py-3 text-sm font-bold text-cream shadow-editorial sm:inline-flex" href="/newsletter">
-          Join Newsletter
-        </a>
+        <DonateLink className="hidden rounded-full bg-gold px-5 py-3 text-sm font-black text-ink shadow-editorial sm:inline-flex">
+          Donate
+        </DonateLink>
       </div>
     </header>
   );
