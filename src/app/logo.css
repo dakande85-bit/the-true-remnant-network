@@ -1,75 +1,19 @@
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: var(--ink);
+  line-height: 0;
 }
 
-.brand-mark {
-  width: 54px;
-  height: 54px;
-  display: inline-flex;
-  flex: 0 0 auto;
-}
-
-.brand-mark svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.brand-arc,
-.brand-base,
-.brand-cross,
-.brand-person-body {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.brand-arc,
-.brand-base,
-.brand-person-body {
-  stroke: var(--gold);
-  stroke-width: 6;
-}
-
-.brand-cross {
-  stroke: currentColor;
-  stroke-width: 9;
-}
-
-.brand-person {
-  fill: var(--gold);
-}
-
-.brand-wordmark {
-  display: grid;
-  line-height: 0.95;
-  letter-spacing: 0.04em;
-}
-
-.brand-wordmark strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
-  font-weight: 800;
-  letter-spacing: 0.035em;
-}
-
-.brand-wordmark small {
-  color: var(--gold-dark);
-  font-size: 0.66rem;
-  font-weight: 900;
-  letter-spacing: 0.42em;
-  margin-top: 5px;
+.brand-logo-image {
+  width: min(280px, 58vw);
+  height: auto;
+  object-fit: contain;
 }
 
 .brand-logo-light {
-  color: #fff;
-}
-
-.brand-logo-light .brand-wordmark small {
-  color: #e5be63;
+  border-radius: 18px;
+  background: rgba(255, 250, 240, 0.96);
+  padding: 8px 12px;
 }
 
 .footer .brand-logo {
@@ -77,17 +21,7 @@
 }
 
 @media (max-width: 760px) {
-  .brand-mark {
-    width: 44px;
-    height: 44px;
-  }
-
-  .brand-wordmark strong {
-    font-size: 0.92rem;
-  }
-
-  .brand-wordmark small {
-    font-size: 0.55rem;
-    letter-spacing: 0.34em;
+  .brand-logo-image {
+    width: min(220px, 62vw);
   }
 }

@@ -11,8 +11,8 @@ const links = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-linen/80 bg-cream/90 backdrop-blur-xl">
-      <div className="mx-auto flex min-h-20 w-[min(1180px,calc(100%-32px))] items-center justify-between gap-6">
+    <header className="sticky top-0 z-40 border-b border-gold/20 bg-[#fffaf0]/92 shadow-[0_12px_40px_rgba(9,11,15,0.06)] backdrop-blur-xl">
+      <div className="mx-auto flex min-h-24 w-[min(1240px,calc(100%-32px))] items-center justify-between gap-6">
         <a href="/" aria-label="The True Remnant Network home">
           <BrandLogo />
         </a>
