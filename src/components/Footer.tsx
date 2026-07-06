@@ -3,22 +3,21 @@ import { DonateLink } from "./DonateLink";
 
 const footerColumns = [
   {
-    title: "Ministry",
+    title: "Podcast",
     links: [
-      ["About", "/about"],
-      ["Watch", "/watch"],
-      ["Topics", "/topics"],
-      ["End Times", "/end-times"]
+      ["Episodes", "/watch"],
+      ["Guests", "/guests"],
+      ["Blog", "/blog"],
+      ["Events", "/events"]
     ]
   },
   {
-    title: "Stay Connected",
+    title: "Explore",
     links: [
-      ["Prayers", "/prayers"],
       ["Resources", "/resources"],
-      ["Blog", "/blog"],
-      ["Newsletter", "/newsletter"],
-      ["Donate", "/donate"]
+      ["Prayers", "/prayers"],
+      ["About", "/about"],
+      ["Newsletter", "/newsletter"]
     ]
   }
 ];
@@ -30,13 +29,16 @@ export function Footer() {
         <div>
           <BrandLogo variant="light" />
           <p className="mt-5 max-w-md text-sm leading-7 text-cream/70">
-            The True Remnant Network is a Christian interview, conversation, and end-times discernment ministry seeking
-            biblical truth, context, unity, and faithfulness to Jesus Christ.
+            The True Remnant is a Christian podcast and media platform for conversations about faith, Scripture, the Gospel,
+            spiritual warfare, the Church, and the times we are living in.
           </p>
           <DonateLink className="mt-5 inline-flex rounded-full bg-gold px-5 py-3 text-sm font-black text-ink">
-            Donate with PayPal
+            Support the Podcast
           </DonateLink>
-          <p className="mt-4 text-sm font-semibold text-gold">External links only. No in-site payments.</p>
+          <p className="mt-4 text-sm font-semibold text-gold">Support and partner links are handled through trusted external platforms.</p>
+          <p className="mt-6 text-xs leading-6 text-cream/45">
+            © 2026 The True Remnant. All rights reserved.
+          </p>
         </div>
         {footerColumns.map((column) => (
           <div key={column.title}>
