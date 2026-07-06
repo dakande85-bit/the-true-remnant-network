@@ -2,38 +2,61 @@ export type MediaItem = {
   id: string;
   title: string;
   guest: string;
-  type: "Podcast" | "Interview" | "Teaching" | "Worship";
+  type: "Podcast" | "Interview" | "Teaching" | "Testimony";
   status: "Planned" | "Recording" | "Published";
   summary: string;
   url: string;
+  duration?: string;
+  tags?: string[];
 };
 
 export const mediaItems: MediaItem[] = [
   {
-    id: "media-001",
-    title: "Why The True Remnant Network Exists",
+    id: "episode-001",
+    title: "Why The True Remnant Exists",
     guest: "Founder episode",
     type: "Podcast",
     status: "Planned",
-    summary: "A launch conversation about one Body, one mind, the true Gospel, end-times discernment, and unity in Christ.",
+    duration: "45 min",
+    tags: ["Launch", "Gospel", "Conversation"],
+    summary:
+      "A launch episode introducing the podcast, the heart behind the conversations, and why faith, truth, Scripture, and the last days matter now.",
     url: "https://youtube.com"
   },
   {
-    id: "media-002",
-    title: "Testing the Fruit Without Becoming Proud",
-    guest: "Elias Morgan",
-    type: "Teaching",
-    status: "Recording",
-    summary: "A discernment episode on doctrine, context, fruit, humility, and testing everything by Scripture.",
-    url: "https://youtube.com"
-  },
-  {
-    id: "media-003",
-    title: "Stories From the Mission Field",
-    guest: "Frontier Bible Mission",
+    id: "episode-002",
+    title: "What Is the True Gospel?",
+    guest: "Guest to be announced",
     type: "Interview",
     status: "Planned",
-    summary: "Mission stories, testimony, prayer, and evangelism in the last days.",
+    duration: "60 min",
+    tags: ["Gospel", "Salvation", "Doctrine"],
+    summary:
+      "A conversation on salvation, grace, repentance, faith, and what the Church must keep clear when speaking about Jesus Christ.",
+    url: "https://youtube.com"
+  },
+  {
+    id: "episode-003",
+    title: "Spiritual Warfare Without Hype",
+    guest: "Guest to be announced",
+    type: "Interview",
+    status: "Planned",
+    duration: "60 min",
+    tags: ["Prayer", "Spiritual Warfare", "Discernment"],
+    summary:
+      "A serious and Scripture-first discussion on prayer, deliverance, spiritual darkness, and standing firm without sensationalism.",
+    url: "https://youtube.com"
+  },
+  {
+    id: "episode-004",
+    title: "Are We Living in the Last Days?",
+    guest: "Guest to be announced",
+    type: "Teaching",
+    status: "Planned",
+    duration: "50 min",
+    tags: ["End Times", "Prophecy", "Readiness"],
+    summary:
+      "A sober conversation about prophecy, deception, tribulation, readiness, and the return of Jesus Christ.",
     url: "https://youtube.com"
   }
 ];
