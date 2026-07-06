@@ -1,49 +1,42 @@
-const events = [
-  ["Prayer Night", "Weekly or monthly prayer gatherings with organiser details and location."],
-  ["Conference", "Christian conferences, teaching weekends and leadership events."],
-  ["Mission Trip", "Mission opportunities with official organisers and application links."],
-  ["Book Launch", "Christian author launches, talks and resource events."],
-  ["Worship Night", "Worship gatherings, music events and testimony nights."],
-  ["Evangelism Outreach", "Public outreach, discipleship events and community ministry."]
-];
+import { CategoryFilter } from "@/components/CategoryFilter";
+import { FeaturedSection } from "@/components/FeaturedSection";
+import { Hero } from "@/components/Hero";
+import { TextField } from "@/components/forms";
+import { dataProvider } from "@/lib/data";
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const events = await dataProvider.events.list();
+
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">Events</p>
-          <h1>Christian events, conferences, prayer nights and missions.</h1>
-          <p>
-            Events should be reviewed before listing and should link externally to the official organiser or ticket page.
-          </p>
+      <Hero
+        eyebrow="Events"
+        title="Christian events, conferences, prayer nights, and mission trips."
+        description="Events are listed with clear organiser context and external official links for tickets, registration, or details."
+      />
+      <section className="py-8">
+        <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-4">
+          <TextField label="Search events" placeholder="Prayer, conference, worship, mission" />
+          <CategoryFilter categories={["All", "Prayer Night", "Conference", "Mission Trip", "Worship Night"]} />
         </div>
       </section>
-
-      <section className="section-tight">
-        <div className="container card">
-          <div className="form-grid">
-            <label>Search event<input className="input" placeholder="Prayer, conference, mission, worship" /></label>
-            <label>Location<input className="input" placeholder="City, country or online" /></label>
-            <label>Event type<select><option>All Events</option><option>Prayer Night</option><option>Conference</option><option>Mission Trip</option><option>Worship Night</option></select></label>
-            <label>Month<select><option>Any Month</option><option>This Month</option><option>Next Month</option></select></label>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-muted">
-        <div className="container grid grid-3">
-          {events.map(([title, description]) => (
-            <article className="card" key={title}>
-              <div className="card-cover profile-cover"><span>{title}</span></div>
-              <span className="badge">Event</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
-              <a className="btn btn-soft" href="/submit">Submit Event</a>
+      <FeaturedSection eyebrow="Calendar" title="Curated event listings" muted>
+        <div className="grid gap-5 md:grid-cols-3">
+          {events.map((event) => (
+            <article className="rounded-2xl border border-linen bg-parchment p-6" key={event.id}>
+              <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-black uppercase tracking-wide text-gold-deep">
+                {event.type}
+              </span>
+              <h3 className="mt-4 font-display text-2xl text-ink">{event.title}</h3>
+              <p className="mt-2 text-sm font-black text-stone-700">{event.date} · {event.location}</p>
+              <p className="mt-3 text-sm leading-6 text-stone-600">{event.summary}</p>
+              <a className="mt-5 inline-flex rounded-full bg-ink px-4 py-3 text-sm font-black text-cream" href={event.url}>
+                Open Event Link
+              </a>
             </article>
           ))}
         </div>
-      </section>
+      </FeaturedSection>
     </>
   );
 }

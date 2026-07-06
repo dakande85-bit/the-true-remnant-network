@@ -1,142 +1,437 @@
-export type ResourceType = "Book" | "Music" | "Audio Teaching" | "Audio Bible" | "Devotional" | "Bible Tool";
+export type ResourceType =
+  | "person"
+  | "ministry"
+  | "youtube-channel"
+  | "podcast"
+  | "music"
+  | "book"
+  | "church"
+  | "mission"
+  | "prayer"
+  | "blog"
+  | "resource";
 
-export type ResourceItem = {
+export type ResourceStatus = "featured" | "recommended" | "resource" | "review-needed";
+
+export type Resource = {
   id: string;
-  title: string;
-  creator: string;
-  type: ResourceType;
-  topic: string;
+  name: string;
+  slug: string;
+  category: string;
+  resourceType: ResourceType;
   summary: string;
-  url: string;
-  level: "Starter" | "Recommended" | "Reviewed";
-  duration?: string;
+  bio?: string;
+  testimony?: string;
+  whyIncluded?: string;
+  topics: string[];
+  links: {
+    website?: string;
+    youtube?: string;
+    spotify?: string;
+    applePodcast?: string;
+    instagram?: string;
+    books?: string;
+    donation?: string;
+  };
+  image?: string;
+  status: ResourceStatus;
 };
 
-const amazonLinks = {
-  unseenRealm: "https://www.amazon.com/gp/product/1577995562/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1577995562&linkCode=as2&tag=drmicsheihom-20&linkId=8ff28cca3fcf452d54b541459416126e",
-  jasher: "https://www.amazon.com/gp/product/0830852522/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0830852522&linkCode=as2&tag=adherentapo0e-20&linkId=9797052b9147ab9ab5f39bd0ffd788e5",
-  enoch1: "https://www.amazon.com/gp/product/019958043X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=019958043X&linkCode=as2&tag=adherentapo0e-20&linkId=c430f8e4911157f43d52c450bf3b0f66",
-  advancedStudy04: "https://www.amazon.com/gp/product/1444350854/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1444350854&linkCode=as2&tag=adherentapo0e-20&linkId=7dff4068369e94661fe9d36027bb8c54",
-  advancedStudy05: "https://www.amazon.com/gp/product/0199271682/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0199271682&linkCode=as2&tag=adherentapo0e-20&linkId=c11ea58919ddb840ca28793f62fbbbd6",
-  advancedStudy06: "https://www.amazon.com/gp/product/3030237540/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=3030237540&linkCode=as2&tag=adherentapo0e-20&linkId=6c90392830656507252b787918c6b6fe",
-  advancedStudy07: "https://www.amazon.com/gp/product/0310259185/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0310259185&linkCode=as2&tag=adherentapo0e-20&linkId=aafc38341156becbb91cd67d04aed0f6",
-  advancedStudy08: "https://www.amazon.com/gp/product/0061452572/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0061452572&linkCode=as2&tag=adherentapo0e-20&linkId=78593bc31b02012572be6392ecceae4f",
-  advancedStudy09: "https://www.amazon.com/gp/product/0802411002/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0802411002&linkCode=as2&tag=adherentapo0e-20&linkId=1e384533d4a20961d365079425ff3854",
-  advancedStudy10: "https://www.amazon.com/gp/product/1581345615/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1581345615&linkCode=as2&tag=adherentapo0e-20&linkId=2d9a8d0b9177753d5c4fb5bbeef2c90b",
-  advancedStudy11: "https://www.amazon.com/gp/product/031024210X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=031024210X&linkCode=as2&tag=adherentapo0e-20&linkId=cfd12fa7208410e7f17e3f293d7692b5",
-  advancedStudy12: "https://www.amazon.com/gp/product/0310345863/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0310345863&linkCode=as2&tag=adherentapolo-20&linkId=d23db1f5ac8cb4afea91f0aa80bf5d6f",
-  advancedStudy13: "https://www.amazon.com/gp/product/0825427886/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0825427886&linkCode=as2&tag=adherentapo0e-20&linkId=c54af4cae93ec9cf030cef2003f1fbb9",
-  advancedStudy14: "https://www.amazon.com/gp/product/1414326270/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1414326270&linkCode=as2&tag=adherentapo0e-20&linkId=f6abc881d89929220bc8386913450273",
-  advancedStudy15: "https://www.amazon.com/gp/product/1434704696/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1434704696&linkCode=as2&tag=adherentapo0e-20&linkId=5b3c626dfb0295b011cc24c95d1f9e69",
-  advancedStudy16: "https://www.amazon.com/gp/product/1947929151/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1947929151&linkCode=as2&tag=adherentapo0e-20&linkId=4d173e482027a643bc6c604198efcc26",
-  advancedStudy17: "https://www.amazon.com/gp/product/168307162X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=168307162X&linkCode=as2&tag=adherentapo0e-20&linkId=8759d2328a5583c88771ac846fc939d6",
-  advancedStudy18: "https://www.amazon.com/gp/product/1401676707/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1401676707&linkCode=as2&tag=adherentapo0e-20&linkId=041ea7f8871629d2959b8be9118d2359",
-  advancedStudy19: "https://www.amazon.com/gp/product/0736974288/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0736974288&linkCode=as2&tag=adherentapo0e-20&linkId=16c99168efe6ac55be82eb7f37e351e0",
-  advancedStudy20: "https://www.amazon.com/gp/product/0060652969/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060652969&linkCode=as2&tag=adherentapo0e-20&linkId=2b8983bd141e91cec847066856486187",
-  advancedStudy21: "https://www.amazon.com/gp/product/0060652950/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060652950&linkCode=as2&tag=adherentapo0e-20&linkId=7510dec6465dd05c55a26335311d0c53",
-  advancedStudy22: "https://www.amazon.com/gp/product/1732383405/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1732383405&linkCode=as2&tag=adherentapo0e-20&linkId=c72d60fc794e12797864ffc418f2190c",
-  advancedStudy23: "https://www.amazon.com/gp/product/0830845186/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0830845186&linkCode=as2&tag=adherentapo0e-20&linkId=02a6daf83ba3b58cc805747ffc91203b",
-  advancedStudy24: "https://www.amazon.com/gp/product/019882601X/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=019882601X&linkCode=as2&tag=adherentapo0e-20&linkId=6618b35bb05393f71197a1d054604d23",
-  advancedStudy25: "https://www.amazon.com/gp/product/1108487602/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1108487602&linkCode=as2&tag=adherentapo0e-20&linkId=31cf4551fcbf1e40eaa9e7be301e5877",
-  advancedStudy26: "https://www.amazon.com/gp/product/0198237987/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0198237987&linkCode=as2&tag=adherentapo0e-20&linkId=71fa62f714ad585f31ce10b756e4baa4"
-};
-
-const advancedStudyBooks: ResourceItem[] = Object.entries(amazonLinks)
-  .filter(([id]) => id.startsWith("advancedStudy"))
-  .map(([id, url], index) => ({
-    id: `book-${id}`,
-    title: `Advanced Biblical Studies Resource ${String(index + 4).padStart(2, "0")}`,
-    creator: "Curated external book link",
-    type: "Book",
-    topic: "Advanced Biblical Studies",
-    summary: "External Amazon book link supplied for the advanced reading list. Replace this placeholder title with the verified book title before public launch.",
-    url,
-    level: "Starter"
-  }));
-
-export const resourceItems: ResourceItem[] = [
-  {
-    id: "book-the-unseen-realm",
-    title: "The Unseen Realm",
-    creator: "Michael S. Heiser",
-    type: "Book",
-    topic: "Divine Council / Biblical Theology",
-    summary: "A serious biblical-theology resource on the unseen spiritual realm, divine council language and the supernatural worldview of Scripture.",
-    url: amazonLinks.unseenRealm,
-    level: "Recommended"
-  },
-  {
-    id: "book-of-jasher-study",
-    title: "The Book of Jasher",
-    creator: "Extra-biblical historical study",
-    type: "Book",
-    topic: "Ancient Texts / Background Study",
-    summary: "Listed as an extra-biblical study resource. It should be read critically and not treated as equal to the canon of Scripture.",
-    url: amazonLinks.jasher,
-    level: "Reviewed"
-  },
-  {
-    id: "book-1-enoch-study",
-    title: "1 Enoch / The Book of Enoch",
-    creator: "Second Temple Jewish literature",
-    type: "Book",
-    topic: "Ancient Texts / Watchers / Second Temple Background",
-    summary: "Listed for historical and Second Temple background study. It is not received as canonical Scripture by most Christian traditions, so it should be labelled clearly.",
-    url: amazonLinks.enoch1,
-    level: "Reviewed"
-  },
-  ...advancedStudyBooks,
-  {
-    id: "audio-bible-david-suchet-niv",
-    title: "NIV Audio Bible read by David Suchet",
-    creator: "David Suchet / NIV audio Bible",
-    type: "Audio Bible",
-    topic: "Scripture Listening",
-    summary: "External listening link for the NIV audio Bible read by David Suchet. Do not host the audio files directly; link to the authorised platform.",
-    url: "https://www.biblegateway.com/audio/suchet/niv/Gen.1",
-    level: "Recommended",
-    duration: "Full Bible audio"
-  },
-  {
-    id: "music-worship-playlist-slot",
-    title: "Worship Playlist Slot",
-    creator: "Curated artist or playlist to be added",
-    type: "Music",
-    topic: "Worship",
-    summary: "A music-tab card for worship songs, albums or playlists that are reviewed before being featured.",
-    url: "#",
-    level: "Starter",
-    duration: "Playlist"
-  },
-  {
-    id: "audio-teaching-series-slot",
-    title: "Audio Teaching Series Slot",
-    creator: "Curated speaker to be added",
-    type: "Audio Teaching",
-    topic: "Bible Teaching",
-    summary: "A teaching-audio card for sermons, studies, messages and podcast series from reviewed voices.",
-    url: "#",
-    level: "Reviewed",
-    duration: "Series"
-  },
-  {
-    id: "devotional-daily-reading-slot",
-    title: "Daily Devotional Slot",
-    creator: "Curated ministry to be added",
-    type: "Devotional",
-    topic: "Daily Faith",
-    summary: "A daily reading, prayer or reflection card for believers who want steady spiritual growth.",
-    url: "#",
-    level: "Starter"
-  },
-  {
-    id: "bible-tool-study-slot",
-    title: "Bible Study Tool Slot",
-    creator: "Curated tool provider to be added",
-    type: "Bible Tool",
-    topic: "Study Tools",
-    summary: "A Bible app, concordance, map, language tool or study resource card for deeper Scripture study.",
-    url: "#",
-    level: "Starter"
-  }
+export const resourceCategories = [
+  "Men & Women of God",
+  "Teachings",
+  "Prayers",
+  "Apologetics",
+  "Books & Resources",
+  "Podcast Interviews"
 ];
+
+const launchResourceSlugs = [
+  "russ-dizdar",
+  "pastor-kevin-l-a-ewing",
+  "mike-winger",
+  "derek-prince",
+  "david-pawson-official",
+  "wes-huff",
+  "todd-friel-wretched",
+  "cross-examined"
+];
+
+export const resources: Resource[] = [
+  {
+    id: "russ-dizdar",
+    name: "Russ Dizdar",
+    slug: "russ-dizdar",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "featured",
+    summary: "Bible teacher and deliverance-focused ministry resource connected with Shatter the Darkness and Preemption Broadcast.",
+    bio:
+      "Russ Dizdar's official site says he was ordained to ministry in 1978, served as senior pastor of four churches, founded Shatter the Darkness, and directed Preemption Broadcast.",
+    whyIncluded:
+      "Included for study around spiritual warfare, deliverance, prayer, and discernment, with the reminder that every resource should be tested by Scripture.",
+    topics: ["Spiritual Warfare", "Deliverance", "Discernment", "Prayer", "End Times"],
+    links: { website: "https://www.russdizdar.com/" }
+  },
+  {
+    id: "pastor-kevin-l-a-ewing",
+    name: "Pastor Kevin L. A. Ewing",
+    slug: "pastor-kevin-l-a-ewing",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "featured",
+    summary: "Bible teacher known online for teaching on dreams, spiritual warfare, deliverance, and prayer.",
+    bio:
+      "Public channel and author pages describe Kevin L. A. Ewing as a Bible teacher and ordained pastor; his public teaching often focuses on spiritual deliverance, dreams, and biblical knowledge.",
+    whyIncluded:
+      "Included for believers seeking teaching on prayer, deliverance, dreams, and spiritual discernment. Users should test every teaching by Scripture.",
+    topics: ["Spiritual Warfare", "Deliverance", "Prayer", "Discernment", "Bible Teaching"],
+    links: { youtube: "https://www.youtube.com/channel/UCqDr1VzEeP8f7wtr7f8SD1A" }
+  },
+  {
+    id: "mike-winger",
+    name: "Mike Winger",
+    slug: "mike-winger",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "featured",
+    summary: "BibleThinker teacher creating long-form biblical answers, apologetics content, and careful Bible study resources.",
+    bio:
+      "BibleThinker identifies Mike Winger as its featured teacher and says he works to provide free teaching content worldwide, helping people think biblically.",
+    whyIncluded:
+      "Included for accessible Bible teaching, apologetics, and careful engagement with Scripture and difficult questions.",
+    topics: ["Bible Teaching", "Apologetics", "Discernment", "Christian Living"],
+    links: { website: "https://biblethinker.org/", youtube: "https://www.youtube.com/mikewinger" }
+  },
+  {
+    id: "derek-prince",
+    name: "Derek Prince",
+    slug: "derek-prince",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "featured",
+    summary: "International Bible teacher whose ministry continues to distribute teachings on Scripture, prayer, foundations, and spiritual warfare.",
+    bio:
+      "Derek Prince Ministries describes Derek Prince as a missionary, theologian, Bible teacher, and author whose teaching ministry continues internationally.",
+    whyIncluded:
+      "Included for foundational Bible teaching, prayer, fasting, and spiritual warfare resources widely used by believers.",
+    topics: ["Bible Teaching", "Spiritual Warfare", "Prayer", "Christian Living"],
+    links: { website: "https://www.derekprince.com/en-us", youtube: "https://www.youtube.com/@DerekPrinceMinistries" }
+  },
+  {
+    id: "david-pawson-official",
+    name: "David Pawson - Official",
+    slug: "david-pawson-official",
+    category: "Men & Women of God",
+    resourceType: "youtube-channel",
+    status: "featured",
+    summary: "Official teaching archive for David Pawson's biblical exposition and book-by-book Bible teaching.",
+    bio:
+      "David Pawson's official sites describe him as a biblical expositor whose teaching translations continue through international projects.",
+    whyIncluded:
+      "Included for serious Bible study, Scripture overview teaching, and long-form biblical exposition.",
+    topics: ["Bible Teaching", "Bible Study", "Discernment", "Christian Living"],
+    links: { website: "https://www.davidpawson.org/", youtube: "https://www.youtube.com/@DavidPawsonMinistry" }
+  },
+  {
+    id: "wes-huff",
+    name: "Wes Huff",
+    slug: "wes-huff",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "featured",
+    summary: "Christian apologist and speaker engaging Scripture, manuscripts, worldview questions, and public faith conversations.",
+    bio:
+      "Wes Huff's bio says he was born in Pakistan, spent part of his childhood in the Middle East, and developed an interest in faith, worldview questions, and apologetics after deep study and personal experience.",
+    whyIncluded:
+      "Included for apologetics, manuscript reliability discussions, and thoughtful engagement with objections to Christianity.",
+    topics: ["Apologetics", "Bible Study", "Discernment", "Christian Living"],
+    links: { website: "https://www.wesleyhuff.com/", youtube: "https://www.youtube.com/@WesHuff" }
+  },
+  {
+    id: "sam-shamoun",
+    name: "Sam Shamoun / More Sam Shamoun / Shamounian Explains",
+    slug: "sam-shamoun",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "review-needed",
+    summary: "Christian apologetics resource focused on Islam, biblical theology, and doctrinal argumentation.",
+    bio:
+      "Public pages connected to Sam Shamoun present apologetics, biblical theology, doctrinal studies, and Islamic critique. A concise official biography needs further confirmation.",
+    whyIncluded:
+      "Included as a review-needed apologetics resource because the content is relevant to defending the Gospel and engaging Islam, but profile details should be checked carefully.",
+    topics: ["Apologetics", "Discernment", "Bible Teaching"],
+    links: { website: "https://answeringislam.blog/", youtube: "https://www.youtube.com/@shamounian" }
+  },
+  {
+    id: "isaiah-saldivar",
+    name: "Isaiah Saldivar",
+    slug: "isaiah-saldivar",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "recommended",
+    summary: "Preacher, livestreamer, and podcast host with content around repentance, revival, deliverance, and Christian living.",
+    bio:
+      "Isaiah Saldivar's official site says he travels and preaches a message of revival and repentance and hosts the weekly Revival Lifestyle podcast.",
+    whyIncluded:
+      "Included for teaching and conversations around repentance, prayer, deliverance, and spiritual awakening.",
+    topics: ["Deliverance", "Prayer", "Spiritual Warfare", "Christian Living"],
+    links: { website: "https://www.isaiahsaldivar.com/", youtube: "https://www.youtube.com/isaiahsaldivar" }
+  },
+  {
+    id: "mike-signorelli",
+    name: "Mike Signorelli",
+    slug: "mike-signorelli",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "recommended",
+    summary: "Pastor and media teacher connected with V1 Church and teaching on faith, spiritual growth, and spiritual battles.",
+    bio:
+      "Public ministry pages identify Mike Signorelli as the founding lead pastor of V1 Church and host of The Narrow Way, with faith-based teaching resources and events.",
+    whyIncluded:
+      "Included for media teaching around spiritual growth, deliverance, prayer, and practical Christian living.",
+    topics: ["Spiritual Warfare", "Deliverance", "Bible Teaching", "Christian Living"],
+    links: { website: "https://mikesignorelli.com/", youtube: "https://www.youtube.com/@MikeSignorelli_" }
+  },
+  {
+    id: "todd-friel-wretched",
+    name: "Todd Friel / Wretched",
+    slug: "todd-friel-wretched",
+    category: "Men & Women of God",
+    resourceType: "podcast",
+    status: "recommended",
+    summary: "Wretched TV and Radio feature witnessing encounters, theological discussion, Gospel clarity, and Christian commentary.",
+    bio:
+      "Wretched and podcast listings describe Wretched Radio as hosted by Todd Friel and focused on witnessing encounters, theological issues, and topics in the Christian community.",
+    whyIncluded:
+      "Included for Gospel clarity, evangelism, discernment, and thoughtful Christian commentary.",
+    topics: ["Apologetics", "Discernment", "Bible Teaching", "Christian Living"],
+    links: {
+      website: "https://wretched.org/",
+      youtube: "https://www.youtube.com/channel/UCdlxWNzGGPKzQLMXkkyZkUQ",
+      applePodcast: "https://podcasts.apple.com/us/podcast/wretched-radio-with-todd-friel/id1292370916"
+    }
+  },
+  {
+    id: "cross-examined",
+    name: "Cross Examined",
+    slug: "cross-examined",
+    category: "Men & Women of God",
+    resourceType: "ministry",
+    status: "featured",
+    summary: "Christian apologetics ministry and media platform connected with Frank Turek and CrossExamined.org.",
+    bio:
+      "CrossExamined.org describes its podcast as exploring major questions with logic, reason, and evidence while challenging listeners to think critically.",
+    whyIncluded:
+      "Included for apologetics, worldview engagement, and resources that defend Christianity with reasoned argument.",
+    topics: ["Apologetics", "Discernment", "Bible Teaching"],
+    links: { website: "https://crossexamined.org/", youtube: "https://www.youtube.com/CrossExamined" }
+  },
+  {
+    id: "noah-hines",
+    name: "Noah Hines",
+    slug: "noah-hines",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "recommended",
+    summary: "Deliverance and repentance-focused teaching resource connected with Expelling Darkness.",
+    bio:
+      "Expelling Darkness identifies Noah Hines and shares his testimony, with ministry content focused on repentance and deliverance through Jesus Christ.",
+    whyIncluded:
+      "Included for deliverance, repentance, prayer, and spiritual warfare teaching; users should keep testing all content by Scripture.",
+    topics: ["Deliverance", "Spiritual Warfare", "Prayer", "Testimony"],
+    links: { website: "https://expellingdarkness.com/", youtube: "https://www.youtube.com/channel/UCfGJ-GfLInkEEMaTqmHaTMA" }
+  },
+  {
+    id: "father-spyridon",
+    name: "Father Spyridon",
+    slug: "father-spyridon",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "review-needed",
+    summary: "Orthodox priest and author with video resources on spiritual life, repentance, and Christian watchfulness.",
+    bio:
+      "Public YouTube and author pages describe Father Spyridon as an Orthodox priest serving in ROCOR and an author of spiritual books.",
+    whyIncluded:
+      "Included as review-needed for sober reflection on prayer, repentance, and spiritual life from an Orthodox perspective.",
+    topics: ["Prayer", "Discernment", "Christian Living", "End Times"],
+    links: { youtube: "https://www.youtube.com/@FatherSpyridonROCOR", books: "https://www.amazon.com/stores/author/B004K2VROW" }
+  },
+  {
+    id: "abednego-lufile",
+    name: "Abednego Lufile",
+    slug: "abednego-lufile",
+    category: "Men & Women of God",
+    resourceType: "person",
+    status: "review-needed",
+    summary: "Teaching and worship resource with content around prayer, deliverance, and edifying the body of Christ.",
+    bio:
+      "Public YouTube pages identify Abednego Lufile's channels as official pages with teachings, prayers, worship, commentary, and content intended to edify believers.",
+    whyIncluded:
+      "Included as review-needed because the content themes are relevant to prayer, worship, deliverance, and testimony, but biography and ministry details should be confirmed.",
+    topics: ["Worship", "Deliverance", "Prayer", "Bible Teaching"],
+    links: { youtube: "https://www.youtube.com/@abednegolufile" }
+  },
+  {
+    id: "no-greater-love",
+    name: "No Greater Love",
+    slug: "no-greater-love",
+    category: "Testimonies",
+    resourceType: "resource",
+    status: "resource",
+    summary: "Curated Christian resource entry awaiting fuller notes, links, and topic review.",
+    whyIncluded: "Saved as a future study resource that may support conversations and testimony content.",
+    topics: ["Testimony", "Christian Living"],
+    links: {}
+  },
+  {
+    id: "tenerife-family-church",
+    name: "Tenerife Family Church",
+    slug: "tenerife-family-church",
+    category: "Missions",
+    resourceType: "church",
+    status: "resource",
+    summary: "Local church resource entry connected to fellowship, worship, teaching, and mission context.",
+    whyIncluded: "Included as a local Christian resource that can later connect to mission, prayer, and fellowship content.",
+    topics: ["Missions", "Worship", "Christian Living"],
+    links: {}
+  },
+  ...[
+    "We Need to Talk",
+    "GodLogic Apologetics",
+    "John 14:6",
+    "Ejayy",
+    "Good Fight Ministries",
+    "A&Ω Productions",
+    "Eredin",
+    "More Sam Shamoun",
+    "Fight Mythos",
+    "Nicholas Bowling",
+    "Shamounian Explains",
+    "The Bible Show",
+    "christsforgiveness",
+    "Christian Sermons and Audio Books",
+    "Thoughts On These Things with Oluwagbemiga Oyeneye",
+    "Lion of Judah",
+    "Desiring God",
+    "Andreas Poke",
+    "Grace Oasis",
+    "A Rood Awakening!",
+    "Soulful Devotions",
+    "Grace For Purpose",
+    "Jesse Speaks",
+    "Sid Roth's It's Supernatural!",
+    "Alejandro Brooks",
+    "BibleProject",
+    "NEUER WEG | Kirche in Rottweil",
+    "Joel Williams",
+    "2819 Church",
+    "Quoracles Digital Gospel",
+    "Adara's Altar",
+    "Abide Meditation App",
+    "Now You See TV",
+    "GOD'S ABLE",
+    "Emet Bible Journey",
+    "ChristianGymRat",
+    "Sol",
+    "ChristandGym",
+    "Ear to Hear",
+    "Hear God's Word",
+    "AoC Network",
+    "Quentin Kimp",
+    "Faithful Women",
+    "The Christianity Pill",
+    "Memento Mori",
+    "Journey To God",
+    "Vision unSEALED",
+    "The Gospel of Christ"
+  ].map((name): Resource => ({
+    id: slugify(name),
+    name,
+    slug: slugify(name),
+    category: inferCategory(name),
+    resourceType: inferType(name),
+    status: "review-needed",
+    summary: "Curated candidate resource awaiting owner review, links, and placement notes.",
+    whyIncluded: "Saved as an internal candidate for future study notes, conversation support, and careful placement.",
+    topics: inferTopics(name),
+    links: {}
+  }))
+];
+
+export const internalReviewResources = [
+  "Premier League",
+  "Manchester United",
+  "Billie Holiday",
+  "Vusi Thembekwayo",
+  "7clouds Rock",
+  "la vinyls",
+  "Slåttergubben",
+  "SeaLoop360",
+  "Under the Hood",
+  "The AI Bible",
+  "The Deep End w/Taylor Welch",
+  "شاشة الأخبار _ News Screen",
+  "will123will"
+].map((name): Resource => ({
+  id: `review-${slugify(name)}`,
+  name,
+  slug: `review-${slugify(name)}`,
+  category: "Internal Review",
+  resourceType: "resource",
+  status: "review-needed",
+  summary: "Held for internal review. This item is not shown as a public featured Christian resource.",
+  whyIncluded: "Kept from the imported list without public endorsement or deletion.",
+  topics: ["Review Needed"],
+  links: {}
+}));
+
+export const publicResources = resources.filter((resource) => launchResourceSlugs.includes(resource.slug));
+export const menAndWomenOfGod = publicResources.filter((resource) => resource.category === "Men & Women of God");
+export const hiddenReviewResources = resources.filter((resource) => !launchResourceSlugs.includes(resource.slug));
+
+export function getResourceBySlug(slug: string) {
+  return publicResources.find((resource) => resource.slug === slug);
+}
+
+export function getRelatedResources(resource: Resource) {
+  return publicResources
+    .filter((item) => item.slug !== resource.slug && item.topics.some((topic) => resource.topics.includes(topic)))
+    .slice(0, 3);
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function inferCategory(name: string) {
+  if (/apologetics|cross examined|godlogic|fight mythos/i.test(name)) return "Apologetics";
+  if (/worship|judah|music|soulful|abide|devotions/i.test(name)) return "Worship & Music";
+  if (/bible|sermons|teaching|project|gospel|word/i.test(name)) return "Bible Study";
+  if (/church|2819|neuer weg|oasis/i.test(name)) return "Missions";
+  if (/podcast|talk|show|thoughts/i.test(name)) return "Podcast & Interviews";
+  return "Christian Living";
+}
+
+function inferType(name: string): ResourceType {
+  if (/podcast|talk|show/i.test(name)) return "podcast";
+  if (/music|worship|judah/i.test(name)) return "music";
+  if (/church|2819|neuer weg|oasis/i.test(name)) return "church";
+  if (/bible|sermons|project|youtube|channel/i.test(name)) return "youtube-channel";
+  return "resource";
+}
+
+function inferTopics(name: string) {
+  const topics = new Set<string>(["Christian Living"]);
+  if (/apologetics|cross examined|godlogic|fight mythos/i.test(name)) topics.add("Apologetics");
+  if (/bible|sermons|project|gospel|word/i.test(name)) topics.add("Bible Teaching");
+  if (/worship|music|judah/i.test(name)) topics.add("Worship");
+  if (/devotion|abide|prayer/i.test(name)) topics.add("Prayer");
+  if (/unsealed|end|deception|aoc/i.test(name)) topics.add("End Times");
+  if (/testimony|journey/i.test(name)) topics.add("Testimony");
+  return Array.from(topics);
+}

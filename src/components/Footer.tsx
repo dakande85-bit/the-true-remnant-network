@@ -1,36 +1,57 @@
 import { BrandLogo } from "./BrandLogo";
+import { DonateLink } from "./DonateLink";
+
+const footerColumns = [
+  {
+    title: "Podcast",
+    links: [
+      ["Episodes", "/watch"],
+      ["Guests", "/guests"],
+      ["Blog", "/blog"],
+      ["Events", "/events"]
+    ]
+  },
+  {
+    title: "Explore",
+    links: [
+      ["Resources", "/resources"],
+      ["Prayers", "/prayers"],
+      ["About", "/about"],
+      ["Newsletter", "/newsletter"]
+    ]
+  }
+];
 
 export function Footer() {
   return (
-    <footer className="footer">
-      <div className="container footer-grid">
+    <footer className="bg-ink py-14 text-cream">
+      <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <a href="/" className="logo footer-logo" aria-label="The True Remnant homepage">
-            <BrandLogo variant="light" />
-          </a>
-          <p>A Christian discovery network for reviewed voices, churches, missions, resources, events and testimonies.</p>
-          <p className="footer-note">No payment marketplace in the MVP. Donation and shop links point externally.</p>
+          <BrandLogo variant="light" />
+          <p className="mt-5 max-w-md text-sm leading-7 text-cream/70">
+            The True Remnant is a Christian podcast and media platform for conversations about faith, Scripture, the Gospel,
+            spiritual warfare, the Church, and the times we are living in.
+          </p>
+          <DonateLink className="mt-5 inline-flex rounded-full bg-gold px-5 py-3 text-sm font-black text-ink">
+            Support the Podcast
+          </DonateLink>
+          <p className="mt-4 text-sm font-semibold text-gold">Support and partner links are handled through trusted external platforms.</p>
+          <p className="mt-6 text-xs leading-6 text-cream/45">
+            © 2026 The True Remnant. All rights reserved.
+          </p>
         </div>
-        <div>
-          <strong>Explore</strong>
-          <a href="/podcast">Podcast</a>
-          <a href="/directory">Directory</a>
-          <a href="/resources">Books & Audio</a>
-          <a href="/map">Map</a>
-        </div>
-        <div>
-          <strong>Trust</strong>
-          <a href="/verification">Verification Process</a>
-          <a href="/submit">Submit for Review</a>
-          <a href="/missions">Missions</a>
-          <a href="/events">Events</a>
-        </div>
-        <div>
-          <strong>Foundation</strong>
-          <p>“Test everything; hold fast what is good.”</p>
-          <p>1 Thessalonians 5:21</p>
-          <a href="/about">About the Network</a>
-        </div>
+        {footerColumns.map((column) => (
+          <div key={column.title}>
+            <strong className="font-display text-xl">{column.title}</strong>
+            <div className="mt-4 grid gap-3 text-sm text-cream/70">
+              {column.links.map(([label, href]) => (
+                <a className="hover:text-gold" key={href} href={href}>
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </footer>
   );

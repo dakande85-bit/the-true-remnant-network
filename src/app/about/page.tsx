@@ -1,55 +1,38 @@
-const principles = [
-  ["Christ-centred", "The network exists to point people toward faithful Christian teaching, mission and community."],
-  ["Careful with trust", "Profiles use review levels instead of careless claims about who is spiritually perfect."],
-  ["Simple to launch", "No payment marketplace, no heavy community features, no complex app at the start."],
-  ["Media-led", "Podcast interviews help users hear the people, stories and ministries behind the listings."],
-  ["Global direction", "The structure can grow from local profiles into a worldwide map of reviewed Christian work."],
-  ["Useful resources", "Books, music, teaching audio, devotionals and tools sit in one organised resource hub."]
-];
+import { FeaturedSection } from "@/components/FeaturedSection";
+import { Hero } from "@/components/Hero";
+import { ScriptureBlock } from "@/components/ScriptureBlock";
+import { homeContent } from "@/content/home";
 
 export default function AboutPage() {
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">About</p>
-          <h1>The True Remnant is a Christian discovery and trust network.</h1>
-          <p>
-            The aim is to help believers discover faithful teaching, ministries, missions, churches, events and resources in one place,
-            while using a visible review process to protect trust.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container grid grid-3">
-          <article className="hero-card span-2">
-            <p className="kicker">Vision</p>
-            <h2>A network, not just a podcast website.</h2>
-            <p>
-              The podcast builds credibility. The directory organises trustworthy contacts. The resource hub shares books and audio.
-              The map helps people find local Christian work. The mission pages link out to official support pages.
-            </p>
+      <Hero
+        eyebrow="About"
+        title="A Christian podcast and media platform."
+        description="The True Remnant hosts honest conversations with people of faith about Jesus Christ, the Gospel, Scripture, spiritual warfare, the Church, and the times we are living in."
+        primaryHref="/watch"
+        primaryLabel="Watch Episodes"
+        secondaryHref="/newsletter"
+        secondaryLabel="Subscribe"
+      />
+      <FeaturedSection eyebrow="Who We Are" title={homeContent.who.title} description={homeContent.who.copy} muted>
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+          <article className="rounded-[2rem] border border-linen bg-parchment p-8">
+            <p className="text-lg leading-8 text-stone-700">{homeContent.who.support}</p>
           </article>
-          <article className="card">
-            <span className="badge">Scripture posture</span>
-            <h3>Test everything</h3>
-            <p>Use Scripture, fruit, humility, wisdom and accountability as the posture behind every review.</p>
-          </article>
+          <ScriptureBlock quote={homeContent.scripture.quote} reference={homeContent.scripture.reference} />
         </div>
-      </section>
-
-      <section className="section section-muted">
-        <div className="container grid grid-3">
-          {principles.map(([title, description]) => (
-            <article className="card" key={title}>
-              <span className="badge">Principle</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
+      </FeaturedSection>
+      <FeaturedSection eyebrow="What We Believe" title="The convictions beneath the conversations">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {homeContent.beliefs.map(([title, description]) => (
+            <article className="rounded-2xl border border-linen bg-white p-6 shadow-sm" key={title}>
+              <h3 className="font-display text-2xl text-ink">{title}</h3>
+              <p className="mt-3 leading-7 text-stone-600">{description}</p>
             </article>
           ))}
         </div>
-      </section>
+      </FeaturedSection>
     </>
   );
 }

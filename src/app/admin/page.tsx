@@ -1,38 +1,42 @@
+import { AdminLayout } from "@/components/AdminLayout";
+import { getSupabaseConfig } from "@/lib/supabase";
+
 const adminAreas = [
-  ["Applications", "Review new submissions before they become public profiles."],
-  ["Directory Profiles", "Edit churches, teachers, missions, charities, music and events."],
-  ["Verification Queue", "Move profiles through Listed, Reviewed, Verified, Recommended or Under Review."],
-  ["Podcast Episodes", "Manage YouTube episode cards, guests, topics and profile links."],
-  ["Resources", "Add books, music, teaching audio, devotionals and Bible tools."],
-  ["Events", "Approve event cards and official external organiser links."],
-  ["Map Locations", "Add city, country, latitude and longitude for approved profiles."],
-  ["Reports", "Track concerns, updates, corrections and removal requests."]
+  ["Conversations", "Manage YouTube videos, interviews, testimonies, and featured watch content."],
+  ["Blog posts", "Draft and publish articles on the Gospel, end-times discernment, prayer, and Christian living."],
+  ["Prayers", "Organise prayer categories, written prayers, Scripture notes, and future audio resources."],
+  ["Topics", "Organise doctrine, prophecy, context notes, and difficult questions for future episodes."],
+  ["Resources", "Curate teachings, books, voices, and study resources that support each conversation."],
+  ["Missions", "Share mission stories, updates, external support links, and outreach reports."],
+  ["Books", "Maintain recommended reading lists and external book links."],
+  ["Music", "Curate worship and testimony-led music resources."],
+  ["Newsletter signups", "Prepare subscriber data for a future email platform integration."]
 ];
 
 export default function AdminPage() {
-  return (
-    <>
-      <section className="page-hero">
-        <div className="container">
-          <p className="kicker">Admin</p>
-          <h1>Admin dashboard blueprint.</h1>
-          <p>
-            This page is a frontend admin overview. Later it should require authentication and connect to Supabase tables.
-          </p>
-        </div>
-      </section>
+  const supabase = getSupabaseConfig();
 
-      <section className="section section-muted">
-        <div className="container grid grid-4">
-          {adminAreas.map(([area, description]) => (
-            <article className="card" key={area}>
-              <span className="badge">Admin</span>
-              <h3>{area}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
+  return (
+    <AdminLayout>
+      <div className="rounded-[2rem] border border-cream/10 bg-cream p-7 text-ink shadow-editorial">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-gold-deep">Admin dashboard</p>
+        <h1 className="mt-3 font-display text-5xl leading-tight">Conversation ministry control room</h1>
+        <p className="mt-4 max-w-2xl leading-7 text-stone-600">
+          Demo admin surface for interviews, topics, end-times studies, prayers, articles, resources, missions, and
+          newsletter signups. Authentication and writes should be added before this becomes operational.
+        </p>
+        <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm font-bold text-amber-900">
+          Supabase: {supabase.isConfigured ? "configured" : "not configured, using mock data"}. Admin auth is a placeholder.
         </div>
-      </section>
-    </>
+      </div>
+      <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {adminAreas.map(([title, description]) => (
+          <article className="rounded-2xl border border-cream/10 bg-cream p-5 text-ink" key={title}>
+            <h2 className="font-display text-2xl">{title}</h2>
+            <p className="mt-3 text-sm leading-6 text-stone-600">{description}</p>
+          </article>
+        ))}
+      </div>
+    </AdminLayout>
   );
 }

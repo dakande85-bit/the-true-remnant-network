@@ -1,132 +1,209 @@
+import type { ImageKey } from "@/content/images";
+
+export type ValidationStatus = "Listed" | "Under Review" | "Reviewed" | "Verified" | "Featured";
+
 export type DirectoryCategory =
   | "Church"
-  | "Teacher"
+  | "Ministry"
   | "Mission"
   | "Charity"
-  | "Music"
-  | "Event"
-  | "Resource";
+  | "Teacher"
+  | "Worship"
+  | "Book"
+  | "Podcast"
+  | "Event";
 
-export type VerificationStatus =
-  | "Listed"
-  | "Reviewed"
-  | "Verified"
-  | "Recommended"
-  | "Under Review";
+export type ProfileKind = "organisation" | "person";
 
-export type DirectoryItem = {
+export type DirectoryProfile = {
   id: string;
+  slug: string;
+  kind: ProfileKind;
   name: string;
   category: DirectoryCategory;
-  city: string;
+  status: ValidationStatus;
+  location: string;
   country: string;
   summary: string;
-  focus: string;
-  language: string;
-  verificationStatus: VerificationStatus;
-  reviewNote: string;
+  description: string;
+  story: string;
+  reviewNotes: string;
+  beliefs: string[];
+  focus: string[];
   tags: string[];
+  imageKey: ImageKey;
+  isExample?: boolean;
   websiteUrl?: string;
   youtubeUrl?: string;
-  resourceUrl?: string;
-  relatedPodcastUrl?: string;
+  donationUrl?: string;
+  mediaUrl?: string;
+  eventUrl?: string;
+  resources?: Array<{ label: string; href: string }>;
+  relatedProfileSlugs?: string[];
 };
 
-export const directoryItems: DirectoryItem[] = [
+export const directoryProfiles: DirectoryProfile[] = [
   {
-    id: "tfc-style-local-church-profile",
-    name: "Local Church Review Profile",
+    id: "org-001",
+    slug: "tenerife-family-church",
+    kind: "organisation",
+    name: "Tenerife Family Church",
     category: "Church",
-    city: "Tenerife",
+    status: "Featured",
+    location: "Tenerife",
     country: "Spain",
-    summary:
-      "A starter church profile layout for a reviewed local fellowship, including service information, beliefs, media links and location data.",
-    focus: "Local church, worship, discipleship and community care",
-    language: "English / Spanish",
-    verificationStatus: "Reviewed",
-    reviewNote:
-      "Use this slot for a church whose leadership, location, doctrine, public links and references have been reviewed.",
-    tags: ["Local church", "Sunday service", "Community", "Map-ready"],
-    websiteUrl: "#"
+    summary: "An example local church dossier for worship, discipleship, pastoral care, and community presence.",
+    description:
+      "Tenerife Family Church is a demo profile showing how a local fellowship can be presented with careful language, public links, review context, and a warm editorial layout.",
+    story:
+      "This example profile represents the kind of church record the network is built to hold: a clear gathering place, a pastoral story, public teaching links, and enough context for believers to continue their own discernment locally.",
+    reviewNotes:
+      "Demo profile for launch presentation. A real profile should include leadership, doctrine, public teaching, safeguarding context, and location checks before being promoted.",
+    beliefs: ["Christ-centred teaching", "Scripture-led discipleship", "Local pastoral accountability"],
+    focus: ["Local church", "Worship", "Discipleship", "Community care"],
+    tags: ["Sunday gathering", "Bilingual", "Map-ready"],
+    imageKey: "worshipGathering",
+    isExample: true,
+    websiteUrl: "https://example.com",
+    relatedProfileSlugs: ["worship-testimony-sessions", "mission-outreach-collective"]
   },
   {
-    id: "missionary-project-profile",
-    name: "Missionary Project Profile",
-    category: "Mission",
-    city: "Global",
-    country: "International",
-    summary:
-      "A mission profile template for outreach work, evangelism projects, Bible distribution, children’s work or humanitarian support.",
-    focus: "Mission work, evangelism and external support links",
-    language: "Multiple languages",
-    verificationStatus: "Listed",
-    reviewNote:
-      "Use external giving and information links only. Do not process donations through the site in the MVP.",
-    tags: ["Missions", "External giving", "Field updates", "Prayer"],
-    resourceUrl: "#"
-  },
-  {
-    id: "bible-teacher-profile",
-    name: "Bible Teacher Profile",
+    id: "org-002",
+    slug: "global-bible-teaching-archive",
+    kind: "organisation",
+    name: "Global Bible Teaching Archive",
     category: "Teacher",
-    city: "Online",
+    status: "Verified",
+    location: "Online",
     country: "Global",
-    summary:
-      "A teacher profile template connected to books, podcast interviews, teaching audio, YouTube content and doctrine notes.",
-    focus: "Bible teaching, discipleship and discernment",
-    language: "English",
-    verificationStatus: "Verified",
-    reviewNote:
-      "Use this level only after reviewing doctrine, public teaching, leadership accountability and references where possible.",
-    tags: ["Teaching", "Podcast guest", "Books", "Audio"],
-    relatedPodcastUrl: "#"
+    summary: "A curated teaching archive example for long-form Bible studies, transcripts, and resource trails.",
+    description:
+      "A sample teaching archive profile that shows how the network can group trusted media, written notes, and external study resources around a reviewed teaching body.",
+    story:
+      "The archive model is for believers looking beyond short clips. It favours full talks, context, source notes, and a clear path from media into deeper study.",
+    reviewNotes:
+      "Demo profile. A real archive should be checked for doctrine, citation integrity, public accountability, and how correction requests are handled.",
+    beliefs: ["Biblical clarity", "Context-rich teaching", "Correction and accountability"],
+    focus: ["Bible teaching", "Resource library", "Study tools", "Podcast references"],
+    tags: ["Teaching", "Archive", "Books"],
+    imageKey: "studyDesk",
+    isExample: true,
+    websiteUrl: "https://example.com",
+    youtubeUrl: "https://youtube.com",
+    resources: [{ label: "Teaching archive", href: "https://example.com/archive" }],
+    relatedProfileSlugs: ["remnant-podcast", "tenerife-family-church"]
   },
   {
-    id: "christian-charity-profile",
-    name: "Christian Charity Profile",
+    id: "org-003",
+    slug: "mission-outreach-collective",
+    kind: "organisation",
+    name: "Mission Outreach Collective",
+    category: "Mission",
+    status: "Reviewed",
+    location: "Global",
+    country: "International",
+    summary: "A mission project example for field stories, prayer needs, locations, and official support links.",
+    description:
+      "Mission Outreach Collective demonstrates how mission work can be made visible without turning the site into a fundraising platform.",
+    story:
+      "Many mission teams work quietly. This profile format gives their work a place to explain the field, the need, the people responsible, and where official updates can be followed.",
+    reviewNotes:
+      "Demo profile. Real mission profiles should include organiser identity, field updates, references, external support pages, and safeguarding considerations.",
+    beliefs: ["Gospel mission", "Local accountability", "Transparent support links"],
+    focus: ["Evangelism", "Bible distribution", "Field reports", "Prayer needs"],
+    tags: ["Missions", "Prayer", "External support"],
+    imageKey: "missionHands",
+    isExample: true,
+    websiteUrl: "https://example.com",
+    donationUrl: "https://example.com/support",
+    relatedProfileSlugs: ["mercy-table-food-ministry", "remnant-podcast"]
+  },
+  {
+    id: "org-004",
+    slug: "mercy-table-food-ministry",
+    kind: "organisation",
+    name: "Mercy Table Food Ministry",
     category: "Charity",
-    city: "London",
+    status: "Reviewed",
+    location: "London",
     country: "United Kingdom",
-    summary:
-      "A charity profile template for food outreach, family support, homeless ministry, prison ministry or crisis support.",
-    focus: "Mercy ministry, public accountability and practical support",
-    language: "English",
-    verificationStatus: "Reviewed",
-    reviewNote:
-      "Add charity registration, leadership details, public reports and official giving links before moving higher than Reviewed.",
-    tags: ["Charity", "Outreach", "External support", "Accountability"],
-    websiteUrl: "#"
+    summary: "A mercy ministry example focused on food support, family care, and practical Christian service.",
+    description:
+      "Mercy Table Food Ministry is a demo charity profile showing public accountability, practical care, and official external giving links.",
+    story:
+      "Mercy ministries often carry steady work that does not fit social media attention. The profile format gives room for context, leadership, activity, and support routes.",
+    reviewNotes:
+      "Demo profile. A real charity profile should include registration details where applicable, leadership checks, public reports, and official giving links.",
+    beliefs: ["Mercy ministry", "Practical service", "Public accountability"],
+    focus: ["Food support", "Family care", "Outreach", "Community partnerships"],
+    tags: ["Charity", "External giving", "Safeguarding"],
+    imageKey: "prayerCircle",
+    isExample: true,
+    websiteUrl: "https://example.com",
+    donationUrl: "https://example.com/donate",
+    relatedProfileSlugs: ["mission-outreach-collective", "tenerife-family-church"]
   },
   {
-    id: "worship-and-music-profile",
-    name: "Worship Music Profile",
-    category: "Music",
-    city: "Online",
+    id: "person-001",
+    slug: "remnant-podcast",
+    kind: "person",
+    name: "Remnant Podcast",
+    category: "Podcast",
+    status: "Featured",
+    location: "Studio / Online",
     country: "Global",
-    summary:
-      "A music profile template for worship artists, playlists, albums, spoken-word projects and testimony-based music.",
-    focus: "Worship, music, audio and testimony",
-    language: "English",
-    verificationStatus: "Listed",
-    reviewNote:
-      "Music listings should be curated for doctrine, message, public integrity and usefulness to believers.",
-    tags: ["Music", "Worship", "Audio", "Playlist"],
-    youtubeUrl: "#"
+    summary: "A media profile for long-form conversations, testimonies, ministry stories, and teaching discussions.",
+    description:
+      "The Remnant Podcast profile shows how long-form conversations can help believers hear testimony, context, and conviction behind each discussion.",
+    story:
+      "Trust grows through more than a card. Long-form interviews give space for testimony, doctrine, mission history, and the texture of a person or ministry's work.",
+    reviewNotes:
+      "Platform-owned demo profile. Guest conversations should be handled carefully, with Scripture, context, humility, and public language in view.",
+    beliefs: ["Story-led trust", "Long-form conversation", "Careful public language"],
+    focus: ["Podcast interviews", "Testimonies", "Teaching conversations", "Mission stories"],
+    tags: ["Podcast", "Interview", "Media"],
+    imageKey: "podcastStudio",
+    isExample: true,
+    mediaUrl: "https://youtube.com",
+    youtubeUrl: "https://youtube.com",
+    relatedProfileSlugs: ["global-bible-teaching-archive", "mission-outreach-collective"]
   },
   {
-    id: "christian-event-profile",
-    name: "Christian Event Profile",
-    category: "Event",
-    city: "Tenerife",
-    country: "Spain",
-    summary:
-      "An event profile template for prayer nights, conferences, evangelism outreaches, worship nights and ministry training.",
-    focus: "Events, gatherings and official organiser links",
-    language: "English / Spanish",
-    verificationStatus: "Under Review",
-    reviewNote:
-      "Events should link externally to official organisers and include clear host, location, date and safeguarding information.",
-    tags: ["Event", "Prayer", "Conference", "External link"],
-    resourceUrl: "#"
+    id: "person-002",
+    slug: "worship-testimony-sessions",
+    kind: "person",
+    name: "Worship & Testimony Sessions",
+    category: "Worship",
+    status: "Under Review",
+    location: "Manchester",
+    country: "United Kingdom",
+    summary: "A worship and testimony example for music, spoken stories, and externally hosted sessions.",
+    description:
+      "This demo profile shows how worship and testimony-led conversations can be presented with public links, care, and context.",
+    story:
+      "Music and testimony can be powerful discovery paths, but the network keeps the language careful and asks users to examine doctrine, fruit, and local accountability.",
+    reviewNotes:
+      "Demo profile in under-review state. Real worship profiles should be reviewed for doctrine, public conduct, ministry context, and link ownership.",
+    beliefs: ["Worship shaped by Scripture", "Testimony with humility", "External media links"],
+    focus: ["Worship", "Songwriting", "Testimony", "Media"],
+    tags: ["Music", "YouTube", "External links"],
+    imageKey: "bibleTable",
+    isExample: true,
+    mediaUrl: "https://example.com/music",
+    youtubeUrl: "https://youtube.com",
+    relatedProfileSlugs: ["tenerife-family-church", "remnant-podcast"]
   }
 ];
+
+export const organisationProfiles = directoryProfiles.filter((profile) => profile.kind === "organisation");
+export const personProfiles = directoryProfiles.filter((profile) => profile.kind === "person");
+
+export function getProfileBySlug(slug: string) {
+  return directoryProfiles.find((profile) => profile.slug === slug);
+}
+
+export function getRelatedProfiles(profile: DirectoryProfile) {
+  return (profile.relatedProfileSlugs ?? [])
+    .map((slug) => getProfileBySlug(slug))
+    .filter((entry): entry is DirectoryProfile => Boolean(entry));
+}

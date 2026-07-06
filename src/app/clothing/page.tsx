@@ -24,7 +24,7 @@ export default function ClothingPage() {
             <p className="kicker">External shop</p>
             <h2>Add your clothing store link here.</h2>
             <p>
-              Connect to Shopify, Gelato, Printful or another external shop. The network stays focused on content, directory profiles and resources.
+              Connect to Shopify, Gelato, Printful or another external shop. The network stays focused on media, prayer, teaching, worship, missions and resources.
             </p>
             <a className="btn btn-primary" href="#">External Shop Link</a>
           </article>
