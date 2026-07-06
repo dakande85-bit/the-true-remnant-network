@@ -8,15 +8,14 @@ export default function AboutPage() {
     <>
       <Hero
         eyebrow="About"
-        title="A Christian interview and end-times discernment ministry."
-        description="The True Remnant Network brings believers together to discuss faith, doctrine, prophecy, spiritual warfare, and the difficult questions facing the Body of Christ."
+        title="A Christian podcast and media platform."
+        description="The True Remnant hosts honest conversations with people of faith about Jesus Christ, the Gospel, Scripture, spiritual warfare, the Church, and the times we are living in."
+        primaryHref="/watch"
+        primaryLabel="Watch Episodes"
+        secondaryHref="/newsletter"
+        secondaryLabel="Subscribe"
       />
-      <FeaturedSection
-        eyebrow="Who We Are"
-        title={homeContent.who.title}
-        description={homeContent.who.copy}
-        muted
-      >
+      <FeaturedSection eyebrow="Who We Are" title={homeContent.who.title} description={homeContent.who.copy} muted>
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
           <article className="rounded-[2rem] border border-linen bg-parchment p-8">
             <p className="text-lg leading-8 text-stone-700">{homeContent.who.support}</p>
@@ -24,8 +23,8 @@ export default function AboutPage() {
           <ScriptureBlock quote={homeContent.scripture.quote} reference={homeContent.scripture.reference} />
         </div>
       </FeaturedSection>
-      <FeaturedSection eyebrow="Beliefs" title="What we believe">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <FeaturedSection eyebrow="What We Believe" title="The convictions beneath the conversations">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {homeContent.beliefs.map(([title, description]) => (
             <article className="rounded-2xl border border-linen bg-white p-6 shadow-sm" key={title}>
               <h3 className="font-display text-2xl text-ink">{title}</h3>
