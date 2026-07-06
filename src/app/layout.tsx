@@ -5,8 +5,8 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "The True Remnant Network",
-  description: "Christian interviews, conversations, and end-times discernment for unity around truth in Christ."
+  title: "The True Remnant",
+  description: "A Christian podcast and media platform for conversations about faith, Scripture, the Gospel, spiritual warfare, the Church, and the times we are living in."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
