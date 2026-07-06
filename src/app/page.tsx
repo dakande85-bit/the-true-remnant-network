@@ -82,6 +82,7 @@ export default function HomePage() {
             eyebrow="Guests"
             title="Guests and voices coming to the table."
             description="Pastors, teachers, apologists, worshippers, missionaries, authors, and believers sharing testimony, insight, and biblical perspective."
+            inverse
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {guests.map(([name, focus]) => (
