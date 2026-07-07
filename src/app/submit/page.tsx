@@ -1,13 +1,12 @@
 export default function SubmitPage() {
   return (
     <>
-      <section className="page-hero">
+      <section className="page-hero clean-page-hero">
         <div className="container">
-          <p className="kicker">Guests</p>
+          <p className="kicker">Submit</p>
           <h1>Suggest a guest, testimony, teacher, mission or resource.</h1>
           <p>
-            Use this intake page to collect names for podcast review. The MVP is frontend-only for now; next it can write
-            to Supabase as a pending guest or resource submission.
+            Send a name, link and short reason for review. We look for clear Christian witness, sound teaching, public accountability and useful resources for believers.
           </p>
         </div>
       </section>
@@ -27,8 +26,8 @@ export default function SubmitPage() {
             </div>
             <br />
             <label>
-              Why should this person be reviewed for the podcast?
-              <textarea placeholder="Add a short bio, testimony angle, doctrine notes, public references, concerns to check and why this voice may help believers." />
+              Why should this be reviewed?
+              <textarea placeholder="Add a short bio, testimony angle, doctrine notes, public references and why this may help believers." />
             </label>
             <br />
             <button className="btn btn-primary" type="button">Submit for Review</button>
@@ -38,7 +37,7 @@ export default function SubmitPage() {
             <span className="badge">Before recording</span>
             <h3>What should be checked?</h3>
             <p>Identity, public links, doctrine, leadership, references, testimony claims, accountability and any official support pages.</p>
-            <a className="btn btn-soft" href="/verification">View Review Levels</a>
+            <a className="btn btn-soft" href="/guests">View Guest Pipeline</a>
           </aside>
         </div>
       </section>
