@@ -13,7 +13,13 @@ export function ResourceCard({ item }: { item: ResourceItem }) {
 
   return (
     <article className="card resource-card">
-      <div className="resource-icon" aria-hidden="true">{icon}</div>
+      <div className={`resource-media ${item.type === "Book" ? "resource-media-book" : "resource-media-logo"}`}>
+        {item.imageUrl ? (
+          <img src={item.imageUrl} alt={item.imageAlt ?? `${item.title} image`} />
+        ) : (
+          <span>{icon}</span>
+        )}
+      </div>
       <div className="card-meta">
         <span className="badge">{item.type}</span>
         <span className="mini-tag">{item.level}</span>
