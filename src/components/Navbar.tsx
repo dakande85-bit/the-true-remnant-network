@@ -5,7 +5,8 @@ const links = [
   ["Guests", "/guests"],
   ["Resources", "/resources"],
   ["Social Media", "/social-media"],
-  ["About", "/about"]
+  ["About", "/about"],
+  ["Donate", "/donate"]
 ];
 
 export function Navbar() {
