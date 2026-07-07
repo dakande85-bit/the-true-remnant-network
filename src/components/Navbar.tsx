@@ -10,7 +10,7 @@ const links = [
 export function Navbar() {
   return (
     <header className="nav">
-      <div className="container nav-inner">
+      <div className="container nav-inner nav-inner-simple">
         <a href="/" className="logo" aria-label="Home">
           <BrandLogo />
         </a>
@@ -19,7 +19,6 @@ export function Navbar() {
             <a key={`${label}-${href}`} href={href}>{label}</a>
           ))}
         </nav>
-        <a className="btn btn-dark nav-cta" href="/submit">Submit</a>
       </div>
     </header>
   );
