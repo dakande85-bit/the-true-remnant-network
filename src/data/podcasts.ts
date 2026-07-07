@@ -17,9 +17,9 @@ export const podcastEpisodes: PodcastEpisode[] = [
     topic: "Vision",
     series: "Foundations",
     summary:
-      "A launch episode explaining the mission: faithful voices, reviewed ministries, sound resources and a simple Christian discovery network.",
+      "A launch episode explaining the mission: faithful voices, reviewed ministries, sound resources, testimony and a podcast-led Christian media platform.",
     youtubeUrl: "#",
-    status: "Planned"
+    status: "Recording"
   },
   {
     id: "testing-the-fruit",
@@ -28,7 +28,18 @@ export const podcastEpisodes: PodcastEpisode[] = [
     topic: "Discernment",
     series: "Discernment",
     summary:
-      "A discussion on how Christians can test teaching, doctrine and public fruit with humility, Scripture and wisdom.",
+      "A conversation on testing teaching, doctrine and public fruit with humility, Scripture and wisdom instead of suspicion or hype.",
+    youtubeUrl: "#",
+    status: "Planned"
+  },
+  {
+    id: "prayer-and-truth",
+    title: "Prayer, Truth and Standing Firm",
+    guest: "Prayer leader to be confirmed",
+    topic: "Prayer",
+    series: "Prayer",
+    summary:
+      "A practical episode on biblical prayer, repentance, truth and standing firm without fear-based extremes.",
     youtubeUrl: "#",
     status: "Planned"
   },
