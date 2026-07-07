@@ -2,12 +2,12 @@ import { FounderPortrait } from "@/components/FounderPortrait";
 import { podcastEpisodes } from "@/data/podcasts";
 
 const series = [
-  ["Foundations", "Vision, testimony, doctrine and why The True Remnant exists."],
-  ["Discernment", "Testing teaching, public fruit and spiritual claims with humility."],
-  ["Prayer", "Biblical prayer, truth, repentance and standing firm."],
-  ["Missions", "Stories from the field with official external support links."],
-  ["Church Life", "Pastors, local churches, discipleship and Christian community."],
-  ["Resources", "Books, music, audio teaching, devotionals and practical tools."],
+  ["Foundations", "Why the show exists, what it will cover and how listeners can test the work as it grows."],
+  ["Discernment", "Conversations on doctrine, false teaching, public claims, spiritual confusion and how to test without pride."],
+  ["Testimony", "Stories that move beyond emotion into repentance, discipleship, prayer and steady obedience."],
+  ["Missions", "Interviews with people serving churches, charities and mission work, with official links for prayer and support."],
+  ["Resources", "Books, Bible tools, audio teaching and worship resources that help listeners keep growing after an episode."],
+  ["Church Life", "Pastors, local fellowship, discipleship, family, prayer and the ordinary faithfulness that keeps people grounded."],
 ];
 
 export default function PodcastPage() {
@@ -17,15 +17,14 @@ export default function PodcastPage() {
         <div className="container hero-grid">
           <div>
             <p className="kicker">Podcast</p>
-            <h1>The media engine for The True Remnant.</h1>
+            <h1>Long-form Christian conversations with a clear purpose.</h1>
             <p>
-              Launch with long-form Christian conversations that build trust: teachers, pastors, apologists,
-              missionaries, charity leaders, worship voices and believers with serious testimonies. Every strong
-              episode can become clips, notes, resources and a future guest profile.
+              The show is built for people who are tired of shallow clips and vague Christian content. Each episode should
+              help listeners understand the guest, test the message, hear the testimony and leave with something useful to pray, study or share.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="/guests">View Guests</a>
-              <a className="btn" href="/resources">Open Resources</a>
+              <a className="btn btn-primary" href="/social-media">Spotify & YouTube</a>
+              <a className="btn" href="/donate">Support the Show</a>
             </div>
           </div>
           <div className="hero-visual hero-visual-portrait page-portrait">
@@ -37,18 +36,19 @@ export default function PodcastPage() {
       <section className="section section-muted">
         <div className="container grid grid-3">
           <article className="hero-card span-2">
-            <p className="kicker">YouTube Series</p>
-            <h2>Start with conversations that reveal doctrine, fruit and calling.</h2>
+            <p className="kicker">Show format</p>
+            <h2>A table for testimony, doctrine, mission and practical help.</h2>
             <p>
-              The first season should feel like a trusted table: clear Scripture, humble questions, testimony, prayer,
-              careful review and practical resources for believers who want truth.
+              The aim is not to manufacture controversy. The aim is to ask honest questions, listen carefully, test what is being said,
+              and point people to Scripture, prayer, local church life and reliable resources.
             </p>
             <a className="btn btn-primary" href="/guests">View Guest Pipeline</a>
           </article>
           <article className="card">
-            <span className="badge">Workflow</span>
-            <h3>Episode becomes archive</h3>
-            <p>Each recording can create clips, quotes, notes, links, resources and a reviewed profile when appropriate.</p>
+            <span className="badge">Support</span>
+            <h3>Why donations matter</h3>
+            <p>Giving helps cover editing, hosting, equipment, design and the time needed to turn interviews into useful resources.</p>
+            <a className="btn btn-soft" href="/donate">Donate with PayPal</a>
           </article>
         </div>
       </section>
