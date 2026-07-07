@@ -91,7 +91,7 @@ export default function HomePage() {
             <p>{latestEpisode.summary}</p>
             <div className="row">
               <a className="btn btn-primary" href="/podcast">Open Podcast Hub</a>
-              <a className="btn" href="/submit">Suggest Guest</a>
+              <a className="btn" href="/guests">View Guests</a>
             </div>
           </div>
           <div className="hero-card scripture-card">
@@ -150,7 +150,7 @@ export default function HomePage() {
             <p className="kicker">Launch ready direction</p>
             <h2>Start with excellent conversations. Build the network after trust is earned.</h2>
             <p>
-              The first release should drive people to watch, listen, suggest guests and explore reviewed resources. More complex features can come after the audience understands the mission.
+              The first release should drive people to watch, listen and explore reviewed resources. More complex features can come after the audience understands the mission.
             </p>
             <div className="row">
               <a className="btn btn-primary" href="/podcast">Start with the Podcast</a>
