@@ -30,7 +30,7 @@ export default function GuestsPage() {
           <div className="grid grid-3">
             {upcomingGuests.map((guest) => (
               <article className="card guest-card" key={guest.id}>
-                <div className="guest-media">
+                <div className="resource-media">
                   {guest.imageUrl ? <img src={guest.imageUrl} alt={`${guest.name} image`} /> : <span>{guest.topic}</span>}
                 </div>
                 <div className="card-meta">
