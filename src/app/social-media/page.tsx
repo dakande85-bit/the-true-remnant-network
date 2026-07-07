@@ -2,7 +2,7 @@ const channels = [
   {
     title: "Spotify Show",
     label: "Audio podcast",
-    description: "Spotify will be the clean audio home for the show: full conversations, testimonies and teaching-led episodes people can listen to while travelling, training or working.",
+    description: "Spotify is the audio home for full conversations on the supernatural Bible, gifts of the Spirit, end-times deception, spiritual warfare and the call to worship in Spirit and truth.",
     embedTitle: "Spotify show embed placeholder",
     iframeSrc: "",
     note: "Send the Spotify embed URL when the show is live and it will appear here."
@@ -10,7 +10,7 @@ const channels = [
   {
     title: "YouTube Channel",
     label: "Video podcast",
-    description: "YouTube will carry the full video conversations, shorter clips and visual resources for people who want to watch and share the discussions.",
+    description: "YouTube will carry the full video episodes, clips and visual teaching resources that help believers share truth and reach people who need the Word of God.",
     embedTitle: "YouTube embed placeholder",
     iframeSrc: "",
     note: "Send the YouTube channel, playlist or episode embed and it will replace this placeholder."
@@ -23,10 +23,10 @@ export default function SocialMediaPage() {
       <section className="page-hero clean-page-hero">
         <div className="container narrow-copy">
           <p className="kicker">Social Media</p>
-          <h1>One show, two main channels: Spotify and YouTube.</h1>
+          <h1>Listen on Spotify. Watch on YouTube. Share the light.</h1>
           <p>
-            This is where listeners will find the latest audio and video releases. Spotify serves people who want to listen;
-            YouTube serves people who want to watch, share clips and see the full conversations.
+            The True Remnant is built to reach people through long-form audio, video conversations and short clips that point
+            listeners back to Scripture, the Holy Spirit, discernment and salvation in Jesus Christ.
           </p>
         </div>
       </section>
@@ -63,9 +63,9 @@ export default function SocialMediaPage() {
         <div className="container">
           <div className="cta-panel">
             <p className="kicker">Support the channels</p>
-            <h2>Follow, share and support the show as it launches.</h2>
+            <h2>Help the message reach believers and unbelievers.</h2>
             <p>
-              The fastest way to help the project grow is to listen, subscribe, share the strongest clips and support the practical production work through PayPal.
+              Follow, share and support the show so the supernatural truth of Scripture can reach people who need clarity, conviction and the gospel of Jesus Christ.
             </p>
             <div className="row">
               <a className="btn btn-primary" href="/donate">Donate with PayPal</a>
