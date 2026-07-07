@@ -1,18 +1,17 @@
 import { BrandLogo } from "./BrandLogo";
 
 const links = [
-  ["Episodes", "/podcast"],
-  ["Guests", "/submit"],
-  ["Topics", "/resources"],
+  ["Podcast", "/podcast"],
+  ["Guests", "/guests"],
   ["Resources", "/resources"],
-  ["About", "/about"],
+  ["About", "/about"]
 ];
 
 export function Navbar() {
   return (
     <header className="nav">
       <div className="container nav-inner">
-        <a href="/" className="logo" aria-label="The True Remnant homepage">
+        <a href="/" className="logo" aria-label="Home">
           <BrandLogo />
         </a>
         <nav className="nav-links" aria-label="Main navigation">
@@ -20,7 +19,7 @@ export function Navbar() {
             <a key={`${label}-${href}`} href={href}>{label}</a>
           ))}
         </nav>
-        <a className="btn btn-dark nav-cta" href="/#subscribe">Subscribe</a>
+        <a className="btn btn-dark nav-cta" href="/submit">Submit</a>
       </div>
     </header>
   );
