@@ -1,10 +1,10 @@
 const paypalDonateUrl = "https://www.paypal.com/donate";
 
 const supportItems = [
-  ["Production", "Microphones, lighting, camera support, editing software, storage and the basic cost of recording clean conversations."],
-  ["Publishing", "Hosting, website upkeep, podcast distribution, artwork, clips and the practical work of getting each episode online."],
-  ["Research", "Time spent checking guests, organising resources, preparing questions and making sure links are clear before publishing."],
-  ["Mission", "Building a useful archive that can point people to prayer, testimony, local church life, charities and official support links."],
+  ["Recording", "Camera, audio, lighting and the basic production setup needed to record clear conversations."],
+  ["Editing", "Turning long-form episodes into clean audio, video, clips and shareable teaching moments."],
+  ["Research", "Preparing questions, checking Scripture, reviewing topics and making sure the content is handled responsibly."],
+  ["Publishing", "Website hosting, podcast distribution, artwork, resources and the ongoing work of getting the message out."],
 ];
 
 export default function DonatePage() {
@@ -13,10 +13,10 @@ export default function DonatePage() {
       <section className="page-hero clean-page-hero">
         <div className="container narrow-copy">
           <p className="kicker">Donate</p>
-          <h1>Support The True Remnant through PayPal.</h1>
+          <h1>Support a podcast shining light on the truth of God’s Word.</h1>
           <p>
-            If the show helps you, you can support the practical work behind it: recording, editing, hosting, design,
-            research and turning conversations into resources people can actually use.
+            Your support helps The True Remnant produce conversations, teachings, interviews and resources that equip believers
+            to understand the supernatural truth of Scripture, discern end-times deception and stand firm in Jesus Christ.
           </p>
           <div className="hero-actions">
             <a className="btn btn-primary" href={paypalDonateUrl} target="_blank" rel="noopener noreferrer">Donate using PayPal</a>
@@ -29,16 +29,16 @@ export default function DonatePage() {
         <div className="container grid grid-3">
           <article className="hero-card span-2 mission-card">
             <p className="kicker">Why give?</p>
-            <h2>Good Christian media takes more than pressing record.</h2>
+            <h2>Faithful media takes prayer, preparation and practical support.</h2>
             <p>
-              Every episode needs preparation, recording, editing, publishing, follow-up notes and resource links. Giving helps keep the work
-              focused, independent and useful without turning the site into a payment marketplace.
+              Each episode requires research, recording, editing, publishing and resource building. Giving helps keep the work
+              focused on the Word of God, the power of the Holy Spirit and the call to reach people with truth.
             </p>
           </article>
           <article className="card">
             <span className="badge">PayPal</span>
             <h3>Simple external giving</h3>
-            <p>Donations open through PayPal, so the site stays simple and the payment is handled outside the website.</p>
+            <p>Donations open through PayPal, so the site stays simple and payments are handled outside the website.</p>
             <a className="btn btn-primary" href={paypalDonateUrl} target="_blank" rel="noopener noreferrer">Donate using PayPal</a>
           </article>
         </div>
@@ -49,7 +49,7 @@ export default function DonatePage() {
           <div className="section-head">
             <div>
               <p className="kicker">What support helps cover</p>
-              <h2>Practical costs, clear purpose.</h2>
+              <h2>Practical costs for a spiritual mission.</h2>
             </div>
           </div>
           <div className="grid grid-4">
