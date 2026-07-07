@@ -8,8 +8,8 @@ export function Footer() {
           <a href="/" className="logo footer-logo" aria-label="The True Remnant homepage">
             <BrandLogo variant="light" />
           </a>
-          <p>A Christian podcast and resource project for truth, testimony, discernment and mission.</p>
-          <p className="footer-note">Donations open through PayPal. Podcast and mission links open externally.</p>
+          <p>A Christian podcast exploring the supernatural truth of Scripture, the gifts of the Holy Spirit, spiritual warfare, end-times deception and worship in spirit and truth.</p>
+          <p className="footer-note">Donations open through PayPal. Spotify, YouTube, resource and mission links open externally.</p>
         </div>
         <div>
           <strong>Media</strong>
@@ -29,7 +29,7 @@ export function Footer() {
           <strong>Foundation</strong>
           <p>“Test everything; hold fast what is good.”</p>
           <p>1 Thessalonians 5:21</p>
-          <a href="/about">What We Stand For</a>
+          <a href="/about">What We Believe</a>
         </div>
       </div>
     </footer>
