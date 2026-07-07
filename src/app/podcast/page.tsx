@@ -2,12 +2,12 @@ import { FounderPortrait } from "@/components/FounderPortrait";
 import { podcastEpisodes } from "@/data/podcasts";
 
 const series = [
-  ["Foundations", "Why the show exists, what it will cover and how listeners can test the work as it grows."],
-  ["Discernment", "Conversations on doctrine, false teaching, public claims, spiritual confusion and how to test without pride."],
-  ["Testimony", "Stories that move beyond emotion into repentance, discipleship, prayer and steady obedience."],
-  ["Missions", "Interviews with people serving churches, charities and mission work, with official links for prayer and support."],
-  ["Resources", "Books, Bible tools, audio teaching and worship resources that help listeners keep growing after an episode."],
-  ["Church Life", "Pastors, local fellowship, discipleship, family, prayer and the ordinary faithfulness that keeps people grounded."],
+  ["Supernatural Bible", "The unseen realm, angels, demons, divine council language, miracles, prophecy and the biblical worldview."],
+  ["Gifts of the Spirit", "Prophecy, healing, discernment, tongues, words of knowledge and the Spirit’s work in the Church today."],
+  ["End-Times Deception", "False teachers, counterfeit signs, spiritual seduction, strong delusion and the warnings Jesus gave for the last days."],
+  ["Spiritual Warfare", "Prayer, deliverance, the armour of God, strongholds, repentance and standing in the authority of Jesus Christ."],
+  ["Spirit and Truth Worship", "The call to leave dead religion and worship the Father in holiness, truth and the power of the Holy Spirit."],
+  ["Salvation and Testimony", "Stories and biblical teaching that proclaim the Word of God so unbelievers can hear the gospel and be saved."],
 ];
 
 export default function PodcastPage() {
@@ -17,10 +17,11 @@ export default function PodcastPage() {
         <div className="container hero-grid">
           <div>
             <p className="kicker">Podcast</p>
-            <h1>Long-form Christian conversations with a clear purpose.</h1>
+            <h1>Conversations on the supernatural Bible and the last days.</h1>
             <p>
-              The show is built for people who are tired of shallow clips and vague Christian content. Each episode should
-              help listeners understand the guest, test the message, hear the testimony and leave with something useful to pray, study or share.
+              The True Remnant Podcast tackles the topics many avoid: the unseen realm, spiritual gifts, warfare, prophecy,
+              deception, false doctrine, deliverance, worship and the power of the Word of God. We believe the Bible is supernatural,
+              the Holy Spirit still moves, and Jesus Christ is calling people to truth before the hour grows darker.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="/social-media">Spotify & YouTube</a>
@@ -36,18 +37,18 @@ export default function PodcastPage() {
       <section className="section section-muted">
         <div className="container grid grid-3">
           <article className="hero-card span-2">
-            <p className="kicker">Show format</p>
-            <h2>A table for testimony, doctrine, mission and practical help.</h2>
+            <p className="kicker">Show purpose</p>
+            <h2>We shine light on the truths the enemy wants hidden.</h2>
             <p>
-              The aim is not to manufacture controversy. The aim is to ask honest questions, listen carefully, test what is being said,
-              and point people to Scripture, prayer, local church life and reliable resources.
+              The aim is not fear, hype or religious entertainment. The aim is to bring everything back to Scripture,
+              equip believers to discern the times and call unbelievers to salvation through Jesus Christ.
             </p>
             <a className="btn btn-primary" href="/guests">View Guest Pipeline</a>
           </article>
           <article className="card">
             <span className="badge">Support</span>
             <h3>Why donations matter</h3>
-            <p>Giving helps cover editing, hosting, equipment, design and the time needed to turn interviews into useful resources.</p>
+            <p>Giving helps cover editing, hosting, research, equipment, design and the practical work of publishing clear biblical conversations.</p>
             <a className="btn btn-soft" href="/donate">Donate with PayPal</a>
           </article>
         </div>
