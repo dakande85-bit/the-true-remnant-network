@@ -25,7 +25,6 @@ export default function GuestsPage() {
               <h2>Guest pipeline</h2>
               <p>Keep these as podcast placeholders until the real names are confirmed.</p>
             </div>
-            <a className="btn" href="/submit">Suggest a guest</a>
           </div>
           <div className="grid grid-3">
             {upcomingGuests.map((guest) => (
