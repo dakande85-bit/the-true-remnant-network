@@ -4,17 +4,17 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { podcastEpisodes } from "@/data/podcasts";
 import { resourceItems } from "@/data/resources";
 
-const launchPillars = [
-  ["Discernment", "Testing teaching and public claims with Scripture, humility, wisdom and accountability."],
-  ["Testimony", "Real conversations about repentance, rescue, calling, endurance and hope in Christ."],
-  ["Mission", "Stories from churches, charities and missionaries with official external support links."],
-  ["Resources", "Books, Bible tools, audio teaching, devotionals and worship resources that serve the episodes."],
+const convictions = [
+  ["Scripture before platforms", "The work is not to chase Christian celebrity. The aim is to ask what is true, what is biblical and what actually helps believers obey Christ."],
+  ["Testimony with weight", "Stories should not be entertainment. We want honest accounts of repentance, endurance, restoration, prayer and costly obedience."],
+  ["Mission with accountability", "When we highlight missions or charities, we point people to official links and clear information rather than emotional pressure."],
+  ["Resources that serve people", "Books, audio, Bible tools and worship links are added because they strengthen the listener after the episode ends."],
 ];
 
-const buildSteps = [
-  ["Listen", "Long-form podcast conversations that let people hear the person, doctrine, testimony and mission behind the voice."],
-  ["Test", "Clear review notes: what the guest teaches, where they are based, what they link to and why they are being featured."],
-  ["Grow", "Each episode points to Scripture, useful resources, official ministry links and practical next steps for believers."],
+const work = [
+  ["Conversations", "Long-form episodes with Bible teachers, pastors, missionaries, charity leaders and believers with testimonies that can serve the church."],
+  ["Discernment", "Each feature is handled carefully: public teaching, links, mission claims and resources should be checked before being recommended."],
+  ["Support", "The site gives people a clean way to pray, share, listen, donate through PayPal and follow the work on Spotify and YouTube."],
 ];
 
 export default function HomePage() {
@@ -26,16 +26,17 @@ export default function HomePage() {
       <section className="hero podcast-hero">
         <div className="container hero-grid">
           <div>
-            <p className="kicker">Christian podcast and resource hub</p>
-            <h1>Faithful Christian media for truth, testimony and mission.</h1>
+            <p className="kicker">The True Remnant Podcast</p>
+            <h1>A Christian show for people who want truth, not noise.</h1>
             <p>
-              The True Remnant exists to host serious Christian conversations, test what is being taught, share
-              testimonies, highlight mission work and point believers to reliable books, Bible tools, worship and teaching resources.
+              The True Remnant is being built as a clear table for serious Christian conversation: testimony, Scripture,
+              discernment, mission and practical resources. We interview people worth hearing, point listeners to what
+              helps them grow, and keep giving links simple and external.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="/podcast">Watch the Podcast</a>
-              <a className="btn" href="/guests">View Guests</a>
-              <a className="btn btn-soft" href="/resources">Explore Resources</a>
+              <a className="btn" href="/social-media">Spotify & YouTube</a>
+              <a className="btn btn-soft" href="/donate">Donate with PayPal</a>
             </div>
           </div>
           <div className="hero-visual hero-visual-portrait">
@@ -47,14 +48,14 @@ export default function HomePage() {
       <section className="section section-muted">
         <div className="container">
           <SectionHeader
-            eyebrow="What we do"
-            title="Podcast first. Resources behind it. Trust around it."
-            description="The launch version is simple: publish conversations, organise guests, add real resource links and make the mission clear. The directory and map can grow later without confusing the first release."
-            actionLabel="Read About Us"
+            eyebrow="What this is"
+            title="A media platform before it becomes a network."
+            description="The launch focus is not a complicated directory. It is simple: record strong conversations, publish them well, organise the guests and connect every episode to useful resources and official support links."
+            actionLabel="Read the Mission"
             actionHref="/about"
           />
           <div className="grid grid-3">
-            {buildSteps.map(([title, description]) => (
+            {work.map(([title, description]) => (
               <article className="card number-card" key={title}>
                 <h3>{title}</h3>
                 <p>{description}</p>
@@ -67,14 +68,14 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow="Standing for"
-            title="Clear convictions without careless claims."
-            description="The site should feel sober, biblical and useful: not hype, not personality worship, not a payment marketplace."
+            eyebrow="What we stand for"
+            title="Not hype. Not gossip. Not personality worship."
+            description="The tone of the project should be sober, direct and useful. We want to help believers test what they hear, love the truth and find faithful voices without pretending every platform is safe."
           />
           <div className="grid grid-4">
-            {launchPillars.map(([title, description]) => (
+            {convictions.map(([title, description]) => (
               <article className="card topic-card" key={title}>
-                <span className="badge">Pillar</span>
+                <span className="badge">Conviction</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
               </article>
@@ -86,16 +87,16 @@ export default function HomePage() {
       <section className="section section-dark">
         <div className="container grid grid-3">
           <div className="card span-2 dark-feature-card">
-            <span className="badge">Launch episode</span>
+            <span className="badge">First episode</span>
             <h2>{latestEpisode.title}</h2>
             <p>{latestEpisode.summary}</p>
             <div className="row">
               <a className="btn btn-primary" href="/podcast">Open Podcast Hub</a>
-              <a className="btn" href="/guests">View Guests</a>
+              <a className="btn" href="/donate">Support by PayPal</a>
             </div>
           </div>
           <div className="hero-card scripture-card">
-            <p className="kicker">Foundation</p>
+            <p className="kicker">Anchor verse</p>
             <h3>“Test everything; hold fast what is good.”</h3>
             <p>1 Thessalonians 5:21</p>
           </div>
@@ -106,8 +107,8 @@ export default function HomePage() {
         <div className="container">
           <SectionHeader
             eyebrow="Guests"
-            title="Upcoming conversations."
-            description="Start with the founder episode, then build toward teachers, pastors, apologists, missionaries, charity leaders, worship voices and testimony stories."
+            title="The guest list is built around substance."
+            description="The first season should bring in Bible teachers, pastors, missionaries, charity leaders, worship voices and testimony guests who can speak clearly and humbly."
             actionLabel="View Guests"
             actionHref="/guests"
           />
@@ -133,8 +134,8 @@ export default function HomePage() {
         <div className="container">
           <SectionHeader
             eyebrow="Resources"
-            title="Real books, audio and tools for the launch archive."
-            description="Resources support the episodes instead of replacing them: books, teaching audio, Bible tools, devotionals, worship resources and external links."
+            title="A library that supports the episodes."
+            description="When someone finishes listening, they should know where to go next: Scripture tools, books, audio teaching, devotionals and worship resources that are worth reviewing."
             actionLabel="Open Resources"
             actionHref="/resources"
           />
@@ -147,14 +148,14 @@ export default function HomePage() {
       <section className="section section-muted" id="subscribe">
         <div className="container">
           <div className="cta-panel">
-            <p className="kicker">Launch ready direction</p>
-            <h2>Start with excellent conversations. Build the network after trust is earned.</h2>
+            <p className="kicker">Support the work</p>
+            <h2>Help build a clean Christian media table for truth, testimony and mission.</h2>
             <p>
-              The first release should drive people to watch, listen and explore reviewed resources. More complex features can come after the audience understands the mission.
+              Donations help cover recording, editing, hosting, design, travel for interviews and the practical work of turning conversations into useful resources.
             </p>
             <div className="row">
-              <a className="btn btn-primary" href="/podcast">Start with the Podcast</a>
-              <a className="btn" href="/about">Read the Mission</a>
+              <a className="btn btn-primary" href="/donate">Donate with PayPal</a>
+              <a className="btn" href="/social-media">Follow the Show</a>
             </div>
           </div>
         </div>
