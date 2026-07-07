@@ -1,4 +1,3 @@
-import { BrandLogo } from "@/components/BrandLogo";
 import { FounderPortrait } from "@/components/FounderPortrait";
 import { ResourceCard } from "@/components/ResourceCard";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -27,7 +26,6 @@ export default function HomePage() {
       <section className="hero podcast-hero">
         <div className="container hero-grid">
           <div>
-            <div className="hero-brand"><BrandLogo /></div>
             <p className="kicker">Christian podcast and resource hub</p>
             <h1>Faithful Christian media for truth, testimony and mission.</h1>
             <p>
