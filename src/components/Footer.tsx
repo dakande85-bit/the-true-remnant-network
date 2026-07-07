@@ -15,7 +15,7 @@ export function Footer() {
           <strong>Media</strong>
           <a href="/podcast">Podcast</a>
           <a href="/guests">Guests</a>
-          <a href="/submit">Suggest</a>
+          <a href="/social-media">Social Media</a>
           <a href="/resources">Resources</a>
         </div>
         <div>
