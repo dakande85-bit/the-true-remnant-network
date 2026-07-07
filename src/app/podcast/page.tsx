@@ -24,8 +24,8 @@ export default function PodcastPage() {
               episode can become clips, notes, resources and a future guest profile.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="/submit">Suggest a Guest</a>
-              <a className="btn" href="/#subscribe">Subscribe</a>
+              <a className="btn btn-primary" href="/guests">View Guests</a>
+              <a className="btn" href="/resources">Open Resources</a>
             </div>
           </div>
           <div className="hero-visual hero-visual-portrait page-portrait">
@@ -43,7 +43,7 @@ export default function PodcastPage() {
               The first season should feel like a trusted table: clear Scripture, humble questions, testimony, prayer,
               careful review and practical resources for believers who want truth.
             </p>
-            <a className="btn btn-primary" href="/submit">Suggest a Guest</a>
+            <a className="btn btn-primary" href="/guests">View Guest Pipeline</a>
           </article>
           <article className="card">
             <span className="badge">Workflow</span>
