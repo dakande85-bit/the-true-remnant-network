@@ -2,18 +2,18 @@ const channels = [
   {
     title: "Spotify Show",
     label: "Audio podcast",
-    description: "Paste the Spotify show embed URL here after the podcast is created in Spotify for Podcasters.",
+    description: "Spotify will be the clean audio home for the show: full conversations, testimonies and teaching-led episodes people can listen to while travelling, training or working.",
     embedTitle: "Spotify show embed placeholder",
     iframeSrc: "",
-    note: "Use a Spotify show embed link, not the normal share link."
+    note: "Send the Spotify embed URL when the show is live and it will appear here."
   },
   {
     title: "YouTube Channel",
     label: "Video podcast",
-    description: "Add the YouTube channel, playlist or latest episode embed once the channel is ready.",
+    description: "YouTube will carry the full video conversations, shorter clips and visual resources for people who want to watch and share the discussions.",
     embedTitle: "YouTube embed placeholder",
     iframeSrc: "",
-    note: "Use a YouTube playlist embed for a clean show archive."
+    note: "Send the YouTube channel, playlist or episode embed and it will replace this placeholder."
   }
 ];
 
@@ -23,10 +23,10 @@ export default function SocialMediaPage() {
       <section className="page-hero clean-page-hero">
         <div className="container narrow-copy">
           <p className="kicker">Social Media</p>
-          <h1>Watch, listen and follow The True Remnant.</h1>
+          <h1>One show, two main channels: Spotify and YouTube.</h1>
           <p>
-            This page is ready for the Spotify show embed and YouTube embed. Once the real links are available, replace
-            the placeholder source values and the players will show the latest episodes directly on the site.
+            This is where listeners will find the latest audio and video releases. Spotify serves people who want to listen;
+            YouTube serves people who want to watch, share clips and see the full conversations.
           </p>
         </div>
       </section>
@@ -62,12 +62,15 @@ export default function SocialMediaPage() {
       <section className="section section-muted">
         <div className="container">
           <div className="cta-panel">
-            <p className="kicker">Launch checklist</p>
-            <h2>Add the Spotify and YouTube embeds when the show is live.</h2>
+            <p className="kicker">Support the channels</p>
+            <h2>Follow, share and support the show as it launches.</h2>
             <p>
-              Create the Spotify show, create or connect the YouTube channel, then add the official embed URLs here.
-              This keeps the website simple while making the media channels easy to access.
+              The fastest way to help the project grow is to listen, subscribe, share the strongest clips and support the practical production work through PayPal.
             </p>
+            <div className="row">
+              <a className="btn btn-primary" href="/donate">Donate with PayPal</a>
+              <a className="btn" href="/podcast">View Podcast Plan</a>
+            </div>
           </div>
         </div>
       </section>
