@@ -4,6 +4,7 @@ const links = [
   ["Podcast", "/podcast"],
   ["Guests", "/guests"],
   ["Resources", "/resources"],
+  ["Social Media", "/social-media"],
   ["About", "/about"]
 ];
 
