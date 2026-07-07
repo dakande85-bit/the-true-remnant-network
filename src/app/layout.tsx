@@ -7,8 +7,8 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "The True Remnant Podcast | Faithful Christian Media",
-  description: "A podcast-first Christian media platform for discernment, testimony, mission and sound resources."
+  title: "The True Remnant Podcast | Supernatural Truth for the Last Days",
+  description: "A Christian podcast exploring the supernatural truth of Scripture, the gifts of the Holy Spirit, spiritual warfare, end-times deception and worship in spirit and truth."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
