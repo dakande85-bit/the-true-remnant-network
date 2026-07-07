@@ -1,13 +1,11 @@
 import { BrandLogo } from "./BrandLogo";
 
 const links = [
-  ["Podcast", "/podcast"],
-  ["Directory", "/directory"],
-  ["Map", "/map"],
-  ["Missions", "/missions"],
-  ["Events", "/events"],
+  ["Episodes", "/podcast"],
+  ["Guests", "/submit"],
+  ["Topics", "/resources"],
   ["Resources", "/resources"],
-  ["About", "/about"]
+  ["About", "/about"],
 ];
 
 export function Navbar() {
@@ -19,10 +17,10 @@ export function Navbar() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           {links.map(([label, href]) => (
-            <a key={href} href={href}>{label}</a>
+            <a key={`${label}-${href}`} href={href}>{label}</a>
           ))}
         </nav>
-        <a className="btn btn-dark nav-cta" href="/submit">Submit Ministry</a>
+        <a className="btn btn-dark nav-cta" href="/#subscribe">Subscribe</a>
       </div>
     </header>
   );
