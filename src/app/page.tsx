@@ -5,16 +5,16 @@ import { podcastEpisodes } from "@/data/podcasts";
 import { resourceItems } from "@/data/resources";
 
 const convictions = [
-  ["Scripture before platforms", "The work is not to chase Christian celebrity. The aim is to ask what is true, what is biblical and what actually helps believers obey Christ."],
-  ["Testimony with weight", "Stories should not be entertainment. We want honest accounts of repentance, endurance, restoration, prayer and costly obedience."],
-  ["Mission with accountability", "When we highlight missions or charities, we point people to official links and clear information rather than emotional pressure."],
-  ["Resources that serve people", "Books, audio, Bible tools and worship links are added because they strengthen the listener after the episode ends."],
+  ["The Bible is supernatural", "Scripture reveals the unseen realm, angels, demons, spiritual gifts, prophecy, miracles and the authority of Jesus Christ over every power of darkness."],
+  ["The gifts of the Spirit matter", "We believe the Holy Spirit still equips believers today for witness, discernment, prayer, healing, prophecy and the building up of the Church."],
+  ["End-times deception is here", "Jesus warned that deception would increase. We test teachings, movements and spiritual claims by the written Word of God."],
+  ["Worship must be Spirit and truth", "God is calling a people out of dead religion, compromise and confusion to worship Him with truth, holiness and surrender."],
 ];
 
 const work = [
-  ["Conversations", "Long-form episodes with Bible teachers, pastors, missionaries, charity leaders and believers with testimonies that can serve the church."],
-  ["Discernment", "Each feature is handled carefully: public teaching, links, mission claims and resources should be checked before being recommended."],
-  ["Support", "The site gives people a clean way to pray, share, listen, donate through PayPal and follow the work on Spotify and YouTube."],
+  ["Reveal", "Open the supernatural worldview of the Bible and show that the unseen realm is not fantasy. It is part of the biblical story."],
+  ["Discern", "Talk plainly about false doctrine, counterfeit spirituality, deception and the topics many believers are not being taught."],
+  ["Equip", "Use Scripture, testimony and serious conversation to strengthen believers and call unbelievers to salvation in Jesus Christ."],
 ];
 
 export default function HomePage() {
@@ -27,11 +27,11 @@ export default function HomePage() {
         <div className="container hero-grid">
           <div>
             <p className="kicker">The True Remnant Podcast</p>
-            <h1>A Christian show for people who want truth, not noise.</h1>
+            <h1>Supernatural truth for the last days.</h1>
             <p>
-              The True Remnant is being built as a clear table for serious Christian conversation: testimony, Scripture,
-              discernment, mission and practical resources. We interview people worth hearing, point listeners to what
-              helps them grow, and keep giving links simple and external.
+              The True Remnant is a Christian podcast exploring the supernatural reality of the Bible, the gifts of the
+              Holy Spirit, spiritual warfare, end-times deception and the call to worship God in spirit and in truth.
+              We shine the light of Scripture on the truths the enemy wants hidden and proclaim Jesus Christ to believers and unbelievers.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="/podcast">Watch the Podcast</a>
@@ -48,9 +48,9 @@ export default function HomePage() {
       <section className="section section-muted">
         <div className="container">
           <SectionHeader
-            eyebrow="What this is"
-            title="A media platform before it becomes a network."
-            description="The launch focus is not a complicated directory. It is simple: record strong conversations, publish them well, organise the guests and connect every episode to useful resources and official support links."
+            eyebrow="Why this exists"
+            title="The hour is late. The deception is real. The Word of God is still the light."
+            description="We believe God is calling a remnant people to wake up, return to Scripture, walk in the Holy Spirit and stand firm in Jesus Christ while confusion increases around them."
             actionLabel="Read the Mission"
             actionHref="/about"
           />
@@ -68,14 +68,14 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <SectionHeader
-            eyebrow="What we stand for"
-            title="Not hype. Not gossip. Not personality worship."
-            description="The tone of the project should be sober, direct and useful. We want to help believers test what they hear, love the truth and find faithful voices without pretending every platform is safe."
+            eyebrow="What we believe"
+            title="The Bible is supernatural. The Spirit still moves. Truth must be tested."
+            description="This show is not religious entertainment. It is a call to discernment, repentance, worship, spiritual maturity and bold faith in the power of the Word of God."
           />
           <div className="grid grid-4">
             {convictions.map(([title, description]) => (
               <article className="card topic-card" key={title}>
-                <span className="badge">Conviction</span>
+                <span className="badge">Belief</span>
                 <h3>{title}</h3>
                 <p>{description}</p>
               </article>
@@ -106,9 +106,9 @@ export default function HomePage() {
       <section className="section section-muted">
         <div className="container">
           <SectionHeader
-            eyebrow="Guests"
-            title="The guest list is built around substance."
-            description="The first season should bring in Bible teachers, pastors, missionaries, charity leaders, worship voices and testimony guests who can speak clearly and humbly."
+            eyebrow="Podcast themes"
+            title="Conversations many churches avoid, but the Bible does not."
+            description="The unseen realm, gifts of the Spirit, spiritual warfare, prophecy, deliverance, deception, false doctrine, worship, holiness, mission and the return of Christ."
             actionLabel="View Guests"
             actionHref="/guests"
           />
@@ -134,8 +134,8 @@ export default function HomePage() {
         <div className="container">
           <SectionHeader
             eyebrow="Resources"
-            title="A library that supports the episodes."
-            description="When someone finishes listening, they should know where to go next: Scripture tools, books, audio teaching, devotionals and worship resources that are worth reviewing."
+            title="Books, audio and tools for supernatural Bible study."
+            description="Resources should help listeners go deeper into Scripture, discern truth, understand the unseen realm and grow in prayer, worship and obedience to Christ."
             actionLabel="Open Resources"
             actionHref="/resources"
           />
@@ -149,9 +149,9 @@ export default function HomePage() {
         <div className="container">
           <div className="cta-panel">
             <p className="kicker">Support the work</p>
-            <h2>Help build a clean Christian media table for truth, testimony and mission.</h2>
+            <h2>Help shine the light of God’s Word in a time of deception.</h2>
             <p>
-              Donations help cover recording, editing, hosting, design, travel for interviews and the practical work of turning conversations into useful resources.
+              Donations help cover recording, editing, hosting, design, research and the practical work of publishing episodes that equip believers and call unbelievers to Jesus Christ.
             </p>
             <div className="row">
               <a className="btn btn-primary" href="/donate">Donate with PayPal</a>
