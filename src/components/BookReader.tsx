@@ -1,19 +1,7 @@
 "use client";
-import { useEffect,useState } from "react";
-import type { LibraryBook } from "@/data/library";
-export function BookReader({book}:{book:LibraryBook}) {
- const [page,setPage]=useState(0);
- const [font,setFont]=useState(20);
- const [night,setNight]=useState(false);
- const count=book.pages.length;
- useEffect(()=>{try{const saved=localStorage.getItem("unseen-reader-"+book.slug); if(saved!==null)setPage(Math.min(Math.max(0,Number(saved)||0),count-1));}catch{}},[book.slug,count]);
- function go(to:number){const p=Math.min(count-1,Math.max(0,to));setPage(p);try{localStorage.setItem("unseen-reader-"+book.slug,String(p));}catch{}}
- useEffect(()=>{function keys(e:KeyboardEvent){if(e.key==="ArrowRight")go(page+1);if(e.key==="ArrowLeft")go(page-1);}window.addEventListener("keydown",keys);return()=>window.removeEventListener("keydown",keys);},[page]);
- const current=book.pages[page];
- return <div className={"uw-reader"+(night?" uw-reader-night":"")}>
-   <div className="uw-reader-toolbar"><span>READING MODE</span><div className="uw-reader-settings"><button onClick={()=>setFont(Math.max(16,font-2))} aria-label="Decrease text size">A−</button><button onClick={()=>setFont(Math.min(30,font+2))} aria-label="Increase text size">A+</button><button onClick={()=>setNight(!night)}>{night?"☀ Light":"☾ Night"}</button></div></div>
-   <div className="uw-book-page"><div className="uw-page-ornament">✦</div><p className="uw-overline">{book.category} · {book.title}</p><h2>{current.heading}</h2><p className="uw-book-text" style={{fontSize:font}}>{current.body}</p>{current.reference&&<p className="uw-reference">READ IN YOUR BIBLE · {current.reference}</p>}<div className="uw-page-number">{page+1} / {count}</div></div>
-   <div className="uw-reader-controls"><button onClick={()=>go(page-1)} disabled={page===0}>← Previous</button><span>{Math.round((page+1)/count*100)}% completed</span><button onClick={()=>go(page+1)} disabled={page===count-1}>Next →</button></div><div className="uw-progress"><div style={{width:((page+1)/count*100)+"%"}}/></div>
-   <p className="uw-reader-note">Your last page is saved in this browser. Use the arrow keys to turn pages. PDF downloads will be available after final editorial and layout review.</p>
- </div>;
-}
+import {useEffect,useState} from "react";import type {LibraryBook} from "@/data/library";
+export function BookReader({book}:{book:LibraryBook}){const [page,setPage]=useState(0),[font,setFont]=useState(20),[night,setNight]=useState(false),[toc,setToc]=useState(false);const count=book.pages.length;
+useEffect(()=>{try{const n=Number(localStorage.getItem("unseen-reader-"+book.slug));if(Number.isInteger(n))setPage(Math.max(0,Math.min(count-1,n)))}catch{}},[book.slug,count]);
+function go(n:number){const next=Math.max(0,Math.min(count-1,n));setPage(next);try{localStorage.setItem("unseen-reader-"+book.slug,String(next))}catch{}}
+useEffect(()=>{function key(e:KeyboardEvent){if(["INPUT","TEXTAREA","BUTTON"].includes((e.target as HTMLElement)?.tagName))return;if(e.key==="ArrowRight")go(page+1);if(e.key==="ArrowLeft")go(page-1)}window.addEventListener("keydown",key);return()=>window.removeEventListener("keydown",key)},[page]);
+const current=book.pages[page];if(!current)return null;return <div className={"uw2-reader"+(night?" uw2-reader--night":"")}><div className="uw2-reader-toolbar"><span className="uw2-label">UNSEEN WAR · READING ROOM</span><div className="uw2-reader-tools"><button onClick={()=>setToc(!toc)} aria-expanded={toc}>Contents ☷</button><button onClick={()=>setFont(Math.max(16,font-2))} aria-label="Smaller text">A−</button><button onClick={()=>setFont(Math.min(30,font+2))} aria-label="Larger text">A+</button><button onClick={()=>setNight(!night)}>{night?"Day mode":"Night mode"}</button></div></div>{toc&&<nav className="uw2-reader-toc" aria-label="Table of contents">{book.pages.map((p,i)=><button key={i} aria-current={page===i?"step":undefined} onClick={()=>{go(i);setToc(false)}}>{String(i+1).padStart(2,"0")} · {p.heading}</button>)}</nav>}<article className="uw2-reader-page"><span className="uw2-label">SECTION {String(page+1).padStart(2,"0")} / {String(count).padStart(2,"0")}</span><h2>{current.heading}</h2><p className="uw2-reader-body" style={{fontSize:font}}>{current.body}</p>{current.reference&&<p className="uw2-reader-reference">READ IN YOUR BIBLE · {current.reference}</p>}</article><div className="uw2-reader-controls"><button disabled={page===0} onClick={()=>go(page-1)}>← Previous</button><span>{page+1} of {count} · {Math.round((page+1)/count*100)}%</span><button disabled={page===count-1} onClick={()=>go(page+1)}>Next →</button></div><div className="uw2-reader-progress"><div style={{width:((page+1)/count*100)+"%"}}/></div><p className="uw2-reader-note">Your last-read section is saved in this browser. PDF editions are not yet available.</p></div>}
