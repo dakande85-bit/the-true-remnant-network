@@ -49,8 +49,8 @@ for i,c in enumerate(data["pages"],1):
 story.append(PageBreak())
 for i,ch in enumerate(data["pages"],1):
  story.extend([Paragraph("SECTION "+str(i).zfill(2),styles["kicker"]),Paragraph(html.escape(ch["heading"]),styles["chapter"])])
- for para in ch["body"].split("\\n\\n"):
-  if para.strip():story.append(Paragraph(html.escape(para).replace("\\n","<br/>"),styles["body"]))
+ for para in ch["body"].split("\n\n"):
+  if para.strip():story.append(Paragraph(html.escape(para).replace("\n","<br/>"),styles["body"]))
  if ch.get("reference"):story.append(Paragraph("READ IN YOUR BIBLE  ·  "+html.escape(ch["reference"]),styles["ref"]))
  if i<len(data["pages"]):story.append(PageBreak())
 doc.build(story,onFirstPage=furniture,onLaterPages=furniture)
