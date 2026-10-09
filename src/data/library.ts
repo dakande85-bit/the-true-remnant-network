@@ -1,3 +1,4 @@
+import {flagshipBook} from "./flagship";
 export type PublicationStatus = "draft" | "review" | "published";
 export type LibraryBook = { slug:string; title:string; category:"Biblical Discoveries"|"Children"|"Prayers"; description:string; status:PublicationStatus; passages:string[]; pages:{heading:string;body:string;reference?:string}[] };
 export const books:LibraryBook[]=[
@@ -32,4 +33,5 @@ export const books:LibraryBook[]=[
 ]},
 {slug:"bronze-serpent",title:"The Bronze Serpent & the Cross",category:"Biblical Discoveries",status:"draft",description:"A developing teaching on Numbers 21 and John 3.",passages:["Numbers 21:4–9","John 3:14–16"],pages:[]}
 ];
+books.unshift(flagshipBook);
 export const publishedBooks=books.filter(b=>b.status==="published");
